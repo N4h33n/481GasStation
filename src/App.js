@@ -35,7 +35,7 @@ function App(){
 			<div className="MainBody">
 				<div id="hint" className="checkoutHint">?
 					<span id="tooltip" className="checkoutToolTip">
-						To continue, scan items or click a button.
+						To continue, scan items or click a button on the right of the checkout.
 					</span>
 				</div>
 				<div id="hint" className="gasHint">?

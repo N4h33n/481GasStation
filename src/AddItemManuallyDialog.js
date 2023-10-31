@@ -27,8 +27,8 @@ class DisplayAddItemManually extends Component {
                             </div>
                                 
                             <div className="IndividualPrice_Div">	
-                                <label for="IndividualPrice">Individual Price $ </label>
-                                <input type="text" id="IndividualPrice" name="IndividualPrice" placeholder="Eg. 60 or 60.00 for 1 Item"/>
+                                <div>Calculated Price: $</div>
+                                <div id="Price" className="Price"></div>
                             </div>
                         </div>		
 					</div>
