@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { Link } from 'react-router-dom';
+import Sidebars from './Sidebars';
 
-const Dashboard = () => {
+function Dashboard() {
     return (
         <div className='Dashboard'>
+            <Sidebars/>
+            <div className="navbar"></div>
             <div className='div1'>Dashboard</div>
             <div className='divDashboard'>
                 <button className='DashboardButton'>Button</button>

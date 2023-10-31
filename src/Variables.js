@@ -7,7 +7,7 @@ var Pump_2 = "Available";
 var Pump_3 = "In Use";
 var Pump_4 = "Available";
 var Pump_5 = "Out of Order";
-var Pump_6 = "Avaiable";
+var Pump_6 = "Available";
 var showDiscountDialog = true;
 var showCardDialog = true;
 var showCashDialog = true;
@@ -59,6 +59,22 @@ function remTime2(){
 	return time.pop();
 }
 
+function propaneInCheckout() {
+	var table = document.getElementById("Checkout");
+	
+	var rows = table.rows;
+	for (var i = 0; i < table.rows.length; i++) {
+		var cols = rows[i].cells;
+		
+		for (let cell of cols) {
+			if (cell.innerText == "Propane Refill") {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 export {
 	Checkout,
 	Total,
@@ -86,5 +102,6 @@ export {
 	setTimeID,
 	removeTime,
 	setTime2,
-	remTime2
+	remTime2,
+	propaneInCheckout
 }

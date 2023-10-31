@@ -28,10 +28,22 @@ class DisplayAddGas extends Component{
 		c1.innerText = "1";
 		c2.innerText = event.target.Gas.value;
 		c3.innerText = "$" + sub.toFixed(2);
+
+		c1.style.paddingLeft = "10px";
 		
 		row.appendChild(c1);
 		row.appendChild(c2);
 		row.appendChild(c3);
+		
+		let removeButton = document.createElement("button");
+		removeButton.className = "removeButton";
+		removeButton.innerText = 'X';
+		removeButton.style.fontWeight = "bold";
+		removeButton.style.color = "white";
+		removeButton.style.backgroundColor = "#FF4F4B";
+		removeButton.style.borderStyle = "none";
+		removeButton.style.cursor = "pointer";
+		row.append(removeButton);
 		
 		table.appendChild(row);
 		
@@ -65,27 +77,41 @@ class DisplayAddGas extends Component{
 				<form onSubmit={this.AddGas}>
 					<div className="GasDialog">
 						<div className="Complete_Cancel_Div">
-							<button type="submit" className="Complete">Complete</button>
+							<button type="submit" className="Complete">Add</button>
 							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
 						</div>
 						
-						<div className="AddGas_Div">Add Gas</div>
+						<div className="AddGas_Div">ADD GAS</div>
 						<div className="Pump_Div">
 							<div className="Pump_label">Select Pump</div>
 							<div className="Pump_Selection">
-								<input type="radio" id="pump1" name="Pump" value="Pump 1" />
-								<label for="pump1">Pump 1 ({Pump_1})</label>
-								<input type="radio" id="pump2" name="Pump" value="Pump 2" />
-								<label for="pump2">Pump 2 ({Pump_2})</label>
-								<input type="radio" id="pump3" name="Pump" value="Pump 3" />
-								<label for="pump3">Pump 3 ({Pump_3})</label>
-								<br/>
+
+								<div className="pump1Div">
+									<input type="radio" id="pump1" name="Pump" value="Pump 1" />
+									<label for="pump1">Pump 1 ({Pump_1})</label>
+								</div>
 								
-								<div className="Second_Pumps">
+								<div className="pump2Div">
+									<input type="radio" id="pump2" name="Pump" value="Pump 2" />
+									<label for="pump2">Pump 2 ({Pump_2})</label>
+								</div>
+								
+								<div className="pump3Div"> 
+									<input type="radio" id="pump3" name="Pump" value="Pump 3" />
+									<label for="pump3">Pump 3 ({Pump_3})</label>
+								</div>
+								
+								<div className="pump4Div">
 									<input type="radio" id="pump4" name="Pump" value="Pump 4" />
 									<label for="pump4">Pump 4 ({Pump_4})</label>
+								</div>
+								
+								<div className="pump5Div">
 									<input type="radio" id="pump5" name="Pump" value="Pump 5" />
 									<label for="pump5">Pump 5 ({Pump_5})</label>
+								</div>
+								
+								<div className="pump6Div">
 									<input type="radio" id="pump6" name="Pump" value="Pump 6" />
 									<label for="pump6">Pump 6 ({Pump_6})</label>
 								</div>
@@ -95,21 +121,33 @@ class DisplayAddGas extends Component{
 						<div className="Gas_Div">	
 							<div className="Gas_Label">Select Fuel Type</div>
 							<div className="Gas_Selection">
-								<input type="radio" id="Regular" name="Gas" value="Regular" />
-								<label for="Regular">Regular</label>
-								<input type="radio" id="Premium" name="Gas" value="Premium" />
-								<label for="Premium">Premium</label>
-								<input type="radio" id="Nitro" name="Gas" value="Nitro" />
-								<label for="Nitro">Nitro</label>
-								<input type="radio" id="Diesel" name="Gas" value="Diesel" />
-								<label for="Diesel">Diesel</label>
+								<div className="RegularDiv">
+									<input type="radio" id="Regular" name="Gas" value="Regular" />
+									<label for="Regular">Regular</label>
+								</div>
+								
+								<div className="PremiumDiv">
+									<input type="radio" id="Premium" name="Gas" value="Premium" />
+									<label for="Premium">Premium</label>
+								</div>
+								
+								<div className="NitroDiv">
+									<input type="radio" id="Nitro" name="Gas" value="Nitro" />
+									<label for="Nitro">Nitro</label>
+								</div>
+								
+								<div className="DieselDiv">
+									<input type="radio" id="Diesel" name="Gas" value="Diesel" />
+									<label for="Diesel">Diesel</label>
+								</div>
+								
 							</div>
 							
 						</div>
 						
 						<div className="Pay_Div">
 							<label for="Pay Amount">Pay Amount: $</label>
-							<input type="text" id="Pay Amount" name="Pay_Amount" />
+							<input type="text" id="Pay Amount" name="Pay_Amount" placeholder="Enter amount using keyboard - Eg. 60 or 60.00"/>
 						</div>
 						
 						

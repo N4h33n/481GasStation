@@ -19,6 +19,16 @@ class DiscountApplied extends Component{
 		row.appendChild(c1);
 		row.appendChild(c2);
 		row.appendChild(c3);
+
+		let removeButton = document.createElement("button");
+		removeButton.className = "removeButton";
+		removeButton.innerText = 'X';
+		removeButton.style.fontWeight = "bold";
+		removeButton.style.color = "white";
+		removeButton.style.backgroundColor = "#FF4F4B";
+		removeButton.style.borderStyle = "none";
+		removeButton.style.cursor = "pointer";
+		row.append(removeButton);
 		
 		table.appendChild(row);
 		
@@ -40,8 +50,8 @@ class DiscountApplied extends Component{
 				<div className="GasDialog" id="GasDialog">
 					<button className="DiscountFinished" onClick={() => {this.props.onClose(); this.applyDiscount()}}>Finish</button>
 					
-					<div className="AddGas_Div">Apply Discount</div>
-					<div className="Barcode_Div" id="Barcode_Div">Discount Applied</div>
+					<div className="AddGas_Div">APPLY DISCOUNT</div>
+					<div className="DiscountApplied_Div" id="DiscountApplied_Div">Discount Applied</div>
 				</div>
 				
 			</div>

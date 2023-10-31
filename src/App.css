@@ -1,17 +1,165 @@
+body {
+	background-color: rgb(233, 233, 233);
+}
+
+button {
+	cursor: pointer;
+}
+
 .div1{
 	display: inline-block;
 	position: relative;
-	font-size: 20px;
-	/* top: 0px; */
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: bold;
+	top: 3rem;
 	left: 100px;
-	text-decoration: underline;
+}
+
+.AddManualItem {
+	position: absolute;
+	top: 3.3rem;
+	left: 56.6rem;
+	background-color: white;
+	color: rgb(89, 170, 236);
+	border: 0 none;
+	border-radius: 10px;
+	padding: 0rem 1rem;
+	height: 2rem;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#hint {
+	cursor: pointer;
+	position: absolute;
+	font-size: 1rem;
+	font-weight: bold;
+	color: rgb(201, 201, 201);
+	border: 2px solid rgb(201, 201, 201);
+	padding: 2px 7px 2px;
+	border-radius: 30px;
+}
+
+#hint:hover #tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+
+.checkoutHint {
+	left: 18rem;
+	top: 3.8rem;
+	color: rgb(134, 134, 134) !important;
+	border: 2px solid rgb(134, 134, 134)  !important;
+}
+
+.gasHint {
+	left: 87.3rem;
+	top: 6rem;
+}
+
+.propaneHint {
+	left: 87.3rem;
+	top: 18rem;
+}
+
+.discountHint {
+	left: 87.3rem;
+	top: 30rem;
+}
+
+#tooltip {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.3s;
+	position: absolute;
+	width: 15rem;
+	background-color: rgba(85, 85, 85,0.7);
+	color: white;
+	padding: 5px 0;
+	border-radius: 6px;
+	text-align: center;
+	z-index: 333;
+	left: -6.8rem;
+	top: -3.1rem;
+	font-family: Arial;
+	font-size: 13px;
+}
+
+#tooltip::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: rgba(85, 85, 85,0.7) transparent transparent transparent;
+}
+
+.checkoutToolTip {
+	left: -6.78rem !important;
+	top: 1.9rem !important;
+}
+
+.checkoutToolTip::after {
+	top: -23% !important;
+	left: 50% !important;
+	transform: rotate(180deg);
+}
+
+.gasToolTip {
+	top: -2.1rem !important;
+}
+
+.CheckoutDiv {
+	display: flex;
+	flex-direction: row;
+	margin-top: 3rem;
+	margin-left: 6rem;
+	margin-right: 6.25rem;
+	height: 31rem;
+	gap: 2rem;
 }
 
 .div2{
-	position: relative;
-	left: 900px;
-	top: 100px;
-	width: 100px;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.TableDiv{
+	flex: 3;
+	display:flex;
+	flex-direction: column;
+}
+
+
+.HeaderRow {
+	background-color: rgb(89, 170, 236);
+	height: 2rem;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.HeaderRow th:first-child{
+	border-top-left-radius: 10px;
+  }
+  
+.HeaderRow th:last-child{
+	border-top-right-radius: 10px;
+}
+
+.div2 button {
+	background-color: white;
+	color: rgb(89, 170, 236);
+	border: 0 none;
+	border-radius: 10px;
+	height: 7rem;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .divDashboard{
@@ -52,129 +200,120 @@
 } */
 
 .AddGas{
-	position: relative;
 	text-align: center;
-	width: 200px;
-	height: 100px;
 }
 
 .AddPropane{
-	position: relative;
 	text-align: center;
-	top: 50px;
-	width: 200px;
-	height: 100px;
 }
 
 .ApplyDiscount{
-	position: relative;
 	text-align: center;
-	top: 100px;
-	width: 200px;
-	height: 100px;
 }
 
 .CheckoutTable{
-	position: absolute;
-	top: 80px;
-	left: 100px;
-	height: 400px;
-	overflow-y: scroll;
+	background-color: white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	flex: 4;
+	overflow: auto;
 }
 
 .Checkout{
+	width: 100%;
 	border-collapse: collapse;
 }
 
 th{
-	border: 2px solid black;
+	color: white;
 	border-collapse: none;
 	
 }
 
 td{
-	border: 1px solid grey;
 	border-collapse: none;
 }
 
 .Quantity{
-	width: 50px;
+	padding-left: 0.75rem;
 	text-align: left;
+	width: 15%;
 }
 
 .Item{
-	width: 500px;
 	text-align: left;
 }
 
 .Cost{
-	width: 50px;
 	text-align: left;
+	width: 10%;
+}
+
+.Remove{
+	width: 2%;
 }
 
 .TotalTable{
-	border: 1px solid black;
-	position: absolute;
-	top: 482px;
-	left: 100px;
-}
-
-.sidebar {
-	width: 250px;
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
-}
-
-.SubTotal{
-	border-collapse: collapse;
+	flex: 1;
+	display: grid;
+	grid-template-columns: auto auto;
+	/* background-color: rgb(89, 170, 236); */
+	background-color: white;
+	border-top: 2px solid rgb(223, 223, 223);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding-top: 1rem;
+	padding-bottom: 0.5rem;
+	padding-left: 50rem;
+	padding-right: 1rem;
+	color: black;
+	flex-direction: column;
+	gap: 0.75rem;
 }
 
 .SubTotalLabel{
+	font-weight: bold;
 	text-align: left;
-	width: 563px;
 }
 
 .SubTotalCost{
 	text-align: left;
-	width: 50px;
-}
-
-.Taxes{
-	border-collapse: collapse;
 }
 
 .TaxesLabel{
+	font-weight: bold;
 	text-align: left;
-	width: 563px;
 }
 
 .TaxesCost{
 	text-align: left;
-	width: 50px;
-}
-
-.Total{
-	border-collapse: collapse;
 }
 
 .TotalLabel{
+	font-weight: bold;
 	text-align: left;
-	width: 563px;
+	font-size: 25px;
 }
 
 .TotalCost{
 	text-align: left;
-	width: 50px;
+	font-size: 25px;
 }
 
 .BeginPayment{
 	position: absolute;
 	text-align: center;
-	width: 200px;
-	height: 100px;
-	top: 600px;
-	left: 100px;
+	width: 30rem;
+	height: 6.25rem;
+	top: 37.5rem;
+	left: 6.5rem;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .overlay{
@@ -189,22 +328,37 @@ td{
 
 .Complete_Cancel_Div{
 	position: absolute;
-	width: 300px;
-	top: 300px;
+	width: 600px;
+	height: 3rem;
+	top: 290px;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .Complete{
-	display:inline-block;
-	width: 70px;
-	height: 40px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	width: 8rem;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	cursor: pointer;
 }
 
 .Cancel{
-	display:inline-block;
-	position: absolute;
-	width: 70px;
-	height: 40px;
-	left: 175%;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	width: 8rem;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	cursor: pointer;
 }
 
 .GasDialog{
@@ -216,6 +370,7 @@ td{
 	background-color: #eee;
 	display: flex;
 	flex-direction: column;
+	border-radius: 10px;
 	padding: 10px 20px 40px;
 }
 
@@ -231,22 +386,51 @@ td{
 	padding: 10px 20px 40px;
 }
 
+.AddItemManuallyDialog {
+	position: absolute;
+	left: 25%;
+	top: 20%;
+	width: 600px;
+	height: 300px;
+	background-color: #eee;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	padding: 10px 20px 40px;
+}
+
+.AddItemManuallyInputs {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	top: 10%;
+	height: 60%;
+	justify-content: space-evenly;
+}
+
+.Quantity_Div {
+}
+
 .AddGas_Div{
 	font-size: 20px;
-	text-decoration: underline;
+	font-family: Arial;
+	font-weight: bold;
 }
 
 .Pump_Div{
 	position: relative;
 	display: inline-block;
+	background-color: white;
 	top: 20px;
-	border: 2px solid black;
 	height: 90px;
 }
 
 .Pump_label{
 	position: relative;
-	border: 2px solid black;
+	background-color: rgb(89, 170, 236);
+	font-weight: bold;
+	color: white;
 	top: -2px;
 	left: -2px;
 	width: 100%;
@@ -254,6 +438,10 @@ td{
 
 .Pump_Selection{
 	position: relative;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	column-gap: 1rem;
+	row-gap: 1rem;
 	top: 5px;
 }
 
@@ -264,9 +452,9 @@ td{
 
 .Gas_Div{
 	position: relative;
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
 	top: 40px;
-	border: 2px solid black;
 	height: 60px;
 }
 
@@ -278,20 +466,30 @@ td{
 
 .Gas_Label{
 	position: relative;
-	border: 2px solid black;
-	left: -2px;
-	top: -2px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	font-weight: bold;
 	width: 100%;
 }
 
 .Gas_Selection{
+	flex: 1;
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 3rem;
 	position: relative;
-	top: 8px;
 }
 
 .Pay_Div{
 	position: relative;
-	left: 20%;
+	left: 15%;
+}
+
+
+.Pay_Div input{
+	width: 20rem;
 }
 
 .Initial_Div{
@@ -325,9 +523,33 @@ td{
 .Cancel_Discount{
 	display:inline-block;
 	position: absolute;
-	width: 70px;
+	width: 8rem;
 	height: 40px;
-	left: 87.5%;
+	left: 80%;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.DiscountApplied_Div{
+	position:relative;
+	display: inline-block;
+	font-size: 30px;
+	left: 33%;
+	top: 50px;
+}
+
+.Payment_Div{
+	position:relative;
+	display: inline-block;
+	font-size: 30px;
+	left: 20%;
+	top: 50px;
 }
 
 .Barcode_Div{
@@ -341,10 +563,18 @@ td{
 .DiscountFinished{
 	display:inline-block;
 	position: absolute;
-	width: 70px;
+	width: 200px;
 	height: 40px;
-	left: 42%;
+	left: 35%;
 	top: 85%;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .Payment_Buttons{
@@ -353,7 +583,7 @@ td{
 	height: 200px;
 	width: 100px;
 	top: 25%;
-	left: 40%;
+	left: 35%;
 }
 
 .X_Button{
@@ -369,13 +599,29 @@ td{
 
 .Cash_Button{
 	height: 50px;
-	width: 100px;
+	width: 200px;
 	margin-bottom: 20px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .Card_Button{
 	height: 50px;
-	width: 100px;
+	width: 200px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .Amount{
@@ -389,7 +635,7 @@ td{
 .Terminal_Div{
 	display:inline-block;
 	position: relative;
-	left: 30%;
+	left: 10%;
 	top: 20%;
 	font-size: 30px;
 }
@@ -405,7 +651,7 @@ td{
 .Receipt_Options{
 	display:inline-block;
 	position: relative;
-	left: 42%;
+	left: 34%;
 	top: 15%;
 	font-size: 30px;
 	width: 100px;
@@ -413,29 +659,61 @@ td{
 }
 
 .Print_Receipt{
-	width: 100px;
+	width: 200px;
 	height: 50px;
 	margin-bottom: 20px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .Email_Receipt{
-	width: 100px;
+	width: 200px;
 	height: 50px;
 	margin-bottom: 20px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .No_Receipt{
-	width: 100px;
+	width: 200px;
 	height: 50px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .TransactionFinished{
 	display:inline-block;
 	position: absolute;
-	width: 70px;
+	width: 200px;
 	height: 40px;
-	left: 45%;
+	left: 35%;
 	top: 85%;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .Cash_Received{

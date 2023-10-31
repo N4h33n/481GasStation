@@ -48,7 +48,7 @@ class CashDialog extends Component{
 							<button className="Cancel" onClick={() => {updateReceiptDialog(false); this.props.onClose()}}>Cancel</button>
 						</div>
 						
-						<div className="AddGas_Div">Add Propane</div>
+						<div className="AddGas_Div">CASH</div>
 						
 						<div className="Amount">${Total.toFixed(2)} due</div>
 						
