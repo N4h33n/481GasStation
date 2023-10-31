@@ -7,7 +7,7 @@ class TransactionCompleteDialog extends Component{
 				<div className="GasDialog" id="GasDialog">
 					<button className="TransactionFinished" onClick={this.props.onClose}>Finish</button>
 					
-					<div className="AddGas_Div">Payment</div>
+					<div className="AddGas_Div">PAYMENT</div>
 					<div className="Transaction_Div" id="Transaction_Div">Transaction Complete</div>
 				</div>
 				

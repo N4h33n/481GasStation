@@ -5,7 +5,7 @@ const Sidebars = () => {
     const [toggled, setToggled] = React.useState(false);
   
     return (
-      <div style={{ display: 'flex', }}>
+      <div style={{ display: 'flex', position: 'absolute'}}>
         <Sidebar onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="always" backgroundColor="#bcf3ff">
           <Menu>
             <MenuItem> Home</MenuItem>
@@ -28,4 +28,3 @@ const Sidebars = () => {
 };
 
 export default Sidebars;
-

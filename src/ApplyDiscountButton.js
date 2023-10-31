@@ -10,7 +10,7 @@ class DisplayApplyDiscount extends Component{
 						<button className="Cancel_Discount" onClick={() => {updateDiscountDialog(false); this.props.onClose()}}>Cancel</button>
 					</div>
 					
-					<div className="AddGas_Div">Apply Discount</div>
+					<div className="AddGas_Div">APPLY DISCOUNT</div>
 					<div className="Barcode_Div" id="Barcode_Div">Please Scan Barcode</div>
 				</div>
 			</div>

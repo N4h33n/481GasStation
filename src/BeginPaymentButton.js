@@ -10,8 +10,8 @@ class DisplayBeginPayment extends Component{
 				<div className="GasDialog" id="GasDialog">
 					<button className="X_Button" onClick={() => {updateCardDialog(false); updateCashDialog(false); this.props.onClose()}}>X</button>
 					
-					<div className="AddGas_Div">Payment</div>
-					<div className="Barcode_Div" id="Barcode_Div">Select Payment Type</div>
+					<div className="AddGas_Div">PAYMENT</div>
+					<div className="Payment_Div" id="Payment_Div">Select Customer Payment Type</div>
 					
 					<div className="Payment_Buttons">
 						<button className="Cash_Button" onClick={() => {updateCardDialog(false); updateCashDialog(true); this.props.onClose()}}>Cash</button>

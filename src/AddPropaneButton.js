@@ -33,6 +33,16 @@ class DisplayAddGas extends Component{
 		row.appendChild(c1);
 		row.appendChild(c2);
 		row.appendChild(c3);
+
+		let removeButton = document.createElement("button");
+		removeButton.className = "removeButton";
+		removeButton.innerText = 'X';
+		removeButton.style.fontWeight = "bold";
+		removeButton.style.color = "white";
+		removeButton.style.backgroundColor = "#FF4F4B";
+		removeButton.style.borderStyle = "none";
+		removeButton.style.cursor = "pointer";
+		row.append(removeButton);
 		
 		table.appendChild(row);
 		
@@ -105,27 +115,26 @@ class DisplayAddGas extends Component{
 				<form onSubmit={this.AddPropane} id="pform">
 					<div className="GasDialog">
 						<div className="Complete_Cancel_Div">
-							<button type="submit" className="Complete">Complete</button>
+							<button type="submit" className="Complete">Add</button>
 							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
 						</div>
 						
-						<div className="AddGas_Div">Add Propane</div>
+						<div className="AddGas_Div">ADD PROPANE</div>
 						
 						<div className="Initial_Div">
 							<label for="Initial">Initial Weight (KG): </label>
-							<input type="text" id="Initial" name="Initial" onChange={this.updatePrice}/>
+							<input type="text" id="Initial" name="Initial" placeholder="Eg. 60 or 60.00" onChange={this.updatePrice}/>
 						</div>
 							
 						<div className="Final_Div">	
 							<label for="Final">Final Weight (KG): </label>
-							<input type="text" id="Final" name="Final" onChange={this.updatePrice}/>
+							<input type="text" id="Final" name="Final" placeholder="Eg. 60 or 60.00" onChange={this.updatePrice}/>
 						</div>
 						
 						<div className="Calculated_Div">
 							<div>Calculated Price: $</div>
 							<div id="Price" className="Price"></div>
 						</div>
-						
 					</div>
 				</form>
 			</div>
