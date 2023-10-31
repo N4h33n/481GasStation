@@ -12,7 +12,7 @@ import ReceiptOptionsDialog from "./ReceiptOptionsDialog.js";
 import TransactionCompleteDialog from "./TransactionCompleteDialog.js";
 import {showDiscountDialog, showCardDialog, showCashDialog, showReceiptOptions} from './Variables.js';
 
-function App(){
+const App = () => {
 	const [firstState, setFirstState] = useState(false);
 	const [secondState, setSecondState] = useState(false);
 	const [thirdState, setThirdState] = useState(false);
@@ -25,8 +25,7 @@ function App(){
 	
 	
 	return (
-		<div className="App">
-			<Sidebars />			
+		<div className="App">		
 			<div className="div1">Checkout</div>
 				
 				<div className="div2">
