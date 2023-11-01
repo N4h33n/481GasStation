@@ -14,17 +14,18 @@ function Dashboard() {
                 <div className="buttons-group">
                     <button className='dashboard-button'>Fuel Management</button>
                     <button className='dashboard-button'>Inventory Management</button>
-                    <button className='dashboard-button'>Pump Monitor</button>
+                    <button className='dashboard-button'>Pump Management</button>
                 </div>
                 <div className="buttons-group">
                     <button className='dashboard-button'>Promotions & Coupons</button>
-                    <button className='dashboard-button'>Button</button>
                     <button className='dashboard-button'>Checkout</button>
                 </div>
             </div>
             <div className='white'>
                 <PumpStatus />
             </div>
+
+            
         </div>
     );
 }
