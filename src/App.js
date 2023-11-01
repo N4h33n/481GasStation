@@ -13,7 +13,7 @@ import ReceiptOptionsDialog from "./ReceiptOptionsDialog.js";
 import TransactionCompleteDialog from "./TransactionCompleteDialog.js";
 import {showDiscountDialog, showCardDialog, showCashDialog, showReceiptOptions, propaneInCheckout} from './Variables.js';
 
-function App(){
+function App() {
 	const [firstState, setFirstState] = useState(false);
 	const [secondState, setSecondState] = useState(false);
 	const [thirdState, setThirdState] = useState(false);
