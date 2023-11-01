@@ -162,9 +162,6 @@ export {
 	setTime2,
 	remTime2,
 	propaneInCheckout,
-<<<<<<< HEAD
-	inventory
-=======
+	inventory,
 	updatePump
->>>>>>> bddd74dfefdcd0b6145d7660c59f7c00d5ba5faa
 }
