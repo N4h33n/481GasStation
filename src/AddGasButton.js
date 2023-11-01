@@ -25,7 +25,7 @@ class DisplayAddGas extends Component{
 		let c2 = document.createElement("td");
 		let c3 = document.createElement("td");
 		
-		c1.innerText = "1";
+		c1.innerText = litres.toFixed(2) + "L";
 		c2.innerText = event.target.Gas.value;
 		c3.innerText = "$" + sub.toFixed(2);
 
@@ -35,6 +35,8 @@ class DisplayAddGas extends Component{
 		row.appendChild(c2);
 		row.appendChild(c3);
 		
+		var lastRow = table.rows.length;
+		
 		let removeButton = document.createElement("button");
 		removeButton.className = "removeButton";
 		removeButton.innerText = 'X';
@@ -43,6 +45,7 @@ class DisplayAddGas extends Component{
 		removeButton.style.backgroundColor = "#FF4F4B";
 		removeButton.style.borderStyle = "none";
 		removeButton.style.cursor = "pointer";
+		removeButton.onclick = function(){table.deleteRow(lastRow); updateTotal(Total - (sub + totalTax)); updateSubTotal(SubTotal - sub); updateTaxes(Taxes - totalTax)};
 		row.append(removeButton);
 		
 		table.appendChild(row);
@@ -50,24 +53,6 @@ class DisplayAddGas extends Component{
 		updateTotal(Total + sub + totalTax);
 		updateSubTotal(SubTotal + sub);
 		updateTaxes(Taxes + totalTax);
-		
-		let table2 = document.getElementById("SubTotal");
-		
-		let column = document.getElementById("SubTotalCost");
-		
-		column.innerText = "$" + SubTotal.toFixed(2);
-		
-		let table3 = document.getElementById("Taxes");
-		
-		let column2 = document.getElementById("TaxesCost");
-		
-		column2.innerText = "$" + Taxes.toFixed(2);
-		
-		let table4 = document.getElementById("Total");
-		
-		let column3 = document.getElementById("TotalCost");
-		
-		column3.innerText = "$" + Total.toFixed(2);
 		
 	}
 	

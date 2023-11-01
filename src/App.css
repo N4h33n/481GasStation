@@ -366,8 +366,9 @@ td{
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: left;
 	top: 10%;
+	left: 30%;
 	height: 60%;
 	justify-content: space-evenly;
 }
@@ -698,4 +699,11 @@ td{
 	display: inline;
 	top: 0px;
 	left: 97px;
+}
+
+.IndividualPrice{
+	position: absolute;
+	display: inline-block;
+	top: 73.5%;
+	left: 20.5%;
 }

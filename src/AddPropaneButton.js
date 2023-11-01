@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes} from "./Variables.js";
+import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes} from './Variables.js';
 
 var calculated = 0;
-class DisplayAddGas extends Component{
+class DisplayAddGas extends Component{	
 	
 	AddPropane = (event) => {
 		event.preventDefault();
@@ -16,7 +16,7 @@ class DisplayAddGas extends Component{
 		
 		var totalTax = excise + gst;
 		
-		var sub = (litres * 1.3) - totalTax;
+		var sub = (litres * 1.3);
 		
 		let table = document.getElementById("Checkout");
 		
@@ -26,13 +26,15 @@ class DisplayAddGas extends Component{
 		let c2 = document.createElement("td");
 		let c3 = document.createElement("td");
 		
-		c1.innerText = "1";
+		c1.innerText = litres.toFixed(2) + "L";
 		c2.innerText = "Propane Refill";
 		c3.innerText = "$" + sub.toFixed(2);
 		
 		row.appendChild(c1);
 		row.appendChild(c2);
 		row.appendChild(c3);
+		
+		var lastRow = table.rows.length;
 
 		let removeButton = document.createElement("button");
 		removeButton.className = "removeButton";
@@ -42,6 +44,7 @@ class DisplayAddGas extends Component{
 		removeButton.style.backgroundColor = "#FF4F4B";
 		removeButton.style.borderStyle = "none";
 		removeButton.style.cursor = "pointer";
+		removeButton.onclick = function(){table.deleteRow(lastRow); updateTotal(Total - (sub + totalTax)); updateSubTotal(SubTotal - sub); updateTaxes(Taxes - totalTax)};
 		row.append(removeButton);
 		
 		table.appendChild(row);
@@ -49,25 +52,6 @@ class DisplayAddGas extends Component{
 		updateTotal(Total + sub + totalTax);
 		updateSubTotal(SubTotal + sub);
 		updateTaxes(Taxes + totalTax);
-		
-		let table2 = document.getElementById("SubTotal");
-		
-		let column = document.getElementById("SubTotalCost");
-		
-		column.innerText = "$" + SubTotal.toFixed(2);
-		
-		let table3 = document.getElementById("Taxes");
-		
-		let column2 = document.getElementById("TaxesCost");
-		
-		column2.innerText = "$" + Taxes.toFixed(2);
-		
-		let table4 = document.getElementById("Total");
-		
-		let column3 = document.getElementById("TotalCost");
-		
-		column3.innerText = "$" + Total.toFixed(2);
-		
 	}
 	
 	updatePrice(){
@@ -90,15 +74,7 @@ class DisplayAddGas extends Component{
 		
 		var litres = (Number(final2) - Number(final1))/0.575;
 		
-		var excise = litres * 4.0/100;
-		
-		var gst =  ((litres * 1.3) + excise) * 0.05;
-		
-		var totalTax = excise + gst;
-		
-		var sub = (litres * 1.3) - totalTax;
-		
-		calculated = sub;
+		calculated = litres * 1.3;
 		
 		if(calculated > 0){
 			let priceDiv = document.getElementById("Price");

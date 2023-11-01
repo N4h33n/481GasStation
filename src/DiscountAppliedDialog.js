@@ -16,9 +16,13 @@ class DiscountApplied extends Component{
 		c2.innerText = "Discount";
 		c3.innerText = "-$" + (SubTotal * 0.25).toFixed(2);
 		
+		let cal = SubTotal * 0.25;
+		
 		row.appendChild(c1);
 		row.appendChild(c2);
 		row.appendChild(c3);
+		
+		var lastRow = table.rows.length;
 
 		let removeButton = document.createElement("button");
 		removeButton.className = "removeButton";
@@ -28,20 +32,13 @@ class DiscountApplied extends Component{
 		removeButton.style.backgroundColor = "#FF4F4B";
 		removeButton.style.borderStyle = "none";
 		removeButton.style.cursor = "pointer";
+		removeButton.onclick = function(){table.deleteRow(lastRow); updateTotal(Total + cal); updateSubTotal(SubTotal + cal);};
 		row.append(removeButton);
 		
 		table.appendChild(row);
 		
 		updateSubTotal(SubTotal - (SubTotal * 0.25));
 		updateTotal(SubTotal + Taxes);
-		
-		let table2 = document.getElementById("Total");
-		let totalDiv = document.getElementById("TotalCost");
-		totalDiv.innerText = "$" + Total.toFixed(2);
-		
-		let table3 = document.getElementById("SubTotal");
-		let subTotalDiv = document.getElementById("SubTotalCost");
-		subTotalDiv.innerText = "$" + SubTotal.toFixed(2);
 	}
 	
 	render(){
