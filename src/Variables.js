@@ -22,6 +22,22 @@ var time = [];
 var time2 = [];
 var inventory = [{'name': 'cheetos', 'price': 2.80}, {'name': '2l soda', 'price': 3.00}];
 
+function addItem(a){
+	Checkout.push(a);
+}
+
+function removeItem(a){
+	Checkout.splice(a, 1);
+}
+
+function getIndex(a){
+	for(let i = 0; i < Checkout.length; i++){
+		if(a == Checkout[i].name){
+			return i;
+		}
+	}
+}
+
 function updatePump(pump, status, color){
 	if (pump === "pump1"){
 		Pump_1 = status;
@@ -56,7 +72,7 @@ function updateTotal(a){
 	
 	let column3 = document.getElementById("TotalCost");
 	
-	column3.innerText = "$" + Total.toFixed(2);
+	column3.innerText = "$" + Math.abs(Total).toFixed(2);
 }
 
 function updateSubTotal(a){
@@ -66,7 +82,7 @@ function updateSubTotal(a){
 
 	let column = document.getElementById("SubTotalCost");
 	
-	column.innerText = "$" + SubTotal.toFixed(2);
+	column.innerText = "$" + Math.abs(SubTotal).toFixed(2);
 }
 
 function updateTaxes(a){
@@ -76,7 +92,7 @@ function updateTaxes(a){
 	
 	let column2 = document.getElementById("TaxesCost");
 	
-	column2.innerText = "$" + Taxes.toFixed(2);
+	column2.innerText = "$" + Math.abs(Taxes).toFixed(2);
 }
 
 function updateDiscountDialog(a){
@@ -146,6 +162,9 @@ export {
 	Pump_6_color,
 	time,
 	time2,
+	addItem,
+	removeItem,
+	getIndex,
 	showDiscountDialog,
 	showCardDialog,
 	showCashDialog,

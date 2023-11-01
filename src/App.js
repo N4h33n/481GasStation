@@ -63,12 +63,14 @@ function App() {
 					<div className="TableDiv">
 						<div className="CheckoutTable">
 							<table id="Checkout" className="Checkout">
-								<tr className='HeaderRow'>
-									<th className="Quantity">Quantity</th>
-									<th className="Item">Item</th>
-									<th className="Cost">Cost</th>
-									<th className="Remove"></th>
-								</tr>
+								<thead>
+									<tr className='HeaderRow'>
+										<th className="Quantity">Quantity</th>
+										<th className="Item">Item</th>
+										<th className="Cost">Cost</th>
+										<th className="Remove"></th>
+									</tr>
+								</thead>
 							</table>
 						</div>
 						

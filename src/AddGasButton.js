@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Total, SubTotal, Taxes, Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updateTotal, updateSubTotal, updateTaxes} from "./Variables.js";
+import {Total, SubTotal, Taxes, Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updateTotal, updateSubTotal, updateTaxes, Checkout, addItem, removeItem, getIndex} from "./Variables.js";
 
 class DisplayAddGas extends Component{
 	
@@ -35,7 +35,7 @@ class DisplayAddGas extends Component{
 		row.appendChild(c2);
 		row.appendChild(c3);
 		
-		var lastRow = table.rows.length;
+		addItem({'name': 'Regular', 'quantity': litres, 'cost': sub});
 		
 		let removeButton = document.createElement("button");
 		removeButton.className = "removeButton";
@@ -45,7 +45,14 @@ class DisplayAddGas extends Component{
 		removeButton.style.backgroundColor = "#FF4F4B";
 		removeButton.style.borderStyle = "none";
 		removeButton.style.cursor = "pointer";
-		removeButton.onclick = function(){table.deleteRow(lastRow); updateTotal(Total - (sub + totalTax)); updateSubTotal(SubTotal - sub); updateTaxes(Taxes - totalTax)};
+		removeButton.onclick = function(){
+			table.deleteRow(getIndex('Regular') + 1);
+			removeItem(getIndex('Regular')); 
+			updateTotal(Total - (sub + totalTax)); 
+			updateSubTotal(SubTotal - sub); 
+			updateTaxes(Taxes - totalTax)
+		};
+		
 		row.append(removeButton);
 		
 		table.appendChild(row);

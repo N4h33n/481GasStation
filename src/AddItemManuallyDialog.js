@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes, inventory} from './Variables.js';
+import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes, inventory, Checkout, addItem, removeItem, getIndex} from './Variables.js';
 
 var calculated = 0;
 class DisplayAddItemManually extends Component {
@@ -33,7 +33,7 @@ class DisplayAddItemManually extends Component {
 		row.appendChild(c2);
 		row.appendChild(c3);
 		
-		var lastRow = table.rows.length;
+		addItem({'name': event.target.ItemName.value, 'quantity': event.target.Quantity.value, 'cost': subPrice});
 
 		let removeButton = document.createElement("button");
 		removeButton.className = "removeButton";
@@ -43,7 +43,13 @@ class DisplayAddItemManually extends Component {
 		removeButton.style.backgroundColor = "#FF4F4B";
 		removeButton.style.borderStyle = "none";
 		removeButton.style.cursor = "pointer";
-		removeButton.onclick = function(){table.deleteRow(lastRow); updateTotal(Total - (subPrice + totalTax)); updateSubTotal(SubTotal - subPrice); updateTaxes(Taxes - totalTax)};
+		removeButton.onclick = function(){
+			table.deleteRow(getIndex(event.target.ItemName.value) + 1);
+			removeItem(getIndex(event.target.ItemName.value));
+			updateTotal(Total - (subPrice + totalTax)); 
+			updateSubTotal(SubTotal - subPrice); 
+			updateTaxes(Taxes - totalTax)
+		};
 		
 		row.append(removeButton);
 		
@@ -66,9 +72,9 @@ class DisplayAddItemManually extends Component {
 		if(Number(quantity) == 0 || Number(quantity) == null || Number(itemName) == null){
 			calculated = 0;
 			
-			let priceDiv = document.getElementById("Price");
-		
+			let priceDiv = document.getElementById("IndividualPrice");
 			priceDiv.innerText = calculated.toFixed(2);
+			
 			return;
 		}
 		
