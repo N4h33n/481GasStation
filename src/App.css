@@ -1,5 +1,93 @@
 body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(233, 233, 233);
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard {
+    padding: 20px;
+    max-width: 100%;
+	margin-left: 100px;
+    /* margin: 20px auto; */
 	background-color: rgb(233, 233, 233);
+    /* background: #fff; */
+    /* border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin-top: 20px;
+	justify-content: center;
+}
+
+.dashboard-button {
+	background-color: white;
+	color: rgb(89, 170, 236);
+	height: 7rem;
+	width: 15rem;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+}
+
+.dashboard-button:hover {
+    background-color: rgb(189, 210, 226);
+}
+
+.white {
+	background-color: #fff;
+	width: 100%;
+}
+
+.pump-status {
+	background: #fff;
+	padding: 5px;
+    max-width: 85%;
+    margin: 20px auto;
+}
+
+.pump-status h2 {
+    margin-top: 30px;
+	font-size: 25px;
+}
+
+.pumps-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+	margin-left: 100px;
+}
+
+.pump {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+	font-size: 20px;
+}
+
+.status-circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+	outline: 2px solid black;
 }
 
 button {
@@ -161,43 +249,6 @@ button {
 	font-weight: bold;
 	cursor: pointer;
 }
-
-.divDashboard{
-	position: relative;
-	top: 10px;
-	left: 100px;
-}
-
-.divSub{
-	display: inline-block;
-	position: relative;
-	font-size: 20px;
-	left: 100px;
-	text-decoration: underline;
-	top: 50px;
-}
-
-@media (max-width: 50000px) {
-	.DashboardButton {
-	  	margin: 50px 50px 10px 10px;
-	  	position: relative;
-		text-align: center;
-		width: 200px;
-		height: 100px;
-	}
-	/* .divDashboard{
-		position: relative;
-		top: 10px;
-		left: 100px;
-	} */
-}
-
-/* .DashboardButton{
-	position: relative;
-	text-align: center;
-	width: 200px;
-	height: 100px;
-} */
 
 .AddGas{
 	text-align: center;

@@ -4,11 +4,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Dashboard from './Dashboard';
 import Sidebars from './Sidebars';
+import PumpManagement from './PumpManagement';
+import PumpStatus from './PumpStatus';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Dashboard/>
+    <PumpManagement/>
   </React.StrictMode>
 );
 
