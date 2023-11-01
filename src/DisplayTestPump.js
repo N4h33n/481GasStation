@@ -1,20 +1,14 @@
 import React, {Component} from 'react';
 import {Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updatePump} from "./Variables.js";
 
-class DisplayEditPump extends Component{
-
-    getColor = (newStatus) => {
-        return newStatus === "Available" ? "green" : "red";
-    };
+class DisplayTestPump extends Component{
 
     ChangeStatus = (event) => {
         event.preventDefault();
 		this.props.onClose();
 
         var pump = event.target.Pump.value;
-        var status = event.target.Status.value;
-        var color = this.getColor(status);
-        updatePump(pump, status, color);
+        updatePump(pump, "Testing...", "Yellow");
     };
 	
 	
@@ -25,11 +19,10 @@ class DisplayEditPump extends Component{
 					<div className="GasDialog">
 						<div className="Complete_Cancel_Div">
 							<button type="submit" className="Complete">Submit</button>
-                            <button className='Cancel'>Reboot</button>
 							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
 						</div>
 						
-						<div className="AddGas_Div">EDIT PUMP STATUS</div>
+						<div className="AddGas_Div">TEST PUMP (OVERRIDE)</div>
 						<div className="Pump_Div">
 							<div className="Pump_label">Select Pump</div>
 							<div className="Pump_Selection">
@@ -65,21 +58,6 @@ class DisplayEditPump extends Component{
 								</div>
 							</div>
 						</div>
-							
-						<div className="Gas_Div">	
-							<div className="Gas_Label">Status</div>
-							<div className="Gas_Selection">
-								<div className="RegularDiv">
-									<input type="radio" id="enable" name="Status" value="Available" />
-									<label for="enable">Enable</label>
-								</div>
-								
-								<div className="PremiumDiv">
-									<input type="radio" id="disable" name="Status" value="Out of Order" />
-									<label for="disable">Disable</label>
-								</div>								
-							</div>
-						</div>
 					</div>
 				</form>
 			</div>
@@ -100,4 +78,4 @@ class DisplayEditPump extends Component{
 	
 }
 
-export default DisplayEditPump;
+export default DisplayTestPump;
