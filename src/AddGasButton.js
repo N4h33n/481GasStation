@@ -17,45 +17,7 @@ class DisplayAddGas extends Component{
 		
 		var sub =  Number(event.target.Pay_Amount.value) - totalTax;
 		
-		let table = document.getElementById("Checkout");
-		
-		let row = document.createElement("tr");
-		
-		let c1 = document.createElement("td");
-		let c2 = document.createElement("td");
-		let c3 = document.createElement("td");
-		
-		c1.innerText = litres.toFixed(2) + "L";
-		c2.innerText = event.target.Gas.value;
-		c3.innerText = "$" + sub.toFixed(2);
-
-		c1.style.paddingLeft = "10px";
-		
-		row.appendChild(c1);
-		row.appendChild(c2);
-		row.appendChild(c3);
-		
-		addItem({'name': 'Regular', 'quantity': litres, 'cost': sub});
-		
-		let removeButton = document.createElement("button");
-		removeButton.className = "removeButton";
-		removeButton.innerText = 'X';
-		removeButton.style.fontWeight = "bold";
-		removeButton.style.color = "white";
-		removeButton.style.backgroundColor = "#FF4F4B";
-		removeButton.style.borderStyle = "none";
-		removeButton.style.cursor = "pointer";
-		removeButton.onclick = function(){
-			table.deleteRow(getIndex('Regular') + 1);
-			removeItem(getIndex('Regular')); 
-			updateTotal(Total - (sub + totalTax)); 
-			updateSubTotal(SubTotal - sub); 
-			updateTaxes(Taxes - totalTax)
-		};
-		
-		row.append(removeButton);
-		
-		table.appendChild(row);
+		addItem({'name': 'Regular', 'quantity': litres, 'cost': sub, 'totalTax': totalTax});
 		
 		updateTotal(Total + sub + totalTax);
 		updateSubTotal(SubTotal + sub);

@@ -17,43 +17,7 @@ class DisplayAddItemManually extends Component {
 		
 		var totalTax = subPrice * 0.05;
 		
-		let table = document.getElementById("Checkout");
-		
-		let row = document.createElement("tr");
-		
-		let c1 = document.createElement("td");
-		let c2 = document.createElement("td");
-		let c3 = document.createElement("td");
-		
-		c1.innerText = Number(event.target.Quantity.value);
-		c2.innerText = event.target.ItemName.value;
-		c3.innerText = "$" + subPrice.toFixed(2);
-		
-		row.appendChild(c1);
-		row.appendChild(c2);
-		row.appendChild(c3);
-		
-		addItem({'name': event.target.ItemName.value, 'quantity': event.target.Quantity.value, 'cost': subPrice});
-
-		let removeButton = document.createElement("button");
-		removeButton.className = "removeButton";
-		removeButton.innerText = 'X';
-		removeButton.style.fontWeight = "bold";
-		removeButton.style.color = "white";
-		removeButton.style.backgroundColor = "#FF4F4B";
-		removeButton.style.borderStyle = "none";
-		removeButton.style.cursor = "pointer";
-		removeButton.onclick = function(){
-			table.deleteRow(getIndex(event.target.ItemName.value) + 1);
-			removeItem(getIndex(event.target.ItemName.value));
-			updateTotal(Total - (subPrice + totalTax)); 
-			updateSubTotal(SubTotal - subPrice); 
-			updateTaxes(Taxes - totalTax)
-		};
-		
-		row.append(removeButton);
-		
-		table.appendChild(row);
+		addItem({'name': event.target.ItemName.value.charAt(0).toUpperCase() + event.target.ItemName.value.slice(1).toLowerCase(), 'quantity': Number(event.target.Quantity.value), 'cost': subPrice, 'totalTax': totalTax});
 		
 		updateTotal(Total + subPrice + totalTax);
 		updateSubTotal(SubTotal + subPrice);

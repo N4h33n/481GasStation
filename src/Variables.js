@@ -23,7 +23,66 @@ var time2 = [];
 var inventory = [{'name': 'cheetos', 'price': 2.80}, {'name': '2l soda', 'price': 3.00}];
 
 function addItem(a){
+	for(let i = 0; i < Checkout.length; i++){
+		if(Checkout[i].name == a.name){
+			Checkout[i].quantity += Number(a.quantity);
+			Checkout[i].cost += a.cost;
+			Checkout[i].totalTax += a.totalTax;
+			
+			let table = document.getElementById("Checkout");
+		
+			let row = table.rows[i+1];
+			
+			let c1 = row.cells[0];
+			let c2 = row.cells[2];
+			
+			c1.innerText = Checkout[i].quantity.toFixed(2);
+			c2.innerText = Checkout[i].cost.toFixed(2);
+			
+			return;
+		}
+	}
+	
 	Checkout.push(a);
+	
+	let table = document.getElementById("Checkout");
+	
+	let row = document.createElement("tr");
+	
+	let c1 = document.createElement("td");
+	let c2 = document.createElement("td");
+	let c3 = document.createElement("td");
+	
+	c1.innerText = a.quantity.toFixed(2);
+	c2.innerText = a.name;
+	c3.innerText = "$" + a.cost.toFixed(2);
+
+	c1.style.paddingLeft = "10px";
+	
+	row.appendChild(c1);
+	row.appendChild(c2);
+	row.appendChild(c3);
+	
+	let removeButton = document.createElement("button");
+	removeButton.className = "removeButton";
+	removeButton.innerText = 'X';
+	removeButton.style.fontWeight = "bold";
+	removeButton.style.color = "white";
+	removeButton.style.backgroundColor = "#FF4F4B";
+	removeButton.style.borderStyle = "none";
+	removeButton.style.cursor = "pointer";
+	removeButton.onclick = function(){
+		let index = getIndex(a.name);
+		table.deleteRow(index + 1);
+		updateTotal(Total - (Checkout[index].cost + Checkout[index].totalTax)); 
+		updateSubTotal(SubTotal - Checkout[index].cost); 
+		updateTaxes(Taxes - Checkout[index].totalTax)
+		removeItem(index);
+	};
+	
+	row.append(removeButton);
+	
+	table.appendChild(row);
 }
 
 function removeItem(a){
