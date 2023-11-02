@@ -3,6 +3,7 @@ import PumpStatus from './PumpStatus';
 import Sidebars from './Sidebars';
 import DisplayEditPump from './DisplayEditPump';
 import DisplayTestPump from './DisplayTestPump';
+import './PumpStatus.css';
 
 function PumpManagement() {
     const [editPump, setEditPump] = useState(false);
