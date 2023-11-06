@@ -1,4 +1,5 @@
 var Checkout = [];
+var checkoutPumps = [];
 var Total = 0;
 var SubTotal = 0;
 var Taxes = 0;
@@ -20,9 +21,22 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
-var inventory = [{'name': 'cheetos', 'price': 2.80}, {'name': '2l soda', 'price': 3.00}];
+var inventory = [{'name': 'cheetos', 'price': 2.80, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
 
-function addItem(a){
+function addItem(a, b){
+	let check = false;
+	
+	if(b != "none"){
+		for(let i = 0; i < checkoutPumps.length; i++){
+			if(checkoutPumps[i] == b){
+				check = true;
+			}
+		}
+		if(check == false){
+			checkoutPumps.push(b);
+		}
+	}
+	
 	for(let i = 0; i < Checkout.length; i++){
 		if(Checkout[i].name == a.name){
 			Checkout[i].quantity += Number(a.quantity);
@@ -37,7 +51,7 @@ function addItem(a){
 			let c2 = row.cells[2];
 			
 			c1.innerText = Checkout[i].quantity.toFixed(2);
-			c2.innerText = Checkout[i].cost.toFixed(2);
+			c2.innerText = "$" + Checkout[i].cost.toFixed(2);
 			
 			return;
 		}
@@ -83,6 +97,12 @@ function addItem(a){
 	row.append(removeButton);
 	
 	table.appendChild(row);
+}
+
+function clearCheckout(){
+	for(let i = 0; i < checkoutPumps.length; i++){
+		updatePump(checkoutPumps[i], "In Use", "yellow");
+	}
 }
 
 function removeItem(a){
@@ -241,5 +261,6 @@ export {
 	remTime2,
 	propaneInCheckout,
 	inventory,
-	updatePump
+	updatePump,
+	clearCheckout
 }

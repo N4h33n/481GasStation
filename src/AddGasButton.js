@@ -17,12 +17,29 @@ class DisplayAddGas extends Component{
 		
 		var sub =  Number(event.target.Pay_Amount.value) - totalTax;
 		
-		addItem({'name': 'Regular', 'quantity': litres, 'cost': sub, 'totalTax': totalTax});
+		var radio = document.getElementsByName("Gas");
+		var type = "Regular"
+		
+		for(let i = 0; i < radio.length; i++){
+			if(radio[i].checked){
+				type = radio[i].value;
+			}
+		}
+		
+		var radioPump = document.getElementsByName("Pump");
+		var pump = "pump1";
+		
+		for(let i = 0; i < radioPump.length; i++){
+			if(radioPump[i].checked){
+				pump = radioPump[i].value;
+			}
+		}
+		
+		addItem({'name': type, 'quantity': litres, 'cost': sub, 'totalTax': totalTax}, pump);
 		
 		updateTotal(Total + sub + totalTax);
 		updateSubTotal(SubTotal + sub);
 		updateTaxes(Taxes + totalTax);
-		
 	}
 	
 	render(){
@@ -41,32 +58,32 @@ class DisplayAddGas extends Component{
 							<div className="Pump_Selection">
 
 								<div className="pump1Div">
-									<input type="radio" id="pump1" name="Pump" value="Pump 1" />
+									<input type="radio" id="pump1" name="Pump" value="pump1" />
 									<label for="pump1">Pump 1 ({Pump_1})</label>
 								</div>
 								
 								<div className="pump2Div">
-									<input type="radio" id="pump2" name="Pump" value="Pump 2" />
+									<input type="radio" id="pump2" name="Pump" value="pump2" />
 									<label for="pump2">Pump 2 ({Pump_2})</label>
 								</div>
 								
 								<div className="pump3Div"> 
-									<input type="radio" id="pump3" name="Pump" value="Pump 3" />
+									<input type="radio" id="pump3" name="Pump" value="pump3" />
 									<label for="pump3">Pump 3 ({Pump_3})</label>
 								</div>
 								
 								<div className="pump4Div">
-									<input type="radio" id="pump4" name="Pump" value="Pump 4" />
+									<input type="radio" id="pump4" name="Pump" value="pump4" />
 									<label for="pump4">Pump 4 ({Pump_4})</label>
 								</div>
 								
 								<div className="pump5Div">
-									<input type="radio" id="pump5" name="Pump" value="Pump 5" />
+									<input type="radio" id="pump5" name="Pump" value="pump5" />
 									<label for="pump5">Pump 5 ({Pump_5})</label>
 								</div>
 								
 								<div className="pump6Div">
-									<input type="radio" id="pump6" name="Pump" value="Pump 6" />
+									<input type="radio" id="pump6" name="Pump" value="pump6" />
 									<label for="pump6">Pump 6 ({Pump_6})</label>
 								</div>
 							</div>

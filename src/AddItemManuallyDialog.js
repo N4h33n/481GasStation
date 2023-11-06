@@ -17,7 +17,7 @@ class DisplayAddItemManually extends Component {
 		
 		var totalTax = subPrice * 0.05;
 		
-		addItem({'name': event.target.ItemName.value.charAt(0).toUpperCase() + event.target.ItemName.value.slice(1).toLowerCase(), 'quantity': Number(event.target.Quantity.value), 'cost': subPrice, 'totalTax': totalTax});
+		addItem({'name': event.target.ItemName.value.charAt(0).toUpperCase() + event.target.ItemName.value.slice(1).toLowerCase(), 'quantity': Number(event.target.Quantity.value), 'cost': subPrice, 'totalTax': totalTax}, "none");
 		
 		updateTotal(Total + subPrice + totalTax);
 		updateSubTotal(SubTotal + subPrice);

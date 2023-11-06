@@ -18,7 +18,7 @@ class DisplayAddGas extends Component{
 		
 		var sub = (litres * 1.3);
 		
-		addItem({'name': 'Propane Refill', 'quantity': litres, 'cost': sub, 'totalTax': totalTax});
+		addItem({'name': 'Propane Refill', 'quantity': litres, 'cost': sub, 'totalTax': totalTax}, "none");
 		
 		updateTotal(Total + sub + totalTax);
 		updateSubTotal(SubTotal + sub);

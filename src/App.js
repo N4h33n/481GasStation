@@ -11,7 +11,7 @@ import Sidebars from "./Sidebars.js";
 import CashDialog from "./CashDialog.js";
 import ReceiptOptionsDialog from "./ReceiptOptionsDialog.js";
 import TransactionCompleteDialog from "./TransactionCompleteDialog.js";
-import {showDiscountDialog, showCardDialog, showCashDialog, showReceiptOptions, propaneInCheckout} from './Variables.js';
+import {showDiscountDialog, showCardDialog, showCashDialog, showReceiptOptions, propaneInCheckout, clearCheckout} from './Variables.js';
 
 function App() {
 	const [firstState, setFirstState] = useState(false);
@@ -89,29 +89,6 @@ function App() {
 						
 							<div className="TotalLabel">Total</div>
 							<div id="TotalCost" className="TotalCost">$0.00</div>
-							
-							
-
-							{/* <table id="SubTotal" className="SubTotal">
-								<tr classname="SubTotalRow">
-									<th className="SubTotalLabel">SubTotal</th>
-									<th id="SubTotalCost" className="SubTotalCost">$0.00</th>
-								</tr>
-							</table>
-						
-							<table id="Taxes" className="Taxes">
-								<tr>
-									<th className="TaxesLabel">Taxes</th>
-									<th id="TaxesCost" className="TaxesCost">$0.00</th>
-								</tr>
-							</table>
-						
-							<table id="Total" className="Total">
-								<tr>
-									<th className="TotalLabel">Total</th>
-									<th id="TotalCost" className="TotalCost">$0.00</th>
-								</tr>
-							</table> */}
 						</div>
 					</div>
 
@@ -149,9 +126,9 @@ function App() {
 					else{setEighthState(true)}
 					}}}/>
 				
-				<ReceiptOptionsDialog isOpen={eighthState} onClose={() => {setEighthState(false); setNinthState(true)}}/>
+				<ReceiptOptionsDialog isOpen={eighthState} onClose={() => {setEighthState(false); clearCheckout(); window.location.reload()}}/>
 				
-				<TransactionCompleteDialog isOpen={ninthState} onClose={() => {setNinthState(false); window.location.reload()}}/>	
+				<TransactionCompleteDialog isOpen={ninthState} onClose={() => {setNinthState(false); clearCheckout(); window.location.reload()}}/>	
 				
 		</div>
 	);
