@@ -1,22 +1,12 @@
 import React, {Component} from 'react';
-import {Total, SubTotal, Taxes, Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updateTotal, updateSubTotal, updateTaxes, Checkout, addItem, removeItem, getIndex} from "./Variables.js";
+import {Total, SubTotal, Taxes, Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updateTotal, updateSubTotal, updateTaxes, addItem} from "./Variables.js";
 
 class DisplayAddGas extends Component{
 	
 	AddGas = (event) => {
 		event.preventDefault();
 		this.props.onClose();
-		
-		var litres = Number(event.target.Pay_Amount.value)/1.299;
-		
-		var excise = litres * 10.0/100;
-		
-		var gst =  (Number(event.target.Pay_Amount.value) + excise) * 0.05;
-		
-		var totalTax = excise + gst;
-		
-		var sub =  Number(event.target.Pay_Amount.value) - totalTax;
-		
+	
 		var radio = document.getElementsByName("Gas");
 		var type = "Regular"
 		
@@ -34,6 +24,35 @@ class DisplayAddGas extends Component{
 				pump = radioPump[i].value;
 			}
 		}
+		
+		var litres = 0;
+		var excise = 0;
+		
+		if(type == "Regular"){
+			litres = Number(event.target.Pay_Amount.value)/1.299;
+			excise = litres * 10.0/100;
+		}
+		
+		else if (type == "Premium"){
+			litres = Number(event.target.Pay_Amount.value)/1.492;
+			excise = litres * 10.0/100;
+		}
+		
+		else if(type == "Nitro"){
+			litres = Number(event.target.Pay_Amount.value)/1.567;
+			excise = litres * 10.0/100;
+		}
+		
+		else if(type == "Diesel"){
+			litres = Number(event.target.Pay_Amount.value)/1.654;
+			excise = litres * 4.0/100;
+		}
+		
+		var gst = (Number(event.target.Pay_Amount.value) + excise) * 0.05;
+		
+		var totalTax = excise + gst;
+		
+		var sub =  Number(event.target.Pay_Amount.value) - totalTax;
 		
 		addItem({'name': type, 'quantity': litres, 'cost': sub, 'totalTax': totalTax}, pump);
 		
