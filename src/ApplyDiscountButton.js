@@ -17,13 +17,11 @@ class DisplayApplyDiscount extends Component{
 		);
 		
 		if(! this.props.isOpen){
-			clearTimeout(remTime2());
 			dialog = null;
 		}
 		
 		else{
 			updateDiscountDialog(true);
-			setTime2(setTimeout(this.props.onClose, 3000));
 			return (
 				<div>
 					{dialog}

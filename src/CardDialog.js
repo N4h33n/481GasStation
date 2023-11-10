@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {updateReceiptDialog, Total, removeTime, setTimeID, propaneInCheckout} from './Variables.js';
 
 class CardDialog extends Component{
-
 	render(){
 		let dialog = (
 			<div className="overlay">
 				<div className="GasDialog" id="GasDialog">
-					<button className="X_Button" onClick={() => {updateReceiptDialog(false); this.props.onClose()}}>X</button>
-					
+					<div className="Complete_Cancel_Div">
+						<button className="Cancel" onClick={() => {updateReceiptDialog(false); this.props.onClose()}}>Back</button>
+					</div>
 					<div className="AddGas_Div">DEBIT/CREDIT CARD</div>
 					<div className="Amount">${Total.toFixed(2)} due</div>
 					<div className="Terminal_Div" id="Terminal_Div">Waiting for Debit/Credit Card Terminal</div>
@@ -17,12 +17,10 @@ class CardDialog extends Component{
 		);
 		
 		if(! this.props.isOpen){
-			clearTimeout(removeTime());
 			dialog = null;
 		}
 		else{
 			updateReceiptDialog(true);
-			setTimeID(setTimeout(this.props.onClose, 3000));
 			return (
 				<div>
 					{dialog}

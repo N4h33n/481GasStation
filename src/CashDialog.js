@@ -45,7 +45,7 @@ class CashDialog extends Component{
 					<div className="GasDialog">
 						<div className="Complete_Cancel_Div">
 							<button type="submit" className="Complete">Complete</button>
-							<button className="Cancel" onClick={() => {updateReceiptDialog(false); this.props.onClose()}}>Cancel</button>
+							<button className="Cancel" onClick={() => {updateReceiptDialog(false); this.props.onClose()}}>Back</button>
 						</div>
 						
 						<div className="AddGas_Div">CASH</div>

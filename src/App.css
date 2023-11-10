@@ -285,6 +285,10 @@ td{
 	border-collapse: none;
 }
 
+tr{
+	border-bottom: 1px solid black;
+}
+
 .Quantity{
 	padding-left: 0.75rem;
 	text-align: left;

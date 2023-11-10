@@ -21,7 +21,7 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
-var inventory = [{'name': 'cheetos', 'price': 2.80, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
+var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
 
 function addItem(a, b){
 	let check = false;
@@ -102,6 +102,72 @@ function addItem(a, b){
 function clearCheckout(){
 	for(let i = 0; i < checkoutPumps.length; i++){
 		updatePump(checkoutPumps[i], "In Use", "yellow");
+	}
+}
+
+function applyDiscount(a, b, c, d){
+	if(a == 1){
+		for(let i = 0; i < Checkout.length; i++){
+			if(Checkout[i].name == d && Checkout[i].quantity >= b){
+				updateTotal(Total - Checkout[i].cost);
+				updateSubTotal(SubTotal - Checkout[i].cost);
+				
+				var pricePer = Checkout[i].cost/Checkout[i].quantity;
+				var newSub = (Checkout[i].quantity - b) * pricePer + 10;
+				Checkout[i].cost = newSub;
+				
+				let table = document.getElementById("Checkout");
+		
+				let row = table.rows[i+1];
+				
+				let c1 = row.cells[1];
+				let c2 = row.cells[2];
+				
+				c1.innerHTML = c1.innerText + " " + '<span style="color: gray;font-style:italic">' + c + '</span>';
+				
+				c2.innerHTML = '<span style="text-decoration:line-through">' + c2.innerText + '</span>' + '<br>' + '<span style="color: red">' + "$" + newSub.toFixed(2) + '</span>';
+				
+				updateTotal(Total + newSub);
+				updateSubTotal(SubTotal + newSub);
+				
+				return true;
+			}
+		}
+	}
+	
+	if(a == 2){
+		for(let i = 0; i < Checkout.length; i++){
+			if(Checkout[i].name == d && Checkout[i].quantity > b){
+				updateTotal(Total - Checkout[i].cost);
+				updateSubTotal(SubTotal - Checkout[i].cost);
+				
+				var pricePer = Checkout[i].cost/Checkout[i].quantity;
+				var newSub = Checkout[i].cost - pricePer;
+				Checkout[i].cost = newSub;
+				
+				let table = document.getElementById("Checkout");
+		
+				let row = table.rows[i+1];
+				
+				let c1 = row.cells[1];
+				let c2 = row.cells[2];
+				
+				c1.innerHTML = c1.innerText + " " + '<span style="color: gray;font-style:italic">' + c + '</span>';
+				
+				c2.innerHTML = '<span style="text-decoration:line-through">' + c2.innerText + '</span>' + '<br>' + '<span style="color: red">' + "$" + newSub.toFixed(2) + '</span>';
+				
+				updateTotal(Total + newSub);
+				updateSubTotal(SubTotal + newSub);
+				
+				return true;
+			}
+		}
+	}
+	
+	if(a == 5){
+		addItem({'name': c, 'quantity': 1, 'cost': -(SubTotal * 0.10), 'totalTax': 0}, "none");
+		updateTotal(Total - (SubTotal * 0.10));
+		updateSubTotal(SubTotal - (SubTotal * 0.10));
 	}
 }
 
@@ -262,5 +328,6 @@ export {
 	propaneInCheckout,
 	inventory,
 	updatePump,
-	clearCheckout
+	clearCheckout,
+	applyDiscount
 }

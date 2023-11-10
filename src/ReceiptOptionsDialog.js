@@ -28,7 +28,6 @@ class ReceiptOptionsDialog extends Component{
 					
 					<div className="Receipt_Options">
 						<button className="Print_Receipt" onClick={this.props.onClose}>Print Receipt</button>
-						<button className="Email_Receipt" onClick={this.props.onClose}>E-Mail Receipt</button>
 						<button className="No_Receipt" onClick={this.props.onClose}>No Receipt</button>
 					</div>
 				</div>
