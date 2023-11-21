@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <Sidebars />
       <div className="div3">Fuel Managment</div>
-      <div className="div7">Best Sellers</div>
+      <div className="div4">Best Sellers</div>
 
       <div className='div2'>
       <button className="Inventory" onClick={() => setFirstState(true)}>View Fuel</button>

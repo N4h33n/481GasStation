@@ -15,24 +15,24 @@ function App() {
 	const [eighthState, setEighthState] = useState(false);
 	const [ninthState, setNinthState] = useState(false);
 	const [tenthState, setTenthState] = useState(false);
-
+  var text = "Oreo         300 Units \nCheetos      70 Units\nMilk          23 units";
   return (
     <div className="App">
       <Sidebars />
-      <div className="div3">Fuel Managment</div>
-      <div className="div7">Best Sellers</div>
+      <div className="div3">Inventory Managment</div>
+      <div className="div4">Best Sellers</div>
 
       <div className='div2'>
-      <button className="Inventory" onClick={() => setFirstState(true)}>View Fuel</button>
+      <button className="Inventory" onClick={() => setFirstState(true)}>Inventory</button>
       <button className="SalesTrends" onClick={() => setSecondState(true)}>Sales Trends</button>
-      <button className="OrderInventory" onClick={() => setThirdState(true)}>Order Fuel</button>
-
+      <button className="OrderInventory" onClick={() => setThirdState(true)}>Order Inventory</button>
+      <button className="SetPrices" onClick={() => setFourthState(true)}>Set Prices</button>
       </div>
       <div className='div5'> {}</div>
-      <div className='div5'> {"Octane 87 ......................................................................................................................................................... 90000 Units"}</div>
-      <div className='div5'> {"Octane 93 ..........................................................................................................................................................23400 Units"}</div>
-      <div className='div5'> {"Octane 89 ......................................................................................................................................................... 10000 Units"}</div>
-      <div className='div5'> {"Diesel  ..................................................................................................................................................................6000 Units"}</div>
+      <div className='div5'> {"Oreo ............................................................................................................................................................... 300 Units"}</div>
+      <div className='div5'> {"Cheetos ..........................................................................................................................................................70 Units"}</div>
+      <div className='div5'> {"Milk  ................................................................................................................................................................. 80 Units"}</div>
+      <div className='div5'> {"Coffee Crisp .....................................................................................................................................................157 Units"}</div>
       
       <div className='trend'>
       <button className="Day30" id="button1" onClick={() => setFifthState(true)}>Day 30</button>
