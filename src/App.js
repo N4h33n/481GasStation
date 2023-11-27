@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import './App.css';
 import DisplayAddItemManually from './AddItemManuallyDialog';
 import DisplayAddGas from './AddGasButton.js';
@@ -6,11 +6,8 @@ import DisplayAddPropane from './AddPropaneButton.js';
 import DisplayApplyDiscount from './ApplyDiscountButton.js';
 import DisplayBeginPayment from './BeginPaymentButton.js';
 import DiscountApplied from "./DiscountAppliedDialog.js";
-import CardDialog from "./CardDialog.js";
 import Sidebars from "./Sidebars.js";
-import CashDialog from "./CashDialog.js";
-import ReceiptOptionsDialog from "./ReceiptOptionsDialog.js";
-import TransactionCompleteDialog from "./TransactionCompleteDialog.js";
+import Combined from './Combined.js';
 import {showDiscountDialog, showCardDialog, showCashDialog, showReceiptOptions, propaneInCheckout, clearCheckout, addItem, Total, SubTotal, Taxes, 
 updateTotal, updateSubTotal, updateTaxes, applyDiscount} from './Variables.js';
 
@@ -20,19 +17,7 @@ function App() {
 	const [thirdState, setThirdState] = useState('');
 	const [fourthState, setFourthState] = useState('');
 	const [fifthState, setFifthState] = useState('');
-	const [sixthState, setSixthState] = useState('');
-	const [seventhState, setSeventhState] = useState('');
-	const [eighthState, setEighthState] = useState('');
-	const [ninthState, setNinthState] = useState('');
 	const [tenthState, setTenthState] = useState('');
-	
-	const handleKeyEnter = (event) =>{
-		if(event.key == 'Enter'){
-			setSixthState(false);
-			if (propaneInCheckout()){setNinthState(true)}
-			else{setEighthState(true)}
-		}
-	}
 	
 	const handleKeyDiscount = (event) =>{
 		if(event.key == 'q'){
@@ -94,16 +79,6 @@ function App() {
 			
 		}
 	}, false);
-	
-	useEffect(() => {
-		if(sixthState == true){
-			document.addEventListener('keypress', handleKeyEnter);
-		}
-		
-		return () =>{
-			document.removeEventListener('keypress', handleKeyEnter);
-		};
-	}, [sixthState])
 	
 	useEffect(() => {
 		if(thirdState == true){
@@ -187,7 +162,7 @@ function App() {
 				</div>
 			</div>
 
-			<button className="BeginPayment" onClick={() => setFifthState(true)}>Begin Payment</button>
+			<button className="BeginPayment" onClick={() => {setFifthState(true)}}>Begin Payment</button>
 
 			<DisplayAddItemManually isOpen={tenthState} onClose={() => setTenthState(false)}/>
 			
@@ -199,22 +174,8 @@ function App() {
 			
 			<DiscountApplied isOpen={fourthState} onClose={() => {setFourthState(false)}}/>
 			
-			<DisplayBeginPayment isOpen={fifthState} onClose={() => {setFifthState(false); if(showCardDialog == true){setSixthState(true)}; if(showCashDialog == true){setSeventhState(true)}}}/>
+			<Combined isOpen={fifthState} onClose={() => {setFifthState(false); }}/>
 			
-			<CardDialog isOpen={sixthState} onClose={() => {setSixthState(false);}}/>
-			
-			<CashDialog isOpen={seventhState} onClose={() => {
-				setSeventhState(false); 
-				if(showReceiptOptions == true){
-					if (propaneInCheckout()){setNinthState(true)}
-					else{setEighthState(true)}
-				}
-			}}/>
-			
-			<ReceiptOptionsDialog isOpen={eighthState} onClose={() => {setEighthState(false); clearCheckout(); window.location.reload()}}/>
-			
-			<TransactionCompleteDialog isOpen={ninthState} onClose={() => {setNinthState(false); clearCheckout(); window.location.reload()}}/>	
-				
 		</div>
 	);
 }

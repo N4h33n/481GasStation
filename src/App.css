@@ -728,20 +728,6 @@ tr{
 	padding-right: 1rem;
 }
 
-.Email_Receipt{
-	width: 200px;
-	height: 50px;
-	margin-bottom: 20px;
-	background-color: rgb(89, 170, 236);
-	color: white;
-	border: 0 none;
-	border-radius: 10px;
-	font-size: 20px;
-	font-weight: bold;
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-
 .No_Receipt{
 	width: 200px;
 	height: 50px;
@@ -798,4 +784,241 @@ tr{
 	display: inline-block;
 	top: 73.5%;
 	left: 20.5%;
+}
+
+.Combined{
+	position: absolute;
+	left: 2%;
+	top: 4%;
+	width: 93vw;
+	height: 85vh;
+	background-color: #eee;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	padding: 10px 20px 40px;
+}
+
+.Combined_Buttons{
+	position: absolute;
+	width: 600px;
+	height: 3rem;
+	top: 83vh;
+	left: 56%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.Combined_Title{
+	position: absolute;
+	font-size: 20px;
+	font-family: Arial;
+	font-weight: bold;
+	left: 43vw;
+}
+
+.CombinedCheckoutTable{
+	background-color: white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	flex: 4;
+	overflow: auto;
+}
+
+.CombinedCheckout{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.CombinedQuantity{
+	padding-left: 0.75rem;
+	text-align: left;
+	width: 15%;
+}
+
+.CombinedItem{
+	text-align: left;
+}
+
+.CombinedCost{
+	text-align: left;
+	width: 15%;
+}
+
+.CombinedTotalTable{
+	flex: 1;
+	display: grid;
+	grid-template-columns: auto auto;
+	/* background-color: rgb(89, 170, 236); */
+	background-color: white;
+	border-top: 2px solid rgb(223, 223, 223);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding-top: 1rem;
+	padding-bottom: 0.5rem;
+	padding-left: 31rem;
+	padding-right: 1rem;
+	color: black;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.CombinedSubTotalLabel{
+	font-weight: bold;
+	text-align: left;
+}
+
+.CombinedSubTotalCost{
+	text-align: left;
+}
+
+.CombinedTaxesLabel{
+	font-weight: bold;
+	text-align: left;
+}
+
+.CombinedTaxesCost{
+	text-align: left;
+}
+
+.CombinedTotalLabel{
+	font-weight: bold;
+	text-align: left;
+	font-size: 25px;
+}
+
+.CombinedTotalCost{
+	text-align: left;
+	font-size: 25px;
+}
+
+.CombinedCheckoutDiv {
+	display: flex;
+	position: absolute;
+	flex-direction: row;
+	margin-top: 3rem;
+	margin-left: 6rem;
+	margin-right: 6.25rem;
+	height: 31rem;
+	left: -4%;
+	width: 55%;
+	gap: 2rem;
+}
+
+.Combined_Payment_Buttons{
+	position: absolute;
+	height: 200px;
+	width: 400px;
+	top: 5%;
+	left: 65%;
+}
+
+.Combined_Cash_Button{
+	position: absolute;
+	left: 50%;
+	top: 13%;
+	display: inline-block;
+	height: 50px;
+	width: 150px;
+	margin-bottom: 20px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.Combined_Card_Button{
+	position: absolute;
+	top: 13%;
+	height: 50px;
+	width: 150px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.CombinedAmount{
+	position: absolute;
+	left: 75%;
+	top: 25%;
+	font-size: 20px;
+}
+
+.Combined_Cash_Received{
+	display:inline-block;
+	position: absolute;
+	left: 65%;
+	top: 32%;
+}
+
+.Combined_Change_Div{
+	display:inline-block;
+	position: absolute;
+	left: 66.5%;
+	top: 39%;
+}
+
+.Combined_Change{
+	position: absolute;
+	display: inline;
+	top: 0px;
+	left: 8.5vw;
+}
+
+.Combined_Terminal_Div{
+	display:inline-block;
+	position: absolute;
+	left: 63%;
+	top: 30%;
+	font-size: 25px;
+}
+
+.Combined_Receipt_Options{
+	display:inline-block;
+	position: absolute;
+	left: 65%;
+	top: 65%;
+	font-size: 30px;
+	width: 400px;
+	height: 100px;
+}
+
+.Combined_Print_Receipt{
+	width: 150px;
+	height: 50px;
+	display: inline-block;
+	margin-bottom: 20px;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.Combined_No_Receipt{
+	position: absolute;
+	width: 150px;
+	height: 50px;
+	display: inline-block;
+	background-color: rgb(89, 170, 236);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	margin-left: 80px;
 }

@@ -103,6 +103,11 @@ function clearCheckout(){
 	for(let i = 0; i < checkoutPumps.length; i++){
 		updatePump(checkoutPumps[i], "In Use", "yellow");
 	}
+	checkoutPumps.splice(0, checkoutPumps.length);
+	Checkout.splice(0, Checkout.length);
+	Total = 0;
+	SubTotal = 0;
+	Taxes = 0;
 }
 
 function applyDiscount(a, b, c, d){
@@ -240,6 +245,10 @@ function updateTaxes(a){
 	column2.innerText = "$" + Math.abs(Taxes).toFixed(2);
 }
 
+function updateChange(){
+	
+}
+
 function updateDiscountDialog(a){
 	showDiscountDialog = a;
 }
@@ -329,5 +338,6 @@ export {
 	inventory,
 	updatePump,
 	clearCheckout,
-	applyDiscount
+	applyDiscount,
+	updateChange
 }
