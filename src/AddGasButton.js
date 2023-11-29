@@ -1,7 +1,94 @@
 import React, {Component} from 'react';
-import {Total, SubTotal, Taxes, Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updateTotal, updateSubTotal, updateTaxes, addItem} from "./Variables.js";
+import {Total, SubTotal, Taxes, Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updateTotal, updateSubTotal, updateTaxes, addItem, setTimeID, removeTime} from "./Variables.js";
 
 class DisplayAddGas extends Component{
+	updateRadio(){
+		removeTime()
+		
+		if(Pump_1 == "In Use" || Pump_1 == "Out of Order" || Pump_1 == "Testing..."){
+			document.getElementById("pump1").disabled = true;
+			
+			let label = document.getElementById("pump1label");
+			label.style.color = "#808080";
+		}
+		
+		else{
+			document.getElementById("pump1").disabled = false;
+			
+			let label = document.getElementById("pump1label");
+			label.style.color = "#000000";
+		}
+		
+		if(Pump_2 == "In Use" || Pump_2 == "Out of Order" || Pump_2 == "Testing..."){
+			document.getElementById("pump2").disabled = true;
+			
+			let label = document.getElementById("pump2label");
+			label.style.color = "#808080";
+		}
+		
+		else{
+			document.getElementById("pump2").disabled = false;
+			
+			let label = document.getElementById("pump2label");
+			label.style.color = "#000000";
+		}
+		
+		if(Pump_3 == "In Use" || Pump_3 == "Out of Order" || Pump_3 == "Testing..."){
+			document.getElementById("pump3").disabled = true;
+			
+			let label = document.getElementById("pump3label");
+			label.style.color = "#808080";
+		}
+		
+		else{
+			document.getElementById("pump3").disabled = false;
+			
+			let label = document.getElementById("pump3label");
+			label.style.color = "#000000";
+		}
+		
+		if(Pump_4 == "In Use" || Pump_4 == "Out of Order" || Pump_4 == "Testing..."){
+			document.getElementById("pump4").disabled = true;
+			
+			let label = document.getElementById("pump4label");
+			label.style.color = "#808080";
+		}
+		
+		else{
+			document.getElementById("pump4").disabled = false;
+			
+			let label = document.getElementById("pump4label");
+			label.style.color = "#000000";
+		}
+		
+		if(Pump_5 == "In Use" || Pump_5 == "Out of Order" || Pump_5 == "Testing..."){
+			document.getElementById("pump5").disabled = true;
+			
+			let label = document.getElementById("pump5label");
+			label.style.color = "#808080";
+		}
+		
+		else{
+			document.getElementById("pump5").disabled = false;
+			
+			let label = document.getElementById("pump5label");
+			label.style.color = "#000000";
+		}
+		
+		if(Pump_6 == "In Use" || Pump_6 == "Out of Order" || Pump_6 == "Testing..."){
+			document.getElementById("pump6").disabled = true;
+			
+			let label = document.getElementById("pump6label");
+			label.style.color = "#808080";
+		}
+		
+		else{
+			document.getElementById("pump6").disabled = false;
+			
+			let label = document.getElementById("pump6label");
+			label.style.color = "#000000";
+		}
+	}
 	
 	AddGas = (event) => {
 		event.preventDefault();
@@ -78,32 +165,32 @@ class DisplayAddGas extends Component{
 
 								<div className="pump1Div">
 									<input type="radio" id="pump1" name="Pump" value="pump1" />
-									<label for="pump1">Pump 1 ({Pump_1})</label>
+									<label id="pump1label" for="pump1">Pump 1 ({Pump_1})</label>
 								</div>
 								
 								<div className="pump2Div">
 									<input type="radio" id="pump2" name="Pump" value="pump2" />
-									<label for="pump2">Pump 2 ({Pump_2})</label>
+									<label id="pump2label" for="pump2">Pump 2 ({Pump_2})</label>
 								</div>
 								
 								<div className="pump3Div"> 
 									<input type="radio" id="pump3" name="Pump" value="pump3" />
-									<label for="pump3">Pump 3 ({Pump_3})</label>
+									<label id="pump3label" for="pump3">Pump 3 ({Pump_3})</label>
 								</div>
 								
 								<div className="pump4Div">
 									<input type="radio" id="pump4" name="Pump" value="pump4" />
-									<label for="pump4">Pump 4 ({Pump_4})</label>
+									<label id="pump4label" for="pump4">Pump 4 ({Pump_4})</label>
 								</div>
 								
 								<div className="pump5Div">
 									<input type="radio" id="pump5" name="Pump" value="pump5" />
-									<label for="pump5">Pump 5 ({Pump_5})</label>
+									<label id="pump5label" for="pump5">Pump 5 ({Pump_5})</label>
 								</div>
 								
 								<div className="pump6Div">
 									<input type="radio" id="pump6" name="Pump" value="pump6" />
-									<label for="pump6">Pump 6 ({Pump_6})</label>
+									<label id="pump6label" for="pump6">Pump 6 ({Pump_6})</label>
 								</div>
 							</div>
 						</div>
@@ -152,6 +239,9 @@ class DisplayAddGas extends Component{
 		}
 		
 		else{
+			setTimeID(setTimeout(() => {
+				this.updateRadio();
+			}, 0));
 			return (
 				<div>
 					{dialog}
