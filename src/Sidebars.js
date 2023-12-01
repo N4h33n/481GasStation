@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import {Link} from 'react-router-dom';
 
 const Sidebars = () => {
     const [toggled, setToggled] = React.useState(false);
@@ -8,12 +9,12 @@ const Sidebars = () => {
       <div style={{ display: 'flex', position: 'absolute'}}>
         <Sidebar onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="always" backgroundColor="#bcf3ff">
           <Menu>
-            <MenuItem> Home</MenuItem>
-            <MenuItem> Fuel</MenuItem>
+            <MenuItem component={<Link to="/" />}> Home</MenuItem>
+            <MenuItem component={<Link to="/FuelManagment_Page" />}> Fuel</MenuItem>
             <MenuItem> Inventory</MenuItem>
-            <MenuItem> Pumps</MenuItem>
+            <MenuItem component={<Link to="/PumpManagement" />}> Pumps</MenuItem>
             <MenuItem> Promotions</MenuItem>
-            <MenuItem> Checkout</MenuItem>
+            <MenuItem component={<Link to="/App" />}> Checkout</MenuItem>
           </Menu>
         </Sidebar>
         <main style={{display: 'flex', padding: 10 }}>

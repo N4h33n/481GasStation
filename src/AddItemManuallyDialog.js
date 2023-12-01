@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes, inventory} from './Variables.js';
+import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes, inventory, Checkout, addItem, removeItem, getIndex} from './Variables.js';
 
 var calculated = 0;
 class DisplayAddItemManually extends Component {
@@ -17,37 +17,7 @@ class DisplayAddItemManually extends Component {
 		
 		var totalTax = subPrice * 0.05;
 		
-		let table = document.getElementById("Checkout");
-		
-		let row = document.createElement("tr");
-		
-		let c1 = document.createElement("td");
-		let c2 = document.createElement("td");
-		let c3 = document.createElement("td");
-		
-		c1.innerText = Number(event.target.Quantity.value);
-		c2.innerText = event.target.ItemName.value;
-		c3.innerText = "$" + subPrice.toFixed(2);
-		
-		row.appendChild(c1);
-		row.appendChild(c2);
-		row.appendChild(c3);
-		
-		var lastRow = table.rows.length;
-
-		let removeButton = document.createElement("button");
-		removeButton.className = "removeButton";
-		removeButton.innerText = 'X';
-		removeButton.style.fontWeight = "bold";
-		removeButton.style.color = "white";
-		removeButton.style.backgroundColor = "#FF4F4B";
-		removeButton.style.borderStyle = "none";
-		removeButton.style.cursor = "pointer";
-		removeButton.onclick = function(){table.deleteRow(lastRow); updateTotal(Total - (subPrice + totalTax)); updateSubTotal(SubTotal - subPrice); updateTaxes(Taxes - totalTax)};
-		
-		row.append(removeButton);
-		
-		table.appendChild(row);
+		addItem({'name': event.target.ItemName.value.charAt(0).toUpperCase() + event.target.ItemName.value.slice(1).toLowerCase(), 'quantity': Number(event.target.Quantity.value), 'cost': subPrice, 'totalTax': totalTax}, "none");
 		
 		updateTotal(Total + subPrice + totalTax);
 		updateSubTotal(SubTotal + subPrice);
@@ -66,9 +36,9 @@ class DisplayAddItemManually extends Component {
 		if(Number(quantity) == 0 || Number(quantity) == null || Number(itemName) == null){
 			calculated = 0;
 			
-			let priceDiv = document.getElementById("Price");
-		
+			let priceDiv = document.getElementById("IndividualPrice");
 			priceDiv.innerText = calculated.toFixed(2);
+			
 			return;
 		}
 		

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes} from './Variables.js';
+import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes, Checkout, addItem, removeItem, getIndex} from './Variables.js';
 
 var calculated = 0;
 class DisplayAddGas extends Component{	
@@ -18,36 +18,7 @@ class DisplayAddGas extends Component{
 		
 		var sub = (litres * 1.3);
 		
-		let table = document.getElementById("Checkout");
-		
-		let row = document.createElement("tr");
-		
-		let c1 = document.createElement("td");
-		let c2 = document.createElement("td");
-		let c3 = document.createElement("td");
-		
-		c1.innerText = litres.toFixed(2) + "L";
-		c2.innerText = "Propane Refill";
-		c3.innerText = "$" + sub.toFixed(2);
-		
-		row.appendChild(c1);
-		row.appendChild(c2);
-		row.appendChild(c3);
-		
-		var lastRow = table.rows.length;
-
-		let removeButton = document.createElement("button");
-		removeButton.className = "removeButton";
-		removeButton.innerText = 'X';
-		removeButton.style.fontWeight = "bold";
-		removeButton.style.color = "white";
-		removeButton.style.backgroundColor = "#FF4F4B";
-		removeButton.style.borderStyle = "none";
-		removeButton.style.cursor = "pointer";
-		removeButton.onclick = function(){table.deleteRow(lastRow); updateTotal(Total - (sub + totalTax)); updateSubTotal(SubTotal - sub); updateTaxes(Taxes - totalTax)};
-		row.append(removeButton);
-		
-		table.appendChild(row);
+		addItem({'name': 'Propane Refill', 'quantity': litres, 'cost': sub, 'totalTax': totalTax}, "none");
 		
 		updateTotal(Total + sub + totalTax);
 		updateSubTotal(SubTotal + sub);
