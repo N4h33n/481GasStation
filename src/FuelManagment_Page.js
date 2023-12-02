@@ -17,7 +17,7 @@ function FuelManagment_Page() {
 
 
   return (
-    <div className="App">
+    <body style={{height:"100%", backgroundImage: "url('/dashboard_bg.jpg')", backgroundSize:"cover" }}>
       <Sidebars />
       <div className="Fuel_Management">Fuel Managment</div>
       <div className="Best_Sellers">Best Sellers</div>
@@ -72,7 +72,7 @@ function FuelManagment_Page() {
 
   
 
-    </div>
+    </body>
   );
 }
 

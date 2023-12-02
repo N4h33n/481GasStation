@@ -19,9 +19,7 @@ const Sidebars = () => {
         </Sidebar>
         <main style={{display: 'flex', padding: 10 }}>
           <div>
-            <button className="sb-button" onClick={() => setToggled(!toggled)}> 
-              =
-            </button>
+			<img src={'/icons8-menu-50.png'} onClick={() => setToggled(!toggled)} class="img-hover" style={{cursor:'pointer'}}></img>
           </div>
         </main>
       </div>

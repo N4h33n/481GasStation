@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Pump_1, Pump_2, Pump_3, Pump_4, Pump_5, Pump_6, updatePump} from "./Variables.js";
+import {update} from "./PumpStatus.js"
 
 class DisplayEditPump extends Component{
 
@@ -35,32 +36,32 @@ class DisplayEditPump extends Component{
 							<div className="Pump_Selection">
 
 								<div className="pump1Div">
-									<input type="radio" id="pump1" name="Pump" value="pump1" />
+									<input type="radio" id="pump1" name="Pump" value="pump1" required/>
 									<label for="pump1">Pump 1 ({Pump_1})</label>
 								</div>
 								
 								<div className="pump2Div">
-									<input type="radio" id="pump2" name="Pump" value="pump2" />
+									<input type="radio" id="pump2" name="Pump" value="pump2" required/>
 									<label for="pump2">Pump 2 ({Pump_2})</label>
 								</div>
 								
 								<div className="pump3Div"> 
-									<input type="radio" id="pump3" name="Pump" value="pump3" />
+									<input type="radio" id="pump3" name="Pump" value="pump3" required/>
 									<label for="pump3">Pump 3 ({Pump_3})</label>
 								</div>
 								
 								<div className="pump4Div">
-									<input type="radio" id="pump4" name="Pump" value="pump4" />
+									<input type="radio" id="pump4" name="Pump" value="pump4" required/>
 									<label for="pump4">Pump 4 ({Pump_4})</label>
 								</div>
 								
 								<div className="pump5Div">
-									<input type="radio" id="pump5" name="Pump" value="pump5" />
+									<input type="radio" id="pump5" name="Pump" value="pump5" required/>
 									<label for="pump5">Pump 5 ({Pump_5})</label>
 								</div>
 								
 								<div className="pump6Div">
-									<input type="radio" id="pump6" name="Pump" value="pump6" />
+									<input type="radio" id="pump6" name="Pump" value="pump6" required/>
 									<label for="pump6">Pump 6 ({Pump_6})</label>
 								</div>
 							</div>
@@ -70,12 +71,12 @@ class DisplayEditPump extends Component{
 							<div className="Gas_Label">Status</div>
 							<div className="Gas_Selection">
 								<div className="RegularDiv">
-									<input type="radio" id="enable" name="Status" value="Available" />
+									<input type="radio" id="enable" name="Status" value="Available" required/>
 									<label for="enable">Enable</label>
 								</div>
 								
 								<div className="PremiumDiv">
-									<input type="radio" id="disable" name="Status" value="Out of Order" />
+									<input type="radio" id="disable" name="Status" value="Out of Order" required/>
 									<label for="disable">Disable</label>
 								</div>								
 							</div>

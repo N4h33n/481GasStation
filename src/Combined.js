@@ -103,6 +103,8 @@ class Combined extends Component{
 	updateCash(){
 		document.getElementById("Combined_Card_Button").style.border = "none";
 		document.getElementById("Combined_Cash_Button").style.border = "2px yellow solid";
+		document.getElementById("Combined_Cash_Button").disabled = true;
+		document.getElementById("Combined_Card_Button").disabled = false;
 		
 		var c1 = document.getElementById("CombinedAmount");
 		var c2 = document.getElementById("Combined_Terminal_Div");
@@ -206,6 +208,8 @@ class Combined extends Component{
 	updateCard(){
 		document.getElementById("Combined_Cash_Button").style.border = "none";
 		document.getElementById("Combined_Card_Button").style.border = "2px yellow solid";
+		document.getElementById("Combined_Cash_Button").disabled = false;
+		document.getElementById("Combined_Card_Button").disabled = true;
 		
 		let newButton = document.getElementById("Complete");
 		newButton.disabled = true;

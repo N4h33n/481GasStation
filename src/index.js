@@ -9,6 +9,7 @@ import PumpStatus from './PumpStatus';
 import FuelManagment_Page from './FuelManagment_Page';
 import Fuel_BarGraphs from './Fuel_BarGraphs';
 import UpdateFuel from './UpdateFuel';
+import Promotions from './Promotions';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function Page_Routing(){
@@ -21,6 +22,7 @@ export default function Page_Routing(){
 				<Route path="/FuelManagment_Page" element={<FuelManagment_Page />} />
 				<Route path="/Fuel_BarGraphs" element={<Fuel_BarGraphs />} />
 				<Route path="/UpdateFuel" element={<UpdateFuel />} />
+				<Route path="/Promotions" element={<Promotions />} />
 			</Routes>
 		</BrowserRouter>
 	);
