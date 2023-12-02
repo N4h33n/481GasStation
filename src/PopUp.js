@@ -48,7 +48,7 @@ UpdateFuel();
             >
               <div>
                 
-              <table>
+              <table className="Fuel_Table">
               
               <tr>
                 <th>Octane 87</th>
@@ -77,7 +77,7 @@ UpdateFuel();
               </tr>
               
               </table>
-              <div className='div2'>
+              <div className='Review_Button'>
               <button onClick={this.handleClick}>
                 Submit Update
             </button>
