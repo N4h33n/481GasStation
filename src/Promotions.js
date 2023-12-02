@@ -8,7 +8,7 @@ function Promotions() {
     const [addPromo, setAddPromo] = useState(false);
 
     return (
-        <div>
+        <body style={{height:"100%", backgroundImage: "url('/dashboard_bg.jpg')", backgroundSize:"cover" }}>
             <Sidebars/>
             <div className="dashboard">
                 <div className="header">
@@ -16,13 +16,14 @@ function Promotions() {
                     {/* <div>Logo</div> */}
                 </div>
                 <div className="buttons-group">
-                    <button className='dashboard-button' onClick={() => setEditPromo(true)}>Edit Promotions</button>
-                    <button className='dashboard-button' onClick={() => setAddPromo(true)}>Add Promotions</button>
+                    <button className='dashboard-button-clone' onClick={() => setEditPromo(true)}>Edit Promotions</button>
+                    <button className='dashboard-button-clone' onClick={() => setAddPromo(true)}>Add Promotions</button>
                 </div>
             </div>
             <div className='white'>
                 <div className="pump-status">
-                    <h2>Current Promotions</h2>
+                    <h2 style={{marginTop:"5%"}}>Current Promotions</h2>
+                    <hr className='rounded' style={{marginTop:'10px'}}></hr>
                     <div className="pumps-group">
                         <div className="pump">
                             10% off all candy
@@ -60,7 +61,7 @@ function Promotions() {
 
             <DisplayEditPromo isOpen={editPromo} onClose={() => setEditPromo(false)}></DisplayEditPromo>
             <DisplayAddPromo isOpen={addPromo} onClose={() => setAddPromo(false)}></DisplayAddPromo>
-        </div>
+        </body>
     );
 }
 

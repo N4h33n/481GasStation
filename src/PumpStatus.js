@@ -14,6 +14,7 @@ function PumpStatus() {
     return (
         <div className="pumpstatus">
             <h2>Pump Status</h2>
+            <hr class="rounded"></hr>
             <div className="pumps-group">
                 {pumps.map(pump => (
                     <div key={pump.number} className="pump">
