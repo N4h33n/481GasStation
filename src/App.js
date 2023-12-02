@@ -96,33 +96,24 @@ function App() {
 			<div className="navbar"></div>
 
 			<div className="MainBody">
-				<div id="hint" className="checkoutHint">?
-					<span id="tooltip" className="checkoutToolTip">
-						To continue, scan items or click a button on the right of the checkout.
-					</span>
+				<div className="TopDiv">
+					<div className="CheckoutLabel">
+						<h1>Checkout</h1>
+						<div className="testHint">?
+							<span className="testToolTip">
+							Begin by either scanning an item or clicking any side button.
+							</span>
+						</div>
+					</div>
 				</div>
-				<div id="hint" className="gasHint">?
-					<span id="tooltip" className="gasToolTip">
-						Click this to add gas to the checkout.
-					</span>
-				</div>
-				<div id="hint" className="propaneHint">?
-					<span id="tooltip" className="propaneToolTip">
-						Click this to add propane to the checkout.
-					</span>
-				</div>
-				<div id="hint" className="discountHint">?
-					<span id="tooltip" className="discountToolTip">
-						Click this to scan a customer's discount and apply it to checkout.
-					</span>
-				</div>
+				
+				<div className="MiddleDiv">
 
-				<button className="AddManualItem" onClick={() => setTenthState(true)}>Add Item Manually</button>
-
-				<div className="div1">CHECKOUT</div>
+				</div>
 				
 				<div className="CheckoutDiv">
 					<div className="TableDiv">
+						<button className="AddManualItem" onClick={() => setTenthState(true)}>Add Item Manually</button>
 						<div className="CheckoutTable">
 							<table id="Checkout" className="Checkout">
 								<thead>
@@ -137,33 +128,50 @@ function App() {
 						</div>
 						
 						<div className="TotalTable">
-
 							
 							<div className="SubTotalLabel">Subtotal</div>
 							<div id="SubTotalCost" className="SubTotalCost">$0.00</div>
 						
-						
-						
 							<div className="TaxesLabel">Taxes</div>
 							<div id="TaxesCost" className="TaxesCost">$0.00</div>
-						
-						
 						
 							<div className="TotalLabel">Total</div>
 							<div id="TotalCost" className="TotalCost">$0.00</div>
 						</div>
 					</div>
 
-					<div className="div2">
-						<button className="AddGas" onClick={() => setFirstState(true)}>Add Gas</button>
-						<button className="AddPropane" onClick={() => setSecondState(true)}>Add Propane</button>
-						<button className="ApplyDiscount" onClick={() => setThirdState(true)}>Apply Discount</button>
+					<div className="SideButtonDiv">
+						<button className="AddGas" onClick={() => setFirstState(true)}>Add Gas
+							<div className="testHint">?
+								<span className="testToolTip">
+								Click this to add gasoline to the checkout.
+								</span>
+							</div>
+						</button>
+						<button className="AddPropane" onClick={() => setSecondState(true)}>Add Propane
+						<div className="testHint">?
+								<span className="testToolTip">
+									Click this to add propane to the checkout.
+								</span>
+							</div>
+						</button>
+						<button className="ApplyDiscount" onClick={() => setThirdState(true)}>Apply Discount
+							<div className="testHint">?
+								<span className="testToolTip">
+									Click this to scan a customer's discount and apply it to checkout.
+								</span>
+							</div>
+						</button>
 					</div>
+				</div>
+
+				<div className="BeginPaymentDiv">
+					<button className="BeginPayment" onClick={() => {setFifthState(true)}}>Begin Payment</button>
+
 				</div>
 			</div>
 
-			<button className="BeginPayment" onClick={() => {setFifthState(true)}}>Begin Payment</button>
-
+			
 			<DisplayAddItemManually isOpen={tenthState} onClose={() => setTenthState(false)}/>
 			
 			<DisplayAddGas isOpen={firstState} onClose={() => setFirstState(false)}/>

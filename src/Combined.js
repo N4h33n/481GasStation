@@ -101,21 +101,25 @@ class Combined extends Component{
 	}
 	
 	updateCash(){
+		var cashButton = document.getElementById("Combined_Cash_Button");
 		document.getElementById("Combined_Card_Button").style.border = "none";
-		document.getElementById("Combined_Cash_Button").style.border = "2px yellow solid";
-		document.getElementById("Combined_Cash_Button").disabled = true;
+		cashButton.style.border = "2px yellow solid";
+		cashButton.disabled = true;
 		document.getElementById("Combined_Card_Button").disabled = false;
-		
+
 		var c1 = document.getElementById("CombinedAmount");
 		var c2 = document.getElementById("Combined_Terminal_Div");
 		
+
 		if(c1 != null){
 			c1.remove();
 			c2.remove();
 			window.removeEventListener('keypress', keyPressFunction, true);
 		}
 		
-		let overall = document.getElementById("Combined");
+		// let overall = document.getElementById("Combined");
+
+		let cformDiv = document.getElementById("cformDiv");
 		
 		let total = document.getElementById("CombinedTotalCost");
 		
@@ -123,7 +127,6 @@ class Combined extends Component{
 		form.id = "cform";
 		
 		let d1 = document.createElement("div");
-		
 		d1.className = "CombinedAmount";
 		d1.innerText = total.innerText + " due";
 		
@@ -132,7 +135,9 @@ class Combined extends Component{
 		d2.innerText = "Cash Received: $";
 		
 		let d3 = document.createElement("input");
-		d3.type = "text";
+		d3.type = "number";
+		d3.min = "0.01";
+		d3.step = "0.01";
 		d3.id = "Cash";
 		d3.name = "Cash";
 		d3.addEventListener('input', function (evt){
@@ -151,11 +156,13 @@ class Combined extends Component{
 				changeDiv.innerText = calculated.toFixed(2);
 				
 				let printButton = document.getElementById("Combined_Print_Receipt");
-				printButton.disabled = false;
+				printButton.disabled = true;
+				printButton.style.borderStyle = "none";
 				printButton.style.background = "#808080";
 				
 				let noButton = document.getElementById("Combined_No_Receipt");
-				noButton.disabled = false;
+				noButton.disabled = true;
+				noButton.style.borderStyle = "none";
 				noButton.style.background = "#808080";
 				
 				return;
@@ -197,19 +204,18 @@ class Combined extends Component{
 		d5.appendChild(d6);
 		d5.appendChild(d7);
 		
-		
 		form.appendChild(d1);
 		form.appendChild(d4);
 		form.appendChild(d5);
 		
-		overall.appendChild(form);
+		cformDiv.appendChild(form);
 	}
 	
 	updateCard(){
 		document.getElementById("Combined_Cash_Button").style.border = "none";
-		document.getElementById("Combined_Card_Button").style.border = "2px yellow solid";
 		document.getElementById("Combined_Cash_Button").disabled = false;
-		document.getElementById("Combined_Card_Button").disabled = true;
+		document.getElementById("Combined_Card_Button").disabled = true; 
+		document.getElementById("Combined_Card_Button").style.border = "2px yellow solid";
 		
 		let newButton = document.getElementById("Complete");
 		newButton.disabled = true;
@@ -231,6 +237,8 @@ class Combined extends Component{
 		}
 		
 		let overall = document.getElementById("Combined");
+
+		let cformDiv = document.getElementById("cformDiv");
 		
 		let total = document.getElementById("CombinedTotalCost");
 		
@@ -246,8 +254,8 @@ class Combined extends Component{
 		d3.tabindex = -1;
 		window.addEventListener('keypress', keyPressFunction,true);
 		
-		overall.appendChild(d2);
-		overall.appendChild(d3);
+		cformDiv.appendChild(d2);
+		cformDiv.appendChild(d3);
 	}
 	
 	updateReceipt(a){
@@ -283,51 +291,60 @@ class Combined extends Component{
 	render(){
 		let dialog = (
 			<div className="overlay">
-				<div className="Combined" id="Combined">
-					<div className="Combined_Buttons">
-						<button className="Complete" id="Complete" onClick={() => {this.props.onClose(); this.fixCheckout(); clearCheckout()}}>Complete</button>
-						<button id="Cancel" className="Cancel" onClick={() => {this.props.onClose(); window.removeEventListener('keypress', keyPressFunction, true);}}>Back</button>
-					</div>
-					<div className="AddGas_Div">PAYMENT</div>
-					<div className="Combined_Title" id="Combined_Title">Transaction Details</div>
-					
-					<div className="Combined_Payment_Buttons">
-						<button id="Combined_Cash_Button" className="Combined_Cash_Button" onClick={this.updateCash}>Cash</button>
-						<button id="Combined_Card_Button" className="Combined_Card_Button" onClick={this.updateCard}>Debit/Credit Card</button>
-					</div>
-					
-					<div className="Combined_Receipt_Options">
-						<button id="Combined_Print_Receipt" className="Combined_Print_Receipt" onClick={() => {this.updateReceipt("Combined_Print_Receipt");}}>Print Receipt</button>
-						<button id="Combined_No_Receipt" className="Combined_No_Receipt" onClick={() => {this.updateReceipt("Combined_No_Receipt");}}>No Receipt</button>
-					</div>
-					
-					
-					<div className="CombinedCheckoutDiv">
-						<div className="TableDiv">
-							<div className="CombinedCheckoutTable">
-								<table id="CombinedCheckout" className="CombinedCheckout">
-									<thead>
-										<tr className='HeaderRow'>
-											<th className="CombinedQuantity">Quantity</th>
-											<th className="CombinedItem">Item</th>
-											<th className="CombinedCost">Cost</th>
-										</tr>
-									</thead>
-								</table>
-							</div>
-							
-							<div className="CombinedTotalTable">
-								
-								<div className="CombinedSubTotalLabel">Subtotal</div>
-								<div id="CombinedSubTotalCost" className="CombinedSubTotalCost">$0.00</div>
-							
-								<div className="CombinedTaxesLabel">Taxes</div>
-								<div id="CombinedTaxesCost" className="CombinedTaxesCost">$0.00</div>
 
-								<div className="CombinedTotalLabel">Total</div>
-								<div id="CombinedTotalCost" className="CombinedTotalCost">$0.00</div>
+				<div className="Combined" id="Combined">
+
+					<div className="AddGas_Div">PAYMENT</div>
+					
+					<div className="Combined_Middle_Div">
+
+						<div className="CombinedCheckoutDiv">
+							<div className="Combined_Title" id="Combined_Title">Transaction Details</div>
+							<div className="TableDiv">
+								<div className="CombinedCheckoutTable">
+									<table id="CombinedCheckout" className="CombinedCheckout">
+										<thead>
+											<tr className='HeaderRow'>
+												<th className="CombinedQuantity">Quantity</th>
+												<th className="CombinedItem">Item</th>
+												<th className="CombinedCost">Cost</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								
+								<div className="CombinedTotalTable">
+									
+									<div className="CombinedSubTotalLabel">Subtotal</div>
+									<div id="CombinedSubTotalCost" className="CombinedSubTotalCost">$0.00</div>
+								
+									<div className="CombinedTaxesLabel">Taxes</div>
+									<div id="CombinedTaxesCost" className="CombinedTaxesCost">$0.00</div>
+
+									<div className="CombinedTotalLabel">Total</div>
+									<div id="CombinedTotalCost" className="CombinedTotalCost">$0.00</div>
+								</div>
 							</div>
 						</div>
+
+						<div className="Combined_Side_Buttons" id="Combined_Side_Buttons">
+							<div className="Combined_Payment_Buttons">
+								<button id="Combined_Cash_Button" className="Combined_Cash_Button" onClick={this.updateCash}>Cash</button>
+								<button id="Combined_Card_Button" className="Combined_Card_Button" onClick={this.updateCard}>Debit/Credit Card</button>
+							</div>
+							
+							<div id="cformDiv" className="cformDiv"></div>
+
+							<div className="Combined_Receipt_Options">
+								<button id="Combined_Print_Receipt" className="Combined_Print_Receipt" onClick={() => {this.updateReceipt("Combined_Print_Receipt");}}>Print Receipt</button>
+								<button id="Combined_No_Receipt" className="Combined_No_Receipt" onClick={() => {this.updateReceipt("Combined_No_Receipt");}}>No Receipt</button>
+							</div>
+						</div>
+					</div>
+
+					<div className="Combined_Buttons">
+						<button className="Complete" id="Complete" onClick={() => {this.props.onClose(); this.fixCheckout(); clearCheckout(); document.getElementById("Combined_Cash_Button").disabled = false;}}>Complete</button>
+						<button id="Cancel" className="Cancel" onClick={() => {this.props.onClose(); window.removeEventListener('keypress', keyPressFunction, true); document.getElementById("Combined_Cash_Button").disabled = false}}>Back</button>
 					</div>
 					
 				</div>

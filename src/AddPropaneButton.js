@@ -61,26 +61,27 @@ class DisplayAddGas extends Component{
 			<div className="overlay">
 				<form onSubmit={this.AddPropane} id="pform">
 					<div className="GasDialog">
-						<div className="Complete_Cancel_Div">
-							<button type="submit" className="Complete">Add</button>
-							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
-						</div>
 						
 						<div className="AddGas_Div">ADD PROPANE</div>
 						
 						<div className="Initial_Div">
 							<label for="Initial">Initial Weight (KG): </label>
-							<input type="text" id="Initial" name="Initial" placeholder="Eg. 60 or 60.00" onChange={this.updatePrice}/>
+							<input type="number" id="Initial" name="Initial" placeholder="Eg. 60 or 60.00" min="0.01" step="0.01" autoComplete = "off" onChange={this.updatePrice}/>
 						</div>
 							
 						<div className="Final_Div">	
 							<label for="Final">Final Weight (KG): </label>
-							<input type="text" id="Final" name="Final" placeholder="Eg. 60 or 60.00" onChange={this.updatePrice}/>
+							<input type="number" id="Final" name="Final" placeholder="Eg. 60 or 60.00" min="0.01" step="0.01" autoComplete = "off" onChange={this.updatePrice}/>
 						</div>
 						
 						<div className="Calculated_Div">
-							<div>Calculated Price: $</div>
+							<div className="CalculatedPriceLabel">Calculated Price: $</div>
 							<div id="Price" className="Price"></div>
+						</div>
+
+						<div className="Complete_Cancel_Div">
+							<button type="submit" className="Complete">Add</button>
+							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
 						</div>
 					</div>
 				</form>

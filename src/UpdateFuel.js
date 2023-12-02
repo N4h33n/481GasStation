@@ -23,6 +23,15 @@ function UpdateFuel() {
     const [Diesel_t, setDiesel_t] = useState(0);
     const [Propane_t, setPropane_t] = useState(0);
     
+    const Refresh = () => {
+        setFirstState(false);
+        setOctane87_t(0);
+        setOctane89_t(0);
+        setOctane93_t(0);
+        setDiesel_t(0);
+        setPropane_t(0);
+    };
+
     const Final_Call = () => {
         setFirstState(true);
         setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
@@ -93,15 +102,12 @@ function UpdateFuel() {
 
         if(isNaN(int)){
             
-            if((Octane87-Octane87_t) >= 1){
                 setOctane87_t(Octane87_t);
-            }
             
         }
         else{
-            if((Octane87-Octane87_t) >= 1){
                 setOctane87_t(int);
-                }
+                
         }
         setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
@@ -260,7 +266,7 @@ function UpdateFuel() {
 	// Octane93_P = Octane93_t,
 	// Diesel_P = Diesel_t,
 	// Propane_P = Propane_t,
-	<PopUp isOpen={firstState} onClose={() => setFirstState(false)}></PopUp>
+	<PopUp isOpen={firstState} onClose={Refresh}></PopUp>
 	// ,Octane87_t = Octane87_P,
 	// Octane89_t = Octane89_P,
 	// Octane93_t = Octane93_P,
