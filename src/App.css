@@ -217,6 +217,74 @@ button {
 	justify-content: space-between;
 }
 
+.div3{
+	display: inline-block;
+	position: relative;  
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: bold;
+  top: 20px;
+	right: 400px;
+
+}
+
+.div4{
+	display: inline-block;
+	position: relative;  
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: bold;
+  top: 200px;
+	right: 700px;
+
+}
+
+.div5{
+	display: flex;
+	  flex: 1;
+	  flex-direction: column;
+	background-color: white;
+	
+	  width: 100%;
+	  font-size: 20px;
+	  font-weight: bold;
+	  color: rgb(89, 170, 236);
+	margin-right: 200px;
+  
+	padding: 40px 10px; /* Adjust padding for size */
+	padding-left: 8rem;
+	line-height:19px;
+	padding-bottom:20px;
+	text-align: left;
+	  justify-content: space-between;
+  }
+  
+  .trend{
+	display: flex;
+	  flex: 1;
+	  flex-direction: column;
+	margin-right: 200px;
+	padding: 40px 10px; /* Adjust padding for size */
+	padding-left: 80rem;
+	position:absolute;
+	top: 200px;
+	right:9;
+	  justify-content: space-between;
+  }
+  
+  .trend button{
+	background-color: rgba(16, 13, 98, 0.248);
+	color: rgb(89, 170, 236);
+	border: 0 none;
+	border-radius: 10px;
+	height: 30px;
+	width: 200px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	
+  }
+
 .TableDiv{
 	flex: 3;
 	display:flex;
@@ -465,8 +533,8 @@ tr{
 	justify-content: space-evenly;
 }
 
-.Quantity_Div {
-}
+/* .Quantity_Div {
+} */
 
 .AddGas_Div{
 	font-size: 20px;

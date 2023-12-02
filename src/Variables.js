@@ -3,6 +3,20 @@ var checkoutPumps = [];
 var Total = 0;
 var SubTotal = 0;
 var Taxes = 0;
+// Fuel Inventory
+var Octane87 = 36000;
+var Octane89 = 18000;
+var Octane93 = 29000;
+var Diesel = 30000;
+var Propane = 6000;
+
+var Octane87_P = 0;
+var Octane89_P = 0;
+var Octane93_P = 0;
+var Diesel_P = 0;
+var Propane_P = 0;
+
+// Pump Variable
 var Pump_1 = "Available";
 var Pump_2 = "Available";
 var Pump_3 = "In Use";
@@ -15,6 +29,7 @@ var Pump_3_color = "yellow";
 var Pump_4_color = "green";
 var Pump_5_color = "red";
 var Pump_6_color = "green";
+
 var showDiscountDialog = true;
 var showCardDialog = true;
 var showCashDialog = true;
@@ -22,6 +37,54 @@ var showReceiptOptions = true;
 var time = [];
 var time2 = [];
 var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
+
+
+function setFuel_P(a,b,c,d,e){
+ Octane87_P = a;
+ Octane89_P = b;
+ Octane93_P = c;
+ Diesel_P = d;
+ Propane_P = e;
+}
+
+function UpdateFuel(Fuel, b){
+// a is base (Octane87)
+// p is remove or add (Octane87_P)
+
+	Octane87 = Octane87 + Octane87_P;
+	if(Octane87 <= 0){
+		Octane87 = 0;
+	}
+	Octane87_P = 0;
+
+	Octane89 = Octane89 + Octane87_P;
+	Octane89_P = 0;
+	if(Octane89 <= 0){
+		Octane89 = 0;
+	}
+
+
+	Octane93 = Octane93 + Octane93_P;
+	Octane93_P = 0;
+	if(Octane93 <= 0){
+		Octane93 = 0;
+	}
+
+	Diesel = Diesel + Diesel_P;
+	Diesel_P = 0;
+	if(Diesel <= 0){
+		Diesel = 0;
+	}
+
+	Propane = Propane + Propane_P;
+	Propane_P = 0;
+	if(Propane <= 0){
+		Propane = 0;
+	}
+
+
+}
+
 
 function addItem(a, b){
 	let check = false;
@@ -302,6 +365,16 @@ export {
 	Total,
 	SubTotal,
 	Taxes,
+	Octane87,
+	Octane89,
+	Octane93,
+	Diesel,
+ 	Propane,
+	Octane87_P,
+	Octane89_P,
+	Octane93_P,
+	Diesel_P,
+	Propane_P,
 	Pump_1,
 	Pump_2,
 	Pump_3,
@@ -316,6 +389,8 @@ export {
 	Pump_6_color,
 	time,
 	time2,
+	setFuel_P,
+	UpdateFuel,
 	addItem,
 	removeItem,
 	getIndex,

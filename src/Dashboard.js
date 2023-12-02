@@ -13,7 +13,7 @@ function Dashboard() {
                     {/* <div>Logo</div> */}
                 </div>
                 <div className="buttons-group">
-                    <button className='dashboard-button'>Fuel Management</button>
+                    <Link to="/FuelManagment_Page" className='dashboard-button'>Fuel Management</Link> 
                     <button className='dashboard-button'>Inventory Management</button>
                     <Link to="PumpManagement" className='dashboard-button'>Pump Management</Link>
                 </div>
