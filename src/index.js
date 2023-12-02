@@ -6,11 +6,12 @@ import Dashboard from './Dashboard';
 import Sidebars from './Sidebars';
 import PumpManagement from './PumpManagement';
 import PumpStatus from './PumpStatus';
+import Promotions from './Promotions';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PumpManagement/>
+    <Promotions/>
   </React.StrictMode>
 );
 
