@@ -3,10 +3,6 @@ var checkoutPumps = [];
 var Total = 0;
 var SubTotal = 0;
 var Taxes = 0;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 // Fuel Inventory
 var Octane87 = 36000;
 var Octane89 = 18000;
@@ -20,10 +16,6 @@ var Octane93_P = 0;
 var Diesel_P = 0;
 var Propane_P = 0;
 
-<<<<<<< HEAD
-// Pump Variable
-=======
->>>>>>> origin/master
 var Pump_1 = "Available";
 var Pump_2 = "Available";
 var Pump_3 = "In Use";
@@ -45,10 +37,6 @@ var time = [];
 var time2 = [];
 var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 function setFuel_P(a,b,c,d,e){
  Octane87_P = a;
  Octane89_P = b;
@@ -91,16 +79,8 @@ function UpdateFuel(Fuel, b){
 	if(Propane <= 0){
 		Propane = 0;
 	}
-<<<<<<< HEAD
-
-
 }
 
-
-=======
-}
-
->>>>>>> origin/master
 function addItem(a, b){
 	let check = false;
 	
