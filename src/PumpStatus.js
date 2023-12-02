@@ -12,7 +12,7 @@ function PumpStatus() {
     ];
 
     return (
-        <div className="pump-status">
+        <div className="pumpstatus">
             <h2>Pump Status</h2>
             <div className="pumps-group">
                 {pumps.map(pump => (

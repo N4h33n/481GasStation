@@ -1,4 +1,5 @@
 var Checkout = [];
+var checkoutPumps = [];
 var Total = 0;
 var SubTotal = 0;
 var Taxes = 0;
@@ -20,6 +21,172 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
+var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
+
+function addItem(a, b){
+	let check = false;
+	
+	if(b != "none"){
+		for(let i = 0; i < checkoutPumps.length; i++){
+			if(checkoutPumps[i] == b){
+				check = true;
+			}
+		}
+		if(check == false){
+			checkoutPumps.push(b);
+		}
+	}
+	
+	for(let i = 0; i < Checkout.length; i++){
+		if(Checkout[i].name == a.name){
+			Checkout[i].quantity += Number(a.quantity);
+			Checkout[i].cost += a.cost;
+			Checkout[i].totalTax += a.totalTax;
+			
+			let table = document.getElementById("Checkout");
+		
+			let row = table.rows[i+1];
+			
+			let c1 = row.cells[0];
+			let c2 = row.cells[2];
+			
+			c1.innerText = Checkout[i].quantity.toFixed(2);
+			c2.innerText = "$" + Checkout[i].cost.toFixed(2);
+			
+			return;
+		}
+	}
+	
+	Checkout.push(a);
+	
+	let table = document.getElementById("Checkout");
+	
+	let row = document.createElement("tr");
+	
+	let c1 = document.createElement("td");
+	let c2 = document.createElement("td");
+	let c3 = document.createElement("td");
+	
+	c1.innerText = a.quantity.toFixed(2);
+	c2.innerText = a.name;
+	c3.innerText = "$" + a.cost.toFixed(2);
+
+	c1.style.paddingLeft = "10px";
+	
+	row.appendChild(c1);
+	row.appendChild(c2);
+	row.appendChild(c3);
+	
+	let removeButton = document.createElement("button");
+	removeButton.className = "removeButton";
+	removeButton.innerText = 'X';
+	removeButton.style.fontWeight = "bold";
+	removeButton.style.color = "white";
+	removeButton.style.backgroundColor = "#FF4F4B";
+	removeButton.style.borderStyle = "none";
+	removeButton.style.cursor = "pointer";
+	removeButton.onclick = function(){
+		let index = getIndex(a.name);
+		table.deleteRow(index + 1);
+		updateTotal(Total - (Checkout[index].cost + Checkout[index].totalTax)); 
+		updateSubTotal(SubTotal - Checkout[index].cost); 
+		updateTaxes(Taxes - Checkout[index].totalTax)
+		removeItem(index);
+	};
+	
+	row.append(removeButton);
+	
+	table.appendChild(row);
+}
+
+function clearCheckout(){
+	for(let i = 0; i < checkoutPumps.length; i++){
+		updatePump(checkoutPumps[i], "In Use", "yellow");
+	}
+	checkoutPumps.splice(0, checkoutPumps.length);
+	Checkout.splice(0, Checkout.length);
+	Total = 0;
+	SubTotal = 0;
+	Taxes = 0;
+}
+
+function applyDiscount(a, b, c, d){
+	if(a == 1){
+		for(let i = 0; i < Checkout.length; i++){
+			if(Checkout[i].name == d && Checkout[i].quantity >= b){
+				updateTotal(Total - Checkout[i].cost);
+				updateSubTotal(SubTotal - Checkout[i].cost);
+				
+				var pricePer = Checkout[i].cost/Checkout[i].quantity;
+				var newSub = (Checkout[i].quantity - b) * pricePer + 10;
+				Checkout[i].cost = newSub;
+				
+				let table = document.getElementById("Checkout");
+		
+				let row = table.rows[i+1];
+				
+				let c1 = row.cells[1];
+				let c2 = row.cells[2];
+				
+				c1.innerHTML = c1.innerText + " " + '<span style="color: gray;font-style:italic">' + c + '</span>';
+				
+				c2.innerHTML = '<span style="text-decoration:line-through">' + c2.innerText + '</span>' + '<br>' + '<span style="color: red">' + "$" + newSub.toFixed(2) + '</span>';
+				
+				updateTotal(Total + newSub);
+				updateSubTotal(SubTotal + newSub);
+				
+				return true;
+			}
+		}
+	}
+	
+	if(a == 2){
+		for(let i = 0; i < Checkout.length; i++){
+			if(Checkout[i].name == d && Checkout[i].quantity > b){
+				updateTotal(Total - Checkout[i].cost);
+				updateSubTotal(SubTotal - Checkout[i].cost);
+				
+				var pricePer = Checkout[i].cost/Checkout[i].quantity;
+				var newSub = Checkout[i].cost - pricePer;
+				Checkout[i].cost = newSub;
+				
+				let table = document.getElementById("Checkout");
+		
+				let row = table.rows[i+1];
+				
+				let c1 = row.cells[1];
+				let c2 = row.cells[2];
+				
+				c1.innerHTML = c1.innerText + " " + '<span style="color: gray;font-style:italic">' + c + '</span>';
+				
+				c2.innerHTML = '<span style="text-decoration:line-through">' + c2.innerText + '</span>' + '<br>' + '<span style="color: red">' + "$" + newSub.toFixed(2) + '</span>';
+				
+				updateTotal(Total + newSub);
+				updateSubTotal(SubTotal + newSub);
+				
+				return true;
+			}
+		}
+	}
+	
+	if(a == 5){
+		addItem({'name': c, 'quantity': 1, 'cost': -(SubTotal * 0.10), 'totalTax': 0}, "none");
+		updateTotal(Total - (SubTotal * 0.10));
+		updateSubTotal(SubTotal - (SubTotal * 0.10));
+	}
+}
+
+function removeItem(a){
+	Checkout.splice(a, 1);
+}
+
+function getIndex(a){
+	for(let i = 0; i < Checkout.length; i++){
+		if(a == Checkout[i].name){
+			return i;
+		}
+	}
+}
 
 function updatePump(pump, status, color){
 	if (pump === "pump1"){
@@ -50,14 +217,36 @@ function updatePump(pump, status, color){
 
 function updateTotal(a){
 	Total = a;
+	
+	let table4 = document.getElementById("Total");
+	
+	let column3 = document.getElementById("TotalCost");
+	
+	column3.innerText = "$" + Math.abs(Total).toFixed(2);
 }
 
 function updateSubTotal(a){
 	SubTotal = a;
+	
+	let table2 = document.getElementById("SubTotal");
+
+	let column = document.getElementById("SubTotalCost");
+	
+	column.innerText = "$" + Math.abs(SubTotal).toFixed(2);
 }
 
 function updateTaxes(a){
 	Taxes = a;
+	
+	let table3 = document.getElementById("Taxes");
+	
+	let column2 = document.getElementById("TaxesCost");
+	
+	column2.innerText = "$" + Math.abs(Taxes).toFixed(2);
+}
+
+function updateChange(){
+	
 }
 
 function updateDiscountDialog(a){
@@ -127,6 +316,9 @@ export {
 	Pump_6_color,
 	time,
 	time2,
+	addItem,
+	removeItem,
+	getIndex,
 	showDiscountDialog,
 	showCardDialog,
 	showCashDialog,
@@ -143,5 +335,9 @@ export {
 	setTime2,
 	remTime2,
 	propaneInCheckout,
-	updatePump
+	inventory,
+	updatePump,
+	clearCheckout,
+	applyDiscount,
+	updateChange
 }
