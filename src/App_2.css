@@ -1,34 +1,33 @@
 .App {
 	text-align: center;
-	
-  }
-  body {
-	  background-color: rgb(233, 233, 233);
-  }
-  .sidebar {
-	  width: 250px;
-	  background-color: #333;
-	  color: #fff;
-	  padding: 20px;
-  }
-  
-  table {
+}
+body {
+	background-color: rgb(233, 233, 233);
+}
+.sidebar {
+	width: 250px;
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+}
+
+.Fuel_Table{
 	width: 800px;
 	height: 200px;
 	padding-left: rem;
-  }
-  
-  th {
+}
+
+.Fuel_Table th {
 	border-bottom: 1px solid black;
 	color:rgb(89, 170, 236);
-  }
-  
-  td {
+}
+
+.Fuel_Table td {
 	text-align: center;
 	border-bottom: 1px solid black;
-  }
-  
-  .button {
+}
+
+.button {
 	border: none;
 	color:rgb(89, 170, 236);
 	padding: 15px 32px;
@@ -37,37 +36,37 @@
 	display: inline-block;
 	font-size: 16px;
 	cursor: pointer;
-  }
-  
-  
-  .div6{
-	  background-color: white;
+}
+
+
+.Fuel_Div{
+	background-color: white;
 	text-decoration: none;
-	  color: #fff;
+	color: #fff;
 	font-size: 20px;
-	  font-weight: bold;
-	  color: rgb(89, 170, 236);
-	  padding: 20px;
-  }
-  
-  .div6 table{
-	
-  width: 100%;
-  }
-  
-  .X_Button{
-	  display: inline-block;
-	  position: absolute;
-	  width: 20px;
-	  height: 20px;
-	  left: 95%;
-	  text-align: center;
-	  border-radius: 50%;
-	  border: 1px solid black;
-  }
-  
-  
-  .div6 button{
+	font-weight: bold;
+	color: rgb(89, 170, 236);
+	padding: 20px;
+}
+
+.Fuel_Div table{
+
+	width: 100%;
+}
+
+.X_Button{
+	display: inline-block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 95%;
+	text-align: center;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+
+.Fuel_Div button{
 	background-color: rgba(16, 13, 98, 0.248);
 	color: rgb(89, 170, 236);
 	border: 0 none;
@@ -77,77 +76,77 @@
 	font-size: 20px;
 	font-weight: bold;
 	cursor: pointer;
-  }
-  
-  .div3{
-	  display: inline-block;
-	  position: relative;  
-	  font-size: 30px;
-	  font-family: Arial;
-	  font-weight: bold;
+}
+
+.Fuel_Management{
+	display: inline-block;
+	position: relative;  
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: bold;
 	top: 20px;
-	  right: 400px;
-  
-  }
-  
-  .rectangle {
+	right: 400px;
+
+}
+
+.rectangle {
 	display: inline-block;
 	width: 300px;
 	height: 20px;
 	background: white ;
 	border: #333;
 	top: 5px;
-	  right: 550px;
-  }
-  
-  .search{
+	right: 550px;
+}
+
+.search{
 	/* display: inline-block; */
 	position: absolute;
 	width: 300px;
 	height: 20px;
-	
+
 	border: #333;
 	top: 50px;
-	  right: 20px;
-	
-  }
-  
-  .corner{
-	  display: inline-block;
-	  position: relative;  
-	  font-size: 30px;
-	  font-family: Arial;
-	  font-weight: bold;
+	right: 20px;
+
+}
+
+.corner{
+	display: inline-block;
+	position: relative;  
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: bold;
 	top: 0px;
-	  left: 100px;
-  
-  }
-  
-  button {
-	  cursor: pointer;
-  }
-  
-  .chart-size{
+	left: 100px;
+
+}
+
+button {
+	cursor: pointer;
+}
+
+.chart-size{
 	position: relative;
 	width: 90vw;
 	height: 90vh;
-  }
-  
-  
-  .trend{
+}
+
+
+.trend{
 	display: flex;
-	  flex: 1;
-	  flex-direction: column;
+	flex: 1;
+	flex-direction: column;
 	margin-right: 12.5rem;
 	padding: 2.5rem .2rem; /* Adjust padding for size */
 	padding-left: 80rem;
 	position:absolute;
 	top: 14.2rem;
 	right:9;
-	  justify-content: space-between;
-  }
-  
-  .trend button{
+	justify-content: space-between;
+}
+
+.trend button{
 	background-color: rgba(16, 13, 98, 0.248);
 	color: rgb(89, 170, 236);
 	border: 0 none;
@@ -157,97 +156,83 @@
 	font-size: 1.25rem;
 	font-weight: bold;
 	cursor: pointer;
-	
-  }
-  
-  .div5{
+
+}
+
+.Best_Sellers_Div{
 	display: flex;
-	  flex: 1;
-	  flex-direction: column;
+	flex: 1;
+	flex-direction: column;
 	background-color: white;
-	
-	  width: 100%;
-	  font-size: 1.25rem;
-	  font-weight: bold;
-	  color: rgb(89, 170, 236);
+
+	width: 100%;
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: rgb(89, 170, 236);
 	margin-right: 12.5rem;
-  
+
 	padding: 2rem 0.625rem; /* Adjust padding for size */
 	padding-left: 3rem;
 	line-height: 1rem;
 	padding: bottom 1.25rem;;
 	text-align: left;
 	justify-content: space-between;
-  }
-  
-  .th{
-	color: rgb(89, 170, 236);
-  }
-  
-  .div2{
-	  display: flex;
-	  flex: 1;
-	  flex-direction: row;
+}
+
+
+.Review_Button{
+	display: flex;
+	flex: 1;
+	flex-direction: row;
 	margin-right: 200px;
 	padding: 40px 10px; /* Adjust padding for size */
 	padding-left: 7rem;
-	  justify-content: space-between;
-  }
-  
-  .div2 button {
-	  background-color: white;
-	  color: rgb(89, 170, 236);
-	  border: 0 none;
-	  border-radius: 10px;
+	justify-content: space-between;
+}
+
+.Review_Button button {
+	background-color: white;
+	color: rgb(89, 170, 236);
+	border: 0 none;
+	border-radius: 10px;
 	height: 70px;
-	  width: 200px;
-	  font-size: 20px;
-	  font-weight: bold;
-	  cursor: pointer;
-  }
-  
-  
-  .div4{
-	  display: inline-block;
-	  position: relative;  
-	  font-size: 30px;
-	  font-family: Arial;
-	  font-weight: bold;
+	width: 200px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+.Best_Sellers{
+	display: inline-block;
+	position: relative;  
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: bold;
 	top: 200px;
-	  right: 700px;
-  
-  }
-  
-  .div7{
-	  display: inline-block;
-	  position: relative;  
-	  font-size: 30px;
-	  font-family: Arial;
-	  font-weight: bold;
-	top: 200px;
-	  right: 630px;
-  
-  }
-  
-  .btn-group{
+	right: 700px;
+
+}
+
+.btn-group{
 	display:inline-block;
 	position: corner;
 
-	
+
 	margin-left: 4rem;
 	margin-top: 1rem;
-  }
-  
-  .Inventory_Buttons{
-	  display:inline-block;
-	  position: relative;
-	  height: 200px;
-	  width: 100px;
-	  top: 25%;
-	  left: 35%;
-  }
-  
-  .App-header {
+}
+
+.Inventory_Buttons{
+	display:inline-block;
+	position: relative;
+	height: 200px;
+	width: 100px;
+	top: 25%;
+	left: 35%;
+}
+
+.App-header {
 	background-color: rgba(128, 128, 128, 0.5);
 	min-height: 100vh;
 	display: flex;
@@ -256,6 +241,5 @@
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 	color: white;
-  }
-  
-  
+}
+
