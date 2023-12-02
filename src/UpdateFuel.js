@@ -1,5 +1,3 @@
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App_2.css';
 import {useState} from 'react';
 import Sidebars from './Sidebars.js';
@@ -25,6 +23,15 @@ function UpdateFuel() {
     const [Diesel_t, setDiesel_t] = useState(0);
     const [Propane_t, setPropane_t] = useState(0);
     
+    const Refresh = () => {
+        setFirstState(false);
+        setOctane87_t(0);
+        setOctane89_t(0);
+        setOctane93_t(0);
+        setDiesel_t(0);
+        setPropane_t(0);
+    };
+
     const Final_Call = () => {
         setFirstState(true);
         setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
@@ -95,15 +102,12 @@ function UpdateFuel() {
 
         if(isNaN(int)){
             
-            if((Octane87-Octane87_t) >= 1){
                 setOctane87_t(Octane87_t);
-            }
             
         }
         else{
-            if((Octane87-Octane87_t) >= 1){
                 setOctane87_t(int);
-                }
+                
         }
         setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
@@ -176,8 +180,8 @@ function UpdateFuel() {
       <Sidebars />
       <div className="corner">Update Fuel</div>
       {/* <div className='search'><input type="text" name="name" /></div> */}
-      <div class="div6">
-      <table>
+      <div className="Fuel_Div">
+      <table className="Fuel_Table">
 
 <tr>
     <th>Fuel</th>
@@ -190,7 +194,7 @@ function UpdateFuel() {
     <td>Octane 87</td>
     <td>{Octane87_t}</td>
     <td>
-        <div className='div6'>
+        <div className='Fuel_Div'>
             <button className="Update_Fuel" onClick={add_87}>+</button>
             <button className="Update_Fuel" onClick={decrease_87}>-</button>
         </div>
@@ -202,7 +206,7 @@ function UpdateFuel() {
     <td>Octane 89</td>
     <td>{Octane89_t}</td>
     <td>
-        <div className='div6'>
+        <div className='Fuel_Div'>
             <button className="Update_Fuel" onClick={add_89}>+</button>
             <button className="Update_Fuel" onClick={decrease_89}>-</button>
         </div>
@@ -215,7 +219,7 @@ function UpdateFuel() {
     <td>Octane 93</td>
     <td>{Octane93_t}</td>
     <td>            
-        <div className='div6'>
+        <div className='Fuel_Div'>
             <button className="Update_Fuel" onClick={add_93}>+</button>
             <button className="Update_Fuel" onClick={decrease_93}>-</button>
         </div>
@@ -229,7 +233,7 @@ function UpdateFuel() {
     <td>Diesel</td>
     <td>{Diesel_t}</td>
     <td>            
-        <div className='div6'>
+        <div className='Fuel_Div'>
             <button className="Update_Fuel" onClick={add_d}>+</button>
             <button className="Update_Fuel" onClick={decrease_d}>-</button>
         </div>
@@ -241,7 +245,7 @@ function UpdateFuel() {
     <td>Propane</td>
     <td>{Propane_t}</td>
     <td> 
-        <div className='div6'>
+        <div className='Fuel_Div'>
             <button className="Update_Fuel" onClick={add_p}>+</button>
             <button className="Update_Fuel" onClick={decrease_p}>-</button>
         </div>
@@ -251,31 +255,30 @@ function UpdateFuel() {
 
 </table>
 
-      </div>
-      <div className='div2'>
-      <button className='Update_Fuel'onClick={Final_Call}>Review and Submit</button>
-      </div>
-      {firstState && (
-        // Octane87_P = Octane87_t,
-        // Octane89_P = Octane89_t,
-        // Octane93_P = Octane93_t,
-        // Diesel_P = Diesel_t,
-        // Propane_P = Propane_t,
-        <PopUp isOpen={firstState} onClose={() => setFirstState(false)}></PopUp>
-        // ,Octane87_t = Octane87_P,
-        // Octane89_t = Octane89_P,
-        // Octane93_t = Octane93_P,
-        // Diesel_t = Diesel_P,
-        // Propane_t = Propane_P
-        // ,Octane87_t = 0,
-        // Octane89_t = 0,
-        // Octane93_t = 0,
-        // Diesel_t = 0,
-        // Propane_t = 0
-      )} 
-      
-      
+</div>
 
+  <div className='Review_Button'>
+  <button className='Update_Fuel'onClick={Final_Call}>Review and Submit</button>
+  </div>
+  {firstState && (
+	// Octane87_P = Octane87_t,
+	// Octane89_P = Octane89_t,
+	// Octane93_P = Octane93_t,
+	// Diesel_P = Diesel_t,
+	// Propane_P = Propane_t,
+	<PopUp isOpen={firstState} onClose={Refresh}></PopUp>
+	// ,Octane87_t = Octane87_P,
+	// Octane89_t = Octane89_P,
+	// Octane93_t = Octane93_P,
+	// Diesel_t = Diesel_P,
+	// Propane_t = Propane_P
+	// ,Octane87_t = 0,
+	// Octane89_t = 0,
+	// Octane93_t = 0,
+	// Diesel_t = 0,
+	// Propane_t = 0
+  )} 
+  
     </div>
 
   );
