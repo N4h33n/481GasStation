@@ -10,7 +10,7 @@ const Sidebars = () => {
         <Sidebar onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="always" backgroundColor="#bcf3ff">
           <Menu>
             <MenuItem component={<Link to="/" />}> Home</MenuItem>
-            <MenuItem> Fuel</MenuItem>
+            <MenuItem component={<Link to="/FuelManagment_Page" />}> Fuel</MenuItem>
             <MenuItem> Inventory</MenuItem>
             <MenuItem component={<Link to="/PumpManagement" />}> Pumps</MenuItem>
             <MenuItem> Promotions</MenuItem>
