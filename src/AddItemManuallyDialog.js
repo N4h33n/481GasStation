@@ -3,6 +3,7 @@ import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes, invent
 
 var calculated = 0;
 class DisplayAddItemManually extends Component {
+
     AddItem = (event) =>{
 		event.preventDefault();
 		this.props.onClose();
@@ -60,30 +61,30 @@ class DisplayAddItemManually extends Component {
         let dialog = (
             <div className="overlay">
                 <form onSubmit={this.AddItem} id="iform">
-					<div className="AddItemManuallyDialog">
-						<div className="Complete_Cancel_Div">
-							<button type="submit" className="Complete">Add</button>
-							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
-						</div>
+					<div className="GasDialog">
 						
 						<div className="AddGas_Div">ADD ITEM MANUALLY</div>
-						
-                        <div className="AddItemManuallyInputs">
-                            <div className="Quantity_Div">
-                                <label for="Quantity">Quantity: </label>
-                                <input type="text" id="Quantity" name="Quantity" placeholder="Eg. 60" onChange={this.updatePrice}/>
-                            </div>
 
-                            <div className="Item_Div">
-                                <label for="ItemName">Item Name: </label>
-                                <input type="text" id="ItemName" name="ItemName" placeholder="Eg. 2L Soda" onChange={this.updatePrice}/>
-                            </div>
-                                
-                            <div className="IndividualPrice_Div">	
-                                <div>Calculated Price: $</div>
-                                <div id="IndividualPrice" className="IndividualPrice"></div>
-                            </div>
-                        </div>		
+							<div className="Initial_Div">
+								<label for="Quantity">Quantity: </label>
+								<input type="number" min="0" id="Quantity" name="Quantity" placeholder="Eg. 60" onChange={this.updatePrice} autoComplete="off"/>
+							</div>
+
+							<div className="Final_Div">
+								<label for="ItemName">Item Name: </label>
+								<input type="text" id="ItemName" name="ItemName" placeholder="Eg. 2L Soda" onChange={this.updatePrice} autoComplete="off"/>
+							</div>
+								
+							<div className="Calculated_Div">	
+								<div>Calculated Price: $</div>
+								<div id="IndividualPrice" className="IndividualPrice"></div>
+							</div>
+
+							<div className="Complete_Cancel_Div">
+								<button type="submit" className="Complete">Add</button>
+								<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
+							</div>
+                        
 					</div>
 				</form>
             </div>
