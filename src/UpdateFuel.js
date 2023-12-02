@@ -1,5 +1,3 @@
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App_2.css';
 import {useState} from 'react';
 import Sidebars from './Sidebars.js';
