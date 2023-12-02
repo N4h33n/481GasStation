@@ -53,7 +53,7 @@ const Fuel_BarGraphs = () => {
   
         <Bar options={options} data={data} />
        
-        <div className="btn-group">
+        <div className="Update_Fuel_Button">
             <Link to="/UpdateFuel" className='dashboard-button'>Update Fuel</Link> 
         </div>
  
