@@ -61,6 +61,12 @@ function setItem_P(itemName, a){
 	invPItem['qty'] = a;
 }
 
+function setItem_X(itemName, a){
+	const invPItem = inv_P.find(item => item.name === itemName);
+  
+	invPItem['price'] = a;
+}
+
 function UpdateInventory(){
 	inventory.forEach(item => {
 		const correspondingInvPItem = inv_P.find(invItem => invItem.name === item.name);
@@ -74,6 +80,17 @@ function UpdateInventory(){
 		  }
 	
 		  correspondingInvPItem.qty = 0;
+	  });
+}
+
+function UpdatePrices(){
+	inventory.forEach(item => {
+		const correspondingInvPItem = inv_P.find(invItem => invItem.name === item.name);
+		
+		if (correspondingInvPItem['price'] > 0) (
+		item.price = correspondingInvPItem['price']
+		)
+		  correspondingInvPItem.price = 0;
 	  });
 }
 
@@ -240,6 +257,8 @@ export {
 	updatePump,
 	inv_P,
 	setItem_P,
+	setItem_X,
 	categories,
-	UpdateInventory
+	UpdateInventory,
+	UpdatePrices
 }

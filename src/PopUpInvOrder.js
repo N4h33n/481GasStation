@@ -49,7 +49,7 @@ class PopUp extends React.Component {
                 bodyBackgroundColor='lightgrey'
                 bodyTextColor='black'
                 bodyHeight='300px'
-                headerText='Review Inventory Update'
+                headerText='Review Inventory Order'
               >
                 <div>
                   
