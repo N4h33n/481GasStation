@@ -16,7 +16,7 @@ function useItemStates(initialValue) {
 const initializeItemStates = (inventory) => {
     const itemStates = {};
     inventory.forEach(item => {
-        itemStates[`qty_${item.name.toLowerCase().replace(' ', '_')}`] = useItemStates(0);
+        itemStates[`quantity_${item.name.toLowerCase().replace(' ', '_')}`] = useItemStates(0);
     });
     return itemStates;
     };
@@ -30,7 +30,7 @@ function OrderInventory() {
     const Refresh = () => {
         setFirstState(false);
         Object.entries(itemStates).forEach(([key, { setState }]) => {
-            const itemName = key.replace(/^qty_/, '').replace(/_/g, ' ');
+            const itemName = key.replace(/^quantity_/, '').replace(/_/g, ' ');
             setState(0);
             setItem_P(itemName, 0);
           });
@@ -39,20 +39,20 @@ function OrderInventory() {
     const Final_Call = () => {
         setFirstState(true);
         Object.entries(itemStates).forEach(([key, { state }]) => {
-            const itemName = key.replace(/^qty_/, '').replace(/_/g, ' ');
+            const itemName = key.replace(/^quantity_/, '').replace(/_/g, ' ');
             setItem_P(itemName, state);
           });
         };
     
     const addItem = (itemName) => {
-        const varItemName = `qty_${itemName.replace(' ', '_')}`;
+        const varItemName = `quantity_${itemName.replace(' ', '_')}`;
         const { state, setState } = itemStates[varItemName];
         setState(state + 1);
         setItem_P(itemName, state + 1);
         };
     
     const decreaseItem = (itemName) => {
-        const varItemName = `qty_${itemName.replace(' ', '_')}`;
+        const varItemName = `quantity_${itemName.replace(' ', '_')}`;
         const { state, setState } = itemStates[varItemName];
         if (state > 0){
         setState(state - 1);
@@ -61,7 +61,7 @@ function OrderInventory() {
         };
 
     const handleChangeItem = (itemName, inputText) => {
-        const varItemName = `qty_${itemName.replace(' ', '_')}`;
+        const varItemName = `quantity_${itemName.replace(' ', '_')}`;
         const { state, setState } = itemStates[varItemName];
         const ints = Number(inputText.target.value);
         const int = isNaN(ints) ? state : parseInt(ints);
@@ -92,13 +92,13 @@ function OrderInventory() {
             {inventory.filter(item => item.category === category).map(item => (
                 <tr key={item.name}>
                   <td>{item.name}</td>
-                  <td>{itemStates[`qty_${item.name.replace(' ', '_')}`].state}</td>
+                  <td>{itemStates[`quantity_${item.name.replace(' ', '_')}`].state}</td>
                   <td>
                     <div className='Fuel_Div'>
                       <button className="Update_Fuel" onClick={() => addItem(item.name)}>+</button>
                       <button className="Update_Fuel" onClick={() => decreaseItem(item.name)}>-</button>
                     </div>
-                    <input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
+                    <input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`quantity_${item.name.replace(' ', '_')}`].state} />
                   </td>
                 </tr>
               ))}

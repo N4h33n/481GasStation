@@ -55,7 +55,7 @@ class PopUp extends React.Component {
                         <tr key={item['name']}>
                             <th>{item['name']}</th>
                             <th>{item['category']}</th>
-                            <th>{item['qty']} Units</th>
+                            <th>{item['quantity']} Units</th>
                         </tr>
                     ))}
                 </tbody>

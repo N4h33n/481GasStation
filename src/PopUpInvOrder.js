@@ -23,8 +23,8 @@ class PopUp extends React.Component {
     render() {
 
 
-    const itemsWithQty = inv_P.filter(item => item.qty > 0);
-    const totalCost = itemsWithQty.reduce((acc, item) => acc + item.qty * item.price, 0);
+    const itemsWithquantity = inv_P.filter(item => item.quantity > 0);
+    const totalCost = itemsWithquantity.reduce((acc, item) => acc + item.quantity * item.price, 0);
     const tax = 0.05 * totalCost;
     const finalTotal = totalCost + tax;
 
@@ -56,13 +56,13 @@ class PopUp extends React.Component {
                 <table>
                 
                 <tbody>
-                    {itemsWithQty.map(item => (
+                    {itemsWithquantity.map(item => (
                         <tr key={item['name']}>
                             <th>{item['name']}</th>
                             <th>{item['category']}</th>
                             <th>${item['price'].toFixed(2)} Cost</th>
-                            <th>{item['qty']} Units</th>
-                            <th>${(item['qty'] * item['price']).toFixed(2)}</th>
+                            <th>{item['quantity']} Units</th>
+                            <th>${(item['quantity'] * item['price']).toFixed(2)}</th>
                         </tr>
                     ))}
 

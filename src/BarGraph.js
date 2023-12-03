@@ -28,7 +28,7 @@ datasets : [
     borderColor: inventory.map(item => getColorForCategory(item.category).replace('0.3', '1')),
     borderWidth: 1,
     hoverBackgroundColor: inventory.map(item => getColorForCategory(item.category).replace('0.3', '0.5')),
-    data: inventory.map(item => (item.qty / item.capacity) * 100),
+    data: inventory.map(item => (item.quantity / item.capacity) * 100),
   },
 ],
 };
@@ -45,7 +45,7 @@ datasets : [
               const dataIndex = context.dataIndex;
               if (inventory && dataIndex >= 0 && dataIndex < inventory.length) {
                 const item = inventory[dataIndex];
-                return `Category: ${item.category}, Qty: ${item.qty}, Capacity: ${item.capacity}`;
+                return `Category: ${item.category}, quantity: ${item.quantity}, Capacity: ${item.capacity}`;
               }
               return 'error?';
             },
@@ -66,7 +66,7 @@ datasets : [
 //   // Check if inventory is defined and dataIndex is a valid index
 //   if (inventory && dataIndex >= 0 && dataIndex < inventory.length) {
 //     const item = inventory[dataIndex];
-//     const tooltipText = `Name: ${item.name}, Qty: ${item.qty}, Capacity: ${item.capacity}`;
+//     const tooltipText = `Name: ${item.name}, quantity: ${item.quantity}, Capacity: ${item.capacity}`;
 //     return tooltipText;
 //   }
 
