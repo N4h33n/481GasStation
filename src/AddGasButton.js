@@ -153,11 +153,7 @@ class DisplayAddGas extends Component{
 			<div className="overlay">
 				<form onSubmit={this.AddGas}>
 					<div className="GasDialog">
-						<div className="Complete_Cancel_Div">
-							<button type="submit" className="Complete">Add</button>
-							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
-						</div>
-						
+
 						<div className="AddGas_Div">ADD GAS</div>
 						<div className="Pump_Div">
 							<div className="Pump_label">Select Pump</div>
@@ -223,12 +219,15 @@ class DisplayAddGas extends Component{
 						</div>
 						
 						<div className="Pay_Div">
-							<label for="Pay Amount">Pay Amount: $</label>
-							<input type="text" id="Pay Amount" name="Pay_Amount" placeholder="Enter amount using keyboard - Eg. 60 or 60.00"/>
+							<label className="Pay_Div_Label">Pay Amount:</label>
+							<label for="Pay Amount">$</label>
+							<input type="number" min="0" id="Pay Amount" name="Pay_Amount" step="0.01"
+							placeholder="Enter amount using keyboard - Eg. 60 or 60.00" autoComplete = "off"/>
 						</div>
-						
-						
-						
+						<div className="Complete_Cancel_Div">
+							<button type="submit" className="Complete">Add</button>
+							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
+						</div>
 					</div>
 				</form>
 			</div>

@@ -12,10 +12,8 @@ class PopUp extends React.Component {
 
   
   ChangeStatus = (event) => {
-    
-this.props.onClose();
-
-};
+		this.props.onClose();
+	};
 
 handleClick = (event) => {
 UpdateFuel();
@@ -30,64 +28,47 @@ UpdateFuel();
         <button onClick={this.openBox}>Review and Update </button>
         </div> */}
         <form onSubmit={this.ChangeStatus}>
-          <>
-            <ReactDialogBox
-              closeBox={this.closeBox}
-              modalWidth='60%'
-             
-             // color: rgb(89, 170, 236);
-              headerBackgroundColor='rgb(89, 170, 236)'
-              headerTextColor='white'
-              
-              headerHeight='65'
-              closeButtonColor='Black'
-              bodyBackgroundColor='lightgrey'
-              bodyTextColor='black'
-              bodyHeight='300px'
-              headerText='Review Fuel Update'
-            >
-              <div>
-                
-              <table>
-              
-              <tr>
-                <th>Octane 87</th>
-                <th>Fuel</th>
-                <th> {Octane87_P} Units</th>
-              </tr>
-              <tr>
-                <th>Octane 89</th>
-                <th>Fuel</th>
-                <th> {Octane89_P} Units</th>
-              </tr>
-              <tr>
-                <th>Octane 93</th>
-                <th>Fuel</th>
-                <th> {Octane93_P} Units</th>
-              </tr>
-              <tr>
-                <th>Diesel</th>
-                <th>Fuel</th>
-                <th> {Diesel_P} Units</th>
-              </tr>
-              <tr>
-                <th>Propane</th>
-                <th>Fuel</th>
-                <th> {Propane_P} Units</th>
-              </tr>
-              
-              </table>
-              <div className='div2'>
-              <button onClick={this.handleClick}>
-                Submit Update
-            </button>
-            </div>
-              </div>
-              
+            <div className="overlay">
+				<div className="FuelDialog">
+				  <div>
+					  <div className="AddGas_Div">REVIEW AND SUBMIT</div>
+					  <table className="Popup_Table">
+						<thead className="HeaderRow">
+							<th>Fuel</th>
+							<th>Quantity</th>
+						</thead>
+					  <tr>
+						<th>Octane 87</th>
+						<th> {Octane87_P} Units</th>
+					  </tr>
+					  <tr>
+						<th>Octane 89</th>
+						<th> {Octane89_P} Units</th>
+					  </tr>
+					  <tr>
+						<th>Octane 93</th>
+						<th> {Octane93_P} Units</th>
+					  </tr>
+					  <tr>
+						<th>Diesel</th>
+						<th> {Diesel_P} Units</th>
+					  </tr>
+					  <tr>
+						<th>Propane</th>
+						<th> {Propane_P} Units</th>
+					  </tr>
+					  
+					  </table>
+					
+					<div className="Complete_Cancel_Div_Fuel">
+						<button type="submit" className="Complete">Submit</button>
+						<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
+					</div>
 
-            </ReactDialogBox>
-          </>
-        
+				</div>
+              
+			</div>
+			</div>
         </form>
       </div>
     )

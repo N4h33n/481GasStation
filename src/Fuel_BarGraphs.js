@@ -18,7 +18,6 @@ const Fuel_BarGraphs = () => {
   const [Propane_t, setPropane_t] = useState(Propane);
 
   const data = {
-
     labels : ['Octane 87', 'Octane 89', 'Octane 93', 'Diesel', 'Propane'],
 
   datasets : [
@@ -34,12 +33,31 @@ const Fuel_BarGraphs = () => {
   };
   
   const options = {
+	  maintainAspectRatio: false,
       indexAxis: 'y',
       plugins: {
           legend: {
             display: false
           }
       },
+	  scales:{
+		y:{
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		},
+		x: {
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		}
+	  }
   };
 
 
@@ -50,12 +68,16 @@ const Fuel_BarGraphs = () => {
         <Sidebars />
         
         <div className="corner">Fuel Management</div>
-  
-        <Bar options={options} data={data} />
+		
+		<div className="barGraph">
+			<Bar options={options} data={data} />
+		</div>
        
-        <div className="btn-group">
-            <Link to="/UpdateFuel" className='dashboard-button'>Update Fuel</Link> 
-        </div>
+        <div className="newGroup">
+			<Link to="/UpdateFuel" className='dashboard-button' style={{border:'2px solid black'}}>
+				<button className='dashboard-button'>Update Fuel</button>
+			</Link>
+		</div>
  
       </div>
     );

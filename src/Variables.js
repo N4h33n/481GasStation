@@ -3,6 +3,7 @@ var checkoutPumps = [];
 var Total = 0;
 var SubTotal = 0;
 var Taxes = 0;
+
 // Fuel Inventory
 var Octane87 = 36000;
 var Octane89 = 18000;
@@ -16,7 +17,12 @@ var Octane93_P = 0;
 var Diesel_P = 0;
 var Propane_P = 0;
 
-// Pump Variable
+var Octane87_O = 0;
+var Octane89_O = 0;
+var Octane93_O = 0;
+var Diesel_O = 0;
+var Propane_O = 0;
+
 var Pump_1 = "Available";
 var Pump_2 = "Available";
 var Pump_3 = "In Use";
@@ -29,7 +35,6 @@ var Pump_3_color = "yellow";
 var Pump_4_color = "green";
 var Pump_5_color = "red";
 var Pump_6_color = "green";
-
 var showDiscountDialog = true;
 var showCardDialog = true;
 var showCashDialog = true;
@@ -38,7 +43,6 @@ var time = [];
 var time2 = [];
 var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
 
-
 function setFuel_P(a,b,c,d,e){
  Octane87_P = a;
  Octane89_P = b;
@@ -46,6 +50,15 @@ function setFuel_P(a,b,c,d,e){
  Diesel_P = d;
  Propane_P = e;
 }
+
+function OrderFuel_O(a,b,c,d,e){
+	Octane87_O = a;
+	Octane89_O = b;
+	Octane93_O = c;
+	Diesel_O = d;
+	Propane_O = e;
+   }
+   
 
 function UpdateFuel(Fuel, b){
 // a is base (Octane87)
@@ -81,10 +94,7 @@ function UpdateFuel(Fuel, b){
 	if(Propane <= 0){
 		Propane = 0;
 	}
-
-
 }
-
 
 function addItem(a, b){
 	let check = false;
@@ -166,6 +176,28 @@ function clearCheckout(){
 	for(let i = 0; i < checkoutPumps.length; i++){
 		updatePump(checkoutPumps[i], "In Use", "yellow");
 	}
+	for(let i = 0; i < Checkout.length; i++){
+		if(Checkout[i].name == "Regular"){
+			Octane87 -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Premium"){
+			Octane89 -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Nitro"){
+			Octane93 -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Diesel"){
+			Diesel -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Propane Refill"){
+			Propane -= Checkout[i].quantity;
+		}
+	}
+	
 	checkoutPumps.splice(0, checkoutPumps.length);
 	Checkout.splice(0, Checkout.length);
 	Total = 0;
@@ -374,7 +406,12 @@ export {
 	Octane89_P,
 	Octane93_P,
 	Diesel_P,
-	Propane_P,
+	Propane_P,	
+	Octane87_O,
+ 	Octane89_O,
+ 	Octane93_O,
+ 	Diesel_O,
+ 	Propane_O,
 	Pump_1,
 	Pump_2,
 	Pump_3,
@@ -390,6 +427,7 @@ export {
 	time,
 	time2,
 	setFuel_P,
+	OrderFuel_O,
 	UpdateFuel,
 	addItem,
 	removeItem,

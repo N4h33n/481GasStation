@@ -2,10 +2,10 @@ import './App_2.css';
 import {useState} from 'react';
 import Sidebars from './Sidebars.js';
 import React from 'react';
-import PopUp from './PopUp.js';
+import OrderFuel_PopUp from './OrderFuel_PopUp.js';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
-import {Octane87, Octane89, Octane93, Diesel, Propane, Octane87_P, Octane89_P, Octane93_P, Diesel_P, Propane_P, setFuel_P } from "./Variables.js";
+import { OrderFuel_O } from "./Variables.js";
 import {Link} from 'react-router-dom';
 
 
@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom';
 // https://learnersbucket.com/examples/interview/increment-counter-component-in-react/
 
 
-function UpdateFuel() {
+function OrderFuel() {
     const [firstState, setFirstState] = useState(false);
 
     const [Octane87_t, setOctane87_t] = useState(0);
@@ -34,65 +34,66 @@ function UpdateFuel() {
 
     const Final_Call = () => {
         setFirstState(true);
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     };
     
     const add_87 = () => {
         var int = Octane87_t +1;
         setOctane87_t(int);
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     };
     const decrease_87 = () => {
-        // if((Octane87-Octane87_t) >= 1){
+        if((Octane87_t) >= 1){
          setOctane87_t(Octane87_t - 1);
-        // }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+         OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        }
+        
     }; 
 
     const add_89 = () => {
         setOctane89_t(Octane89_t + 1);
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     };
     const decrease_89 = () => {
-        // if((Octane89-Octane89_t) >= 1){
-        // setOctane87_t(Octane89_t - 1);
-        // }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        if((Octane89_t) >= 1){
+        setOctane87_t(Octane89_t - 1);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        }
     }; 
 
 
     const add_93 = () => {
         setOctane93_t(Octane93_t + 1);
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     };
     const decrease_93 = () => {
-        // if((Octane93-Octane93_t) >= 1){
+        if((Octane93_t) >= 1){
          setOctane93_t(Octane93_t - 1);
-        // }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+         OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        }
     }; 
 
 
     const add_d = () => {
         setDiesel_t(Diesel_t + 1);
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     };
     const decrease_d = () => {
-        //if((Diesel-Diesel_t) >= 1){
+        if((Diesel_t) >= 1){
         setDiesel_t(Diesel_t - 1);
-        //}
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        }
     }; 
 
     const add_p = () => {
         setPropane_t(Propane_t + 1);
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     };
     const decrease_p = () => {
-        //if((Propane-Propane_t) >= 1){
+        if((Propane_t) >= 1){
         setPropane_t(Propane_t - 1);
-        //}
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        }
     }; 
 
     const handleChange_87 = (inputText) => {
@@ -106,10 +107,12 @@ function UpdateFuel() {
             
         }
         else{
+            if((int) >= 1){
                 setOctane87_t(int);
+            }
                 
         }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
 
     const handleChange_89 = (inputText) => {
@@ -122,9 +125,11 @@ function UpdateFuel() {
             setOctane89_t(Octane89_t);
         }
         else{
+            if((int) >= 1){
             setOctane89_t(int);
+            }
         }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
 
     const handleChange_93 = (inputText) => {
@@ -137,9 +142,11 @@ function UpdateFuel() {
             setOctane93_t(Octane93_t);
         }
         else{
+            if((int) >= 1){
             setOctane93_t(int);
+            }
         }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
 
     const handleChange_d = (inputText) => {
@@ -152,9 +159,11 @@ function UpdateFuel() {
             setDiesel_t(Diesel_t);
         }
         else{
+            if((int) >= 1){
             setDiesel_t(int);
+            }
         }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
 
     const handleChange_p = (inputText) => {
@@ -167,9 +176,11 @@ function UpdateFuel() {
             setPropane_t(Propane_t);
         }
         else{
+            if((int) >= 1){
             setPropane_t(int);
+            }
         }
-        setFuel_P(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
+        OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
 
 
@@ -178,10 +189,10 @@ function UpdateFuel() {
 		<div>
 		  <Sidebars />
 		  <div className="Fuel_title">
-			<h1>Update Fuel</h1>
+			<h1>Order Fuel</h1>
 			<div className="FuelHint" style={{position:"absolute", left:"45%"}}>?
 				<span className="FuelToolTip">
-					Update the Fuel Inventory by Adding an Amount to Update by in the TextBox and then Submitting
+					Order the Fuel by Adding an Amount to each TextBox and then Submitting
 				</span>
 			</div>
 		  </div>
@@ -191,7 +202,7 @@ function UpdateFuel() {
 					<thead className="HeaderRow">
 						<th>Fuel</th>
 						<th>Quantity</th>
-						<th>ADD/REMOVE</th>
+						<th>ADD</th>
 					</thead>
 
 					<tr>
@@ -238,30 +249,17 @@ function UpdateFuel() {
 			</div>
 
 		  <div className="newGroup">
-				<button className='dashboard-button' onClick={Final_Call} style={{border:'2px solid black'}}>Review and Submit</button>
+				<button className='dashboard-button' onClick={Final_Call} style={{border:'2px solid black'}}>Order and Submit</button>
 		  </div>
 		
 		  {firstState && (
-			// Octane87_P = Octane87_t,
-			// Octane89_P = Octane89_t,
-			// Octane93_P = Octane93_t,
-			// Diesel_P = Diesel_t,
-			// Propane_P = Propane_t,
-			<PopUp isOpen={firstState} onClose={Refresh}></PopUp>
-			// ,Octane87_t = Octane87_P,
-			// Octane89_t = Octane89_P,
-			// Octane93_t = Octane93_P,
-			// Diesel_t = Diesel_P,
-			// Propane_t = Propane_P
-			// ,Octane87_t = 0,
-			// Octane89_t = 0,
-			// Octane93_t = 0,
-			// Diesel_t = 0,
-			// Propane_t = 0
+
+			<OrderFuel_PopUp isOpen={firstState} onClose={Refresh}></OrderFuel_PopUp>
+
 		  )} 
 		</div>
 	);
 }
 
 
-export default UpdateFuel;
+export default OrderFuel;

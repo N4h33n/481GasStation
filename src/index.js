@@ -5,10 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import Dashboard from './Dashboard';
 import Sidebars from './Sidebars';
 import PumpManagement from './PumpManagement';
+import PumpStatus from './PumpStatus';
 import FuelManagment_Page from './FuelManagment_Page';
 import Fuel_BarGraphs from './Fuel_BarGraphs';
 import UpdateFuel from './UpdateFuel';
-import PumpStatus from './PumpStatus';
+import Promotions from './Promotions';
+import FuelLineGraph from './FuelLineGraph';
+import OrderFuel from './OrderFuel';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function Page_Routing(){
@@ -21,6 +24,9 @@ export default function Page_Routing(){
 				<Route path="/FuelManagment_Page" element={<FuelManagment_Page />} />
 				<Route path="/Fuel_BarGraphs" element={<Fuel_BarGraphs />} />
 				<Route path="/UpdateFuel" element={<UpdateFuel />} />
+				<Route path="/OrderFuel" element={<OrderFuel />} />
+				<Route path="/FuelLineGraph" element={<FuelLineGraph />} />
+				<Route path="/Promotions" element={<Promotions />} />
 			</Routes>
 		</BrowserRouter>
 	);

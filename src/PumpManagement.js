@@ -10,26 +10,31 @@ function PumpManagement() {
     const [testPump, setTestPump] = useState(false);
 
     return (
-        <div>
+		<body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute" }}>
             <Sidebars/>
-            <div className="dashboard">
-                <div className="header">
-                    <h1>Pump Management</h1>
-                    {/* <div>Logo</div> */}
-                </div>
-                <div className="buttons-group">
-                    <button className='dashboard-button' onClick={() => setEditPump(true)}>Edit Pump Status</button>
-                    <button className='dashboard-button'>View Cameras</button>
-                    <button className='dashboard-button' onClick={() => setTestPump(true)}>Test Pump (Override)</button>
+			<div>
+                <div className="dashboard">
+                    <div className="header">
+                        <h1>Pump Management</h1>
+                        {/* <div>Logo</div> */}
+                    </div>
+                    <div className="buttons-group">
+                        <button className='dashboard-button-clone' onClick={() => setEditPump(true)}>Edit Pump Status</button>
+                        <button className='dashboard-button-clone'>View Cameras</button>
+                        <button className='dashboard-button-clone' onClick={() => setTestPump(true)}>Test Pump (Override)</button>
+                    </div>     
+                    <br></br>                
+                    <br></br>                
+                    <br></br>                
                 </div>
             </div>
-            <div className='white'>
+			<div className='dashboard'>
                 <PumpStatus />
             </div>
 
             <DisplayEditPump isOpen={editPump} onClose={() => setEditPump(false)}></DisplayEditPump>
             <DisplayTestPump isOpen={testPump} onClose={() => setTestPump(false)}></DisplayTestPump>
-        </div>
+        </body>
     );
 }
 
