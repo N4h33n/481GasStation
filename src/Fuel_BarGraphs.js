@@ -18,7 +18,6 @@ const Fuel_BarGraphs = () => {
   const [Propane_t, setPropane_t] = useState(Propane);
 
   const data = {
-
     labels : ['Octane 87', 'Octane 89', 'Octane 93', 'Diesel', 'Propane'],
 
   datasets : [
@@ -41,6 +40,24 @@ const Fuel_BarGraphs = () => {
             display: false
           }
       },
+	  scales:{
+		y:{
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		},
+		x: {
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		}
+	  }
   };
 
 

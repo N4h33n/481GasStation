@@ -175,9 +175,16 @@ function UpdateFuel() {
 
 
   return (
-		<div className="Inventory_Page">
+		<div>
 		  <Sidebars />
-		  <div className="corner">Update Fuel</div>
+		  <div className="Fuel_title">
+			<h1>Update Fuel</h1>
+			<div className="FuelHint" style={{position:"absolute", left:"45%"}}>?
+				<span className="FuelToolTip">
+					Update the Fuel Inventory by Adding an Amount to Update by in the TextBox and then Submitting
+				</span>
+			</div>
+		  </div>
 		  {/* <div className='search'><input type="text" name="name" /></div> */}
 			<div className="Fuel_Div">
 				<table className="Fuel_Table">

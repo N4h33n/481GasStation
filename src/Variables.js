@@ -161,6 +161,28 @@ function clearCheckout(){
 	for(let i = 0; i < checkoutPumps.length; i++){
 		updatePump(checkoutPumps[i], "In Use", "yellow");
 	}
+	for(let i = 0; i < Checkout.length; i++){
+		if(Checkout[i].name == "Regular"){
+			Octane87 -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Premium"){
+			Octane89 -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Nitro"){
+			Octane93 -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Diesel"){
+			Diesel -= Checkout[i].quantity;
+		}
+		
+		else if(Checkout[i].name == "Propane Refill"){
+			Propane -= Checkout[i].quantity;
+		}
+	}
+	
 	checkoutPumps.splice(0, checkoutPumps.length);
 	Checkout.splice(0, Checkout.length);
 	Total = 0;
