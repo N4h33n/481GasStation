@@ -20,19 +20,19 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
-var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0},
-{'name': 'doritos', 'category': 'chips', 'qty': 0},
-{'name': 'coffee', 'category': 'drinks', 'qty': 0},
-{'name': 'tea', 'category': 'drinks', 'qty': 0},
-{'name': '2l soda', 'category': 'drinks', 'qty': 0},
-{'name': 'milk', 'category': 'drinks', 'qty': 0},
-{'name': 'oreo', 'category': 'cookies', 'qty': 0},
-{'name': 'chips ahoy', 'category': 'cookies', 'qty': 0},
-{'name': 'nerds', 'category': 'candy', 'qty': 0},
-{'name': 'skittles', 'category': 'candy', 'qty': 0},
-{'name': 'coffee crisp', 'category': 'candy', 'qty': 0},
-{'name': 'lottery ticket', 'category': 'misc', 'qty': 0},
-{'name': 'cigarettes', 'category': 'misc', 'qty': 0}];
+var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0, 'price': 2.80},
+{'name': 'doritos', 'category': 'chips', 'qty': 0, 'price': 2.80},
+{'name': 'coffee', 'category': 'drinks', 'qty': 0, 'price': 2.00},
+{'name': 'tea', 'category': 'drinks', 'qty': 0, 'price': 1.5},
+{'name': '2l soda', 'category': 'drinks', 'qty': 0, 'price': 3.00},
+{'name': 'milk', 'category': 'drinks', 'qty': 0, 'price': 1.5},
+{'name': 'oreo', 'category': 'cookies', 'qty': 0, 'price': 3.99},
+{'name': 'chips ahoy', 'category': 'cookies', 'qty': 0, 'price': 4.50},
+{'name': 'nerds', 'category': 'candy', 'qty': 0, 'price': 2.00},
+{'name': 'skittles', 'category': 'candy', 'qty': 0, 'price': 2.00},
+{'name': 'coffee crisp', 'category': 'candy', 'qty': 0, 'price': 2.00},
+{'name': 'lottery ticket', 'category': 'misc', 'qty': 0, 'price': 5.00},
+{'name': 'cigarettes', 'category': 'misc', 'qty': 0, 'price': 15.00}];
 
 var categories = ['chips', 'drinks', 'cookies', 'candy','misc'];
 
@@ -59,7 +59,6 @@ function setItem_P(itemName, a){
 	const invPItem = inv_P.find(item => item.name === itemName);
   
 	invPItem['qty'] = a;
-	console.log(invPItem)
 }
 
 function UpdateInventory(){

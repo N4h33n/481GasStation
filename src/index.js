@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Update_Inventory from './Update_Inventory';
+import OrderInventory from './order_inventory';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Update_Inventory />
+    <OrderInventory />
   </React.StrictMode>
 );
 

@@ -45,8 +45,10 @@ function UpdateInventory() {
     
     const Refresh = () => {
         setFirstState(false);
-        Object.entries(itemStates).forEach(([itemName, { setState }]) => {
+        Object.entries(itemStates).forEach(([key, { setState }]) => {
+            const itemName = key.replace(/^qty_/, '').replace(/_/g, ' ');
             setState(0);
+            setItem_P(itemName, 0);
           });
         };
 
@@ -69,7 +71,6 @@ function UpdateInventory() {
     const { state, setState } = itemStates[varItemName];
     setState(state + 1);
     setItem_P(itemName, state + 1);
-    console.log(itemName)
   };
 
   const decreaseItem = (itemName) => {
@@ -81,9 +82,9 @@ function UpdateInventory() {
 
   const handleChangeItem = (itemName, inputText) => {
     const varItemName = `qty_${itemName.replace(' ', '_')}`;
-    const { setState } = itemStates[varItemName];
+    const { state, setState } = itemStates[varItemName];
     const ints = Number(inputText.target.value);
-    const int = isNaN(ints) ? 0 : parseInt(ints);
+    const int = isNaN(ints) ? state : parseInt(ints);
     setState(int);
     setItem_P(itemName, int);
   };
