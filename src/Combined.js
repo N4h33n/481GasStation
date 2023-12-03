@@ -177,11 +177,11 @@ class Combined extends Component{
 				
 				let printButton = document.getElementById("Combined_Print_Receipt");
 				printButton.disabled = false;
-				printButton.style.background = "#59AAEC";
+				printButton.style.background = "#00b4ff";
 				
 				let noButton = document.getElementById("Combined_No_Receipt");
 				noButton.disabled = false;
-				noButton.style.background = "#59AAEC";
+				noButton.style.background = "#00b4ff";
 			}
 		});
 		

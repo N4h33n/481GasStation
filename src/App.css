@@ -997,7 +997,7 @@ input:focus {
 }
 
 .Combined_Payment_Buttons button {
-	background-color: rgb(89, 170, 236);
+	background-color: #00b4ff;
 	color: white;
 	border: 0 none;
 	border-radius: 10px;
@@ -1018,7 +1018,7 @@ input:focus {
 }
 
 .Combined_Receipt_Options button {
-	background-color: rgb(89, 170, 236);
+	background-color: #00b4ff;
 	color: white;
 	border: 0 none;
 	border-radius: 10px;
