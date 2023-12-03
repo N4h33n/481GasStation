@@ -2,10 +2,25 @@ import {React, useState} from 'react';
 import Sidebars from './Sidebars';
 import DisplayEditPromo from './DisplayEditPromo';
 import DisplayAddPromo from './DisplayAddPromo';
+import { promos } from './Variables';
 
 function Promotions() {
     const [editPromo, setEditPromo] = useState(false);
     const [addPromo, setAddPromo] = useState(false);
+    const [promotions, setPromotions] = useState(promos);
+
+    const addNewPromo = (newPromo) => {
+        promos.push(newPromo)
+        setPromotions([...promotions, promos]);
+    };
+
+    const editPromos = (newPromo) => {
+        setPromotions(newPromo);
+    }
+
+    const deleteThePromo = (newPromo) => {
+        setPromotions(newPromo);
+    };
 
     return (
         <body style={{height:"100%", backgroundImage: "url('/dashboard_bg.jpg')", backgroundSize:"cover" }}>
@@ -24,43 +39,21 @@ function Promotions() {
                 <div className="pump-status">
                     <h2 style={{marginTop:"5%"}}>Current Promotions</h2>
                     <hr className='rounded' style={{marginTop:'10px'}}></hr>
-                    <div className="pumps-group">
-                        <div className="pump">
-                            10% off all candy
+                    {promos.map(promo => (
+                        <div className='pumps-group'>
+                            <div className="pump">
+                                {promo.name}
+                            </div>
+                            <div className="pump">
+                                {promo.start} --{'>'} {promo.end}
+                            </div>
                         </div>
-                        <div className="pump">
-                            Nov 1 2023 - Nov 8 2023
-                        </div>
-                    </div>
-                    <div className="pumps-group">
-                        <div className="pump">
-                            Buy any 2 chips, get 1 free
-                        </div>
-                        <div className="pump">
-                            Nov 1 2023 - Nov 12 2023
-                        </div>
-                    </div>
-                    <div className="pumps-group">
-                        <div className="pump">
-                            Buy any 2L Pop, get 1 50% off
-                        </div>
-                        <div className="pump">
-                            Nov 3 2023 - Nov 9 2023
-                        </div>
-                    </div>
-                    <div className="pumps-group">
-                        <div className="pump">
-                            Car washes $5 off
-                        </div>
-                        <div className="pump">
-                            Nov 12 2023 - Nov 28 2023
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
 
-            <DisplayEditPromo isOpen={editPromo} onClose={() => setEditPromo(false)}></DisplayEditPromo>
-            <DisplayAddPromo isOpen={addPromo} onClose={() => setAddPromo(false)}></DisplayAddPromo>
+            <DisplayEditPromo isOpen={editPromo} onClose={() => setEditPromo(false)} onEditPromo={editPromos} onDeletePromo={deleteThePromo}></DisplayEditPromo>
+            <DisplayAddPromo isOpen={addPromo} onClose={() => setAddPromo(false)} onAddPromo={addNewPromo}></DisplayAddPromo>
         </body>
     );
 }

@@ -35,7 +35,19 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
-var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
+var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}, {'name': 'car wash', 'price': 12.99, 'quantity': 1000}];
+
+var categories = ['Chips', 'Candy', 'Drinks', 'Snacks', 'Store', 'Misc']
+
+let promos = [{'name': '10% off all candy', 'type': 'category', 'item': 'none', 'category': 'Candy', 'num_items': 1, 'discount_type': 'percent', 'discount_off': 10, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-18'},
+{'name': 'Buy any 2 chips, get 1 free', 'type': 'category', 'item': 'none', 'category': 'Chips', 'num_items': 3, 'discount_type': 'percent', 'discount_off': 100, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-20'},
+{'name': 'Buy any drink, get 1 50% off', 'type': 'category', 'item': 'none', 'category': 'Drinks', 'num_items': 2, 'discount_type': 'percent', 'discount_off': 50, 'num_discount': 1, 'start': '2023-12-03', 'end': '2023-12-22'},
+{'name': 'Car washes - $5 off', 'type': 'item', 'item': 'car wash', 'category': 'none', 'num_items': 1, 'discount_type': 'amount', 'discount_off': 5, 'num_discount': 1, 'start': '2023-12-12', 'end': '2023-12-28'}
+]	
+
+function overwritePromos(newPromos){
+	promos = newPromos;
+}
 
 function setFuel_P(a,b,c,d,e){
  Octane87_P = a;
@@ -406,8 +418,11 @@ export {
 	remTime2,
 	propaneInCheckout,
 	inventory,
+	promos,
+	categories,
 	updatePump,
 	clearCheckout,
 	applyDiscount,
-	updateChange
+	updateChange,
+	overwritePromos
 }
