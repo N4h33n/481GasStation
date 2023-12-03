@@ -36,43 +36,40 @@ UpdateFuel();
               modalWidth='60%'
              
              // color: rgb(89, 170, 236);
-              headerBackgroundColor='rgb(89, 170, 236)'
+              headerBackgroundColor='#00b4ff'
               headerTextColor='white'
               
               headerHeight='65'
               closeButtonColor='Black'
               bodyBackgroundColor='lightgrey'
-              bodyTextColor='black'
               bodyHeight='300px'
               headerText='Review Fuel Update'
             >
               <div>
                 
-              <table className="Fuel_Table">
-              
+              <table className="Popup_Table">
+				<thead className="HeaderRow">
+					<th>Fuel</th>
+					<th>Quantity</th>
+				</thead>
               <tr>
                 <th>Octane 87</th>
-                <th>Fuel</th>
                 <th> {Octane87_P} Units</th>
               </tr>
               <tr>
                 <th>Octane 89</th>
-                <th>Fuel</th>
                 <th> {Octane89_P} Units</th>
               </tr>
               <tr>
                 <th>Octane 93</th>
-                <th>Fuel</th>
                 <th> {Octane93_P} Units</th>
               </tr>
               <tr>
                 <th>Diesel</th>
-                <th>Fuel</th>
                 <th> {Diesel_P} Units</th>
               </tr>
               <tr>
                 <th>Propane</th>
-                <th>Fuel</th>
                 <th> {Propane_P} Units</th>
               </tr>
               

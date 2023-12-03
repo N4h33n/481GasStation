@@ -34,6 +34,7 @@ const Fuel_BarGraphs = () => {
   };
   
   const options = {
+	  maintainAspectRatio: false,
       indexAxis: 'y',
       plugins: {
           legend: {
@@ -50,12 +51,16 @@ const Fuel_BarGraphs = () => {
         <Sidebars />
         
         <div className="corner">Fuel Management</div>
-  
-        <Bar options={options} data={data} />
+		
+		<div className="barGraph">
+			<Bar options={options} data={data} />
+		</div>
        
-        <div className="Update_Fuel_Button">
-            <Link to="/UpdateFuel" className='dashboard-button'>Update Fuel</Link> 
-        </div>
+        <div className="newGroup">
+			<Link to="/UpdateFuel" className='dashboard-button' style={{border:'2px solid black'}}>
+				<button className='dashboard-button'>Update Fuel</button>
+			</Link>
+		</div>
  
       </div>
     );
