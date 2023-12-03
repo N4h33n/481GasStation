@@ -58,7 +58,7 @@ function App() {
 
       <div className="btn-group">
       <Link to="/BarGraph" className='dashboard-button'>Inventory</Link> 
-      <Link to="/Sales_Trends" className='dashboard-button'>Sales Trends</Link> 
+      <Link to="/Sales_Trends_Inv" className='dashboard-button'>Sales Trends</Link> 
       <Link to="/order_inventory" className='dashboard-button'>Order Inventory</Link> 
       <Link to="/Set_Prices" className='dashboard-button'>Set Prices</Link> 
 
