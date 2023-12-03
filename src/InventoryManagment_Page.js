@@ -57,10 +57,10 @@ function App() {
       <div className='div2'>
 
       <div className="btn-group">
-      <button className="Inventory" onClick={() => setFirstState(true)}>Inventory</button>
-      <button className="SalesTrends" onClick={() => setSecondState(true)}>Sales Trends</button>
-      <button className="OrderInventory" onClick={() => setThirdState(true)}>Order Inventory</button>
-      <button className="SetPrices" onClick={() => setFourthState(true)}>Set Prices</button>
+      <Link to="/BarGraph" className='dashboard-button'>Inventory</Link> 
+      <Link to="/Sales_Trends" className='dashboard-button'>Sales Trends</Link> 
+      <Link to="/order_inventory" className='dashboard-button'>Order Inventory</Link> 
+      <Link to="/Set_Prices" className='dashboard-button'>Set Prices</Link> 
 
       </div>
 

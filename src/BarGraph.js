@@ -3,6 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { inventory } from './Variables'
 import Sidebars from './Sidebars';
+import {Link} from 'react-router-dom';
 
 const getColorForCategory = category => {
 
@@ -83,7 +84,7 @@ const BarGraph = () => {
         <Bar options={options} data={data} />
        
         <div className="btn-group">
-        <button className="SetPrices">Update Inventory</button>
+        <Link to="/Update_Inventory" className='dashboard-button'>Update Inventory</Link> 
         </div>
  
       </div>
