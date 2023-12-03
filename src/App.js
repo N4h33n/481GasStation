@@ -91,12 +91,11 @@ function App() {
 	}, [thirdState])
 	
 	return (
-		<div className="App">
+		<body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position: "absolute"}}>
 			<Sidebars />
-			<div className="navbar"></div>
 
 			<div className="MainBody">
-				<div className="TopDiv">
+				<div className="header">
 					<div className="CheckoutLabel">
 						<h1>Checkout</h1>
 						<div className="testHint">?
@@ -105,7 +104,18 @@ function App() {
 							</span>
 						</div>
 					</div>
+					{/* <div>Logo</div> */}
 				</div>
+				{/* <div className="TopDiv">
+					<div className="CheckoutLabel">
+						<h1>Checkout</h1>
+						<div className="testHint">?
+							<span className="testToolTip">
+							Begin by either scanning an item or clicking any side button.
+							</span>
+						</div>
+					</div>
+				</div> */}
 				
 				<div className="MiddleDiv">
 
@@ -166,10 +176,17 @@ function App() {
 				</div>
 
 				<div className="BeginPaymentDiv">
-					<button className="BeginPayment" onClick={() => {setFifthState(true)}}>Begin Payment</button>
+					<button className="BeginPayment" onClick={() => {setFifthState(true)}}>Begin Payment
+						<div className="testHint">?
+							<span className="testToolTip">
+							Click to finalize the transaction and begin the payment process.
+							</span>
+						</div>
+					</button>
 
 				</div>
 			</div>
+			
 
 			
 			<DisplayAddItemManually isOpen={tenthState} onClose={() => setTenthState(false)}/>
@@ -184,7 +201,7 @@ function App() {
 			
 			<Combined isOpen={fifthState} onClose={() => {setFifthState(false); }}/>
 			
-		</div>
+		</body>
 	);
 }
 
