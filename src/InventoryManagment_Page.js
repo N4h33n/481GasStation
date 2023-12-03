@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 import Sidebars from './Sidebars';
 import InventoryButton from './ViewInventoryButton';
+import { days_sales } from './Variables';
 
 function App() {
   const [firstState, setFirstState] = useState(false);
@@ -15,6 +16,36 @@ function App() {
 	const [eighthState, setEighthState] = useState(false);
 	const [ninthState, setNinthState] = useState(false);
 	const [tenthState, setTenthState] = useState(false);
+
+  const [selectedPeriod, setSelectedPeriod] = useState(30);
+  const [salesText, setSalesText] = useState("");
+
+  const handleTimeClick = (days) => {
+    setSelectedPeriod(days);
+    updateSalesText();
+  };
+
+  useEffect(() => {
+    updateSalesText();
+  }, [selectedPeriod]);
+
+  const updateSalesText = () => {
+    const sortedItems = Object.entries(days_sales).sort(([itemA, salesA], [itemB, salesB]) => {
+      const unitsSoldA = salesA[selectedPeriod];
+      const unitsSoldB = salesB[selectedPeriod];
+      return unitsSoldB - unitsSoldA;
+    });
+
+    const top5Items = sortedItems.slice(0, 5);
+
+    const text = top5Items.map(([item, sales]) => {
+      const unitsSold = sales[selectedPeriod];
+      return `${item} ............................................................................................................................................................... ${unitsSold} units`;
+    }).join('<br/>');
+    setSalesText(text);
+    console.log(text);
+  };
+
   var text = "Oreo         300 Units \nCheetos      70 Units\nMilk          23 units";
   return (
     <div className="App">
@@ -28,16 +59,17 @@ function App() {
       <button className="OrderInventory" onClick={() => setThirdState(true)}>Order Inventory</button>
       <button className="SetPrices" onClick={() => setFourthState(true)}>Set Prices</button>
       </div>
-      <div className='div5'> {}</div>
+      <div className='div5' dangerouslySetInnerHTML={{ __html: salesText }}></div>
+     {/*} <div className='div5'> {}</div>
       <div className='div5'> {"Oreo ............................................................................................................................................................... 300 Units"}</div>
       <div className='div5'> {"Cheetos ..........................................................................................................................................................70 Units"}</div>
       <div className='div5'> {"Milk  ................................................................................................................................................................. 80 Units"}</div>
       <div className='div5'> {"Coffee Crisp .....................................................................................................................................................157 Units"}</div>
-      
+  */}
       <div className='trend'>
-      <button className="Day30" id="button1" onClick={() => setFifthState(true)}>Day 30</button>
-      <button className="Day60" onClick={() => setSixthState(true)}>Day 60</button>
-      <button className="Day90" onClick={() => setSeventhState(true)}>Day 90</button>
+      <button className="Day30" id="button1" onClick={() => handleTimeClick(30)}>Day 30</button>
+      <button className="Day60" onClick={() => handleTimeClick(60)}>Day 60</button>
+      <button className="Day90" onClick={() => handleTimeClick(90)}>Day 90</button>
       </div>
 
     </div>

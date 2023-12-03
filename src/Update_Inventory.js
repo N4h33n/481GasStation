@@ -1,7 +1,8 @@
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+// import Dropdown from 'react-bootstrap/Dropdown';
+// import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App.css';
 import {useState} from 'react';
+import './UpdateInventoryStyle.css'
 
 function UpdateInventory() {
     const [firstState, setFirstState] = useState(false);
@@ -18,12 +19,12 @@ function UpdateInventory() {
   return (
     <table>
     <tr>
-        <th>CATEGORY</th>
+        <th className='tablehead'>CATEGORY</th>
     </tr>
     <tr>
-        <th>Chips</th>
-        <th>Quantity</th>
-        <th>ADD/REMOVE</th>
+        <th className='tablehead'>Chips</th>
+        <th className='tablehead'>Quantity</th>
+        <th className='tablehead'>ADD/REMOVE</th>
     </tr>
     <tr>
         <td>Cheetos</td>
@@ -48,9 +49,9 @@ function UpdateInventory() {
         </td>
     </tr>
     <tr>
-        <th>Candy</th>
-        <th>Quantity</th>
-        <th>ADD/REMOVE</th>
+        <th className='tablehead'>Candy</th>
+        <th className='tablehead'>Quantity</th>
+        <th className='tablehead'>ADD/REMOVE</th>
     </tr>
     <tr>
         <td>Nerds</td>
@@ -73,9 +74,9 @@ function UpdateInventory() {
             <input type="text" name="name" /></td>
     </tr>
     <tr>
-        <th>Tea</th>
-        <th>Quantity</th>
-        <th>ADD/REMOVE</th>
+        <th className='tablehead'>Tea</th>
+        <th className='tablehead'>Quantity</th>
+        <th className='tablehead'>ADD/REMOVE</th>
     </tr>
     <tr>
         <td>London Fog</td>

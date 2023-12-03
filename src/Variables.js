@@ -20,7 +20,39 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
-var inventory = [{'name': 'cheetos', 'price': 2.80}, {'name': '2l soda', 'price': 3.00}];
+var inventory = [{'name': 'cheetos', 'price': 2.80, 'category': 'chips', 'qty': 50, 'capacity': 100}, 
+	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100},
+
+	{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150},
+	{'name': 'tea', 'price': 1.5, 'category': 'drinks', 'qty': 70, 'capacity': 150},
+	{'name': '2l soda', 'price': 3.00, 'category': 'drinks', 'qty': 95, 'capacity': 150},
+	{'name': 'milk', 'price': 1.5, 'category': 'drinks', 'qty': 35, 'capacity': 150},
+
+	{'name': 'oreo', 'price': 3.99, 'category': 'cookies', 'qty': 25, 'capacity': 75},
+	{'name': 'chips ahoy', 'price': 4.50, 'category': 'cookies', 'qty': 46, 'capacity': 75},
+
+	{'name': 'nerds', 'price': 2.00, 'category': 'candy', 'qty': 60, 'capacity': 100},
+	{'name': 'skittles', 'price': 2.00, 'category': 'candy', 'qty': 65, 'capacity': 100},
+	{'name': 'coffee crisp', 'price': 2.00, 'category': 'candy', 'qty': 50, 'capacity': 100},
+
+	{'name': 'lottery ticket', 'price': 5.00, 'category': 'misc', 'qty': 76, 'capacity': 100},
+	{'name': 'cigarettes', 'price': 15.00, 'category': 'misc', 'qty': 82, 'capacity': 100}];
+
+var days_sales = {
+    Cheetos: { 30: 20, 60: 40, 90: 60 },
+	Doritos: { 30: 18, 60: 42, 90: 78 },
+	Coffee: { 30: 47, 60: 120, 90: 240 },
+	Tea: { 30: 62, 60: 111, 90: 256 },
+	TwoLitreSoda: { 30: 30, 60: 78, 90: 150 },
+    Milk: { 30: 26, 60: 54, 90: 170 },
+	Oreo: { 30: 50, 60: 100, 90: 150 },
+	ChipsAhoy: { 30: 42, 60: 103, 90: 182 },
+	Nerds: { 30: 23, 60: 63, 90: 98 },
+	Skittles: { 30: 25, 60: 53, 90: 102 },
+	CoffeeCrisp: { 30: 36, 60: 72, 90: 130 },
+	LotteryTicket: { 30: 20, 60: 62, 90: 133 },
+	Cigarettes: { 30: 23, 60: 42, 90: 83 },
+}
 
 function updatePump(pump, status, color){
 	if (pump === "pump1"){
@@ -163,5 +195,6 @@ export {
 	remTime2,
 	propaneInCheckout,
 	inventory,
+	days_sales,
 	updatePump
 }

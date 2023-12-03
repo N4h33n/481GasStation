@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
@@ -104,16 +104,51 @@ const Sales_Trends_Fuel = {
       ]
   };
 
- const options = {
-    indexAxis: 'x',
-    // plugins: {
-    //     legend: {
-    //       display: true
-    //     }
-    // },
-};
 
 const SalesLineGraph = () => {
+    const [visibleLines, setVisibleLines] = useState([]);
+
+    const legendClickHandler = (label) => {
+      setVisibleLines((prevVisibleLines) => {
+      if (prevVisibleLines.includes(label)) {
+        // Remove line from visibility
+        return [];
+      } else {
+        // Add line to visibility
+        return [label];
+      }
+    });
+    };
+
+    const options = {
+      indexAxis: 'x',
+      onClick: (_, activeElements) => {
+        if (activeElements.length > 0) {
+          const label = {Sales_Trends_data}.datasets[activeElements[0]._datasetIndex].label;
+          legendClickHandler(label);
+        }
+      },
+        legend: {
+          onClick: (e, legendItem) => {
+            legendClickHandler(legendItem.text)
+          //   const index = legendItem.index;
+          //   const chart = e.chart;
+          //   const meta = chart.getDatasetMeta(0);
+  
+          // // Toggle visibility of the clicked dataset
+          // const dataset = chart.getDatasetMeta(0).data[index];
+          // dataset.hidden = !dataset.hidden;
+  
+          // chart.update();
+          },
+        },
+  };
+    const filteredDatasets = Sales_Trends_data.datasets.filter((dataset) =>
+    visibleLines.includes(dataset.label)
+    );
+
+    const visibleData = { ...Sales_Trends_data, datasets: filteredDatasets };
+
     return (
       <div>
         PRODUCTS:
