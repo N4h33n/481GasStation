@@ -20,6 +20,23 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
+var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0},
+{'name': 'doritos', 'category': 'chips', 'qty': 0},
+{'name': 'coffee', 'category': 'drinks', 'qty': 0},
+{'name': 'tea', 'category': 'drinks', 'qty': 0},
+{'name': '2l soda', 'category': 'drinks', 'qty': 0},
+{'name': 'milk', 'category': 'drinks', 'qty': 0},
+{'name': 'oreo', 'category': 'cookies', 'qty': 0},
+{'name': 'chips ahoy', 'category': 'cookies', 'qty': 0},
+{'name': 'nerds', 'category': 'candy', 'qty': 0},
+{'name': 'skittles', 'category': 'candy', 'qty': 0},
+{'name': 'coffee crisp', 'category': 'candy', 'qty': 0},
+{'name': 'lottery ticket', 'category': 'misc', 'qty': 0},
+{'name': 'cigarettes', 'category': 'misc', 'qty': 0}];
+
+var categories = ['chips', 'drinks', 'cookies', 'candy','misc'];
+
+
 var inventory = [{'name': 'cheetos', 'price': 2.80, 'category': 'chips', 'qty': 50, 'capacity': 100}, 
 	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100},
 
@@ -37,6 +54,31 @@ var inventory = [{'name': 'cheetos', 'price': 2.80, 'category': 'chips', 'qty': 
 
 	{'name': 'lottery ticket', 'price': 5.00, 'category': 'misc', 'qty': 76, 'capacity': 100},
 	{'name': 'cigarettes', 'price': 15.00, 'category': 'misc', 'qty': 82, 'capacity': 100}];
+
+function setItem_P(itemName, a){
+	const invPItem = inv_P.find(item => item.name === itemName);
+  
+	invPItem['qty'] = a;
+	console.log(invPItem)
+}
+
+function UpdateInventory(){
+	inventory.forEach(item => {
+		const correspondingInvPItem = inv_P.find(invItem => invItem.name === item.name);
+	
+		item.qty += correspondingInvPItem['qty'];
+	
+		  if (item.qty <= 0) {
+			item.qty = 0;
+		  } else if (item.qty > item.capacity) {
+			item.qty = item.capacity;
+		  }
+	
+		  correspondingInvPItem.qty = 0;
+	  });
+}
+
+
 
 var days_sales = {
     Cheetos: { 30: 20, 60: 40, 90: 60 },
@@ -196,5 +238,9 @@ export {
 	propaneInCheckout,
 	inventory,
 	days_sales,
-	updatePump
+	updatePump,
+	inv_P,
+	setItem_P,
+	categories,
+	UpdateInventory
 }

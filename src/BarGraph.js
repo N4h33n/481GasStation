@@ -2,9 +2,10 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { inventory } from './Variables'
+import Sidebars from './Sidebars';
 
 const getColorForCategory = category => {
-  // Define colors for each category
+
   const categoryColors = {
     chips: 'rgba(240, 0, 0, 0.3)',
     drinks: 'rgba(0, 240, 0, 0.3)',
@@ -13,7 +14,6 @@ const getColorForCategory = category => {
     misc: 'rgba(128, 128, 128, 0.3)',
   };
 
-  // Return the color for the specified category, default to a fallback color if not found
   return categoryColors[category] || 'rgba(0, 0, 0, 0.3)';
 };
 
@@ -54,7 +54,7 @@ datasets : [
     scales: {
       x: {
         beginAtZero: true,
-        suggestedMax: 100, // Set the maximum value of the y-axis
+        suggestedMax: 100,
       },
     },
 };
@@ -76,7 +76,16 @@ datasets : [
 const BarGraph = () => {
     return (
       <div>
+        <Sidebars />
+        
+        <div className="corner">Inventory Management</div>
+  
         <Bar options={options} data={data} />
+       
+        <div className="btn-group">
+        <button className="SetPrices">Update Inventory</button>
+        </div>
+ 
       </div>
     );
   };

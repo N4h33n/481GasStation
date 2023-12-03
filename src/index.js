@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import SalesLineGraph from './Sales_Trends';
+import Update_Inventory from './Update_Inventory';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SalesLineGraph />
+    <Update_Inventory />
   </React.StrictMode>
 );
 

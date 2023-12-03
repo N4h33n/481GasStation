@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Sidebars from './Sidebars';
 import InventoryButton from './ViewInventoryButton';
 import { days_sales } from './Variables';
+import {Link} from 'react-router-dom';
 
 function App() {
   const [firstState, setFirstState] = useState(false);
@@ -54,10 +55,15 @@ function App() {
       <div className="div4">Best Sellers</div>
 
       <div className='div2'>
+
+      <div className="btn-group">
       <button className="Inventory" onClick={() => setFirstState(true)}>Inventory</button>
       <button className="SalesTrends" onClick={() => setSecondState(true)}>Sales Trends</button>
       <button className="OrderInventory" onClick={() => setThirdState(true)}>Order Inventory</button>
       <button className="SetPrices" onClick={() => setFourthState(true)}>Set Prices</button>
+
+      </div>
+
       </div>
       <div className='div5' dangerouslySetInnerHTML={{ __html: salesText }}></div>
      {/*} <div className='div5'> {}</div>
@@ -67,9 +73,9 @@ function App() {
       <div className='div5'> {"Coffee Crisp .....................................................................................................................................................157 Units"}</div>
   */}
       <div className='trend'>
-      <button className="Day30" id="button1" onClick={() => handleTimeClick(30)}>Day 30</button>
-      <button className="Day60" onClick={() => handleTimeClick(60)}>Day 60</button>
-      <button className="Day90" onClick={() => handleTimeClick(90)}>Day 90</button>
+      <button className="Day30" id="Day30" onClick={() => handleTimeClick(30)}>Day 30</button>
+      <button className="Day60" id="button60" onClick={() => handleTimeClick(60)}>Day 60</button>
+      <button className="Day90" id=" button90" onClick={() => handleTimeClick(90)}>Day 90</button>
       </div>
 
     </div>
