@@ -24,35 +24,35 @@ const labels = ['1','2', '3', '4', '5', '6', '7', '8', '9', '10',
 const Sales_Trends_data = {
   labels: labels,
   datasets: [{
-    label: 'Coffee Sales',
+    label: 'Chips Sales',
     data: [65, 59, 80, 81, 56, 55, 40, 17, 23, 74, 2, 92, 30, 63, 12, 91, 45, 28, 6, 37, 70, 19, 84, 73, 47, 3, 68, 99, 11, 61],
     fill: false,
     borderColor: 'rgb(75, 192, 192)',
     tension: 0.1
   },
   {      
-    label: 'Candy Sales',
+    label: 'Drinks Sales',
     data: [27, 88, 51, 14, 38, 77, 66, 7, 29, 53, 72, 96, 41, 10, 48, 70, 34, 85, 62, 22, 4, 68, 92, 55, 39, 18, 79, 2, 46, 61],
     fill: false,
     borderColor: 'rgb(75, 200, 12)',
     tension: 0.1
   },
   {      
-    label: 'Chips Sales',
+    label: 'Cookies Sales',
     data: [25, 70, 84, 31, 53, 62, 79, 23, 11, 97, 41, 20, 69, 50, 88, 14, 58, 4, 71, 9, 33, 77, 5, 93, 30, 66, 27, 36, 75, 3],
     fill: false,
     borderColor: 'rgb(200, 0, 12)',
     tension: 0.1
   },
   {      
-    label: 'Water Sales',
+    label: 'Candies Sales',
     data: [60, 17, 38, 86, 44, 67, 25, 37, 13, 81, 2, 55, 76, 49, 21, 98, 43, 6, 78, 8, 94, 32, 91, 10, 68, 47, 19, 64, 52, 26],
     fill: false,
     borderColor: 'rgb(200, 200, 200)',
     tension: 0.1
   },
   {      
-    label: 'Lottery Cards Sales',
+    label: 'Misc. Sales',
     data: [72, 35, 59, 12, 74, 57, 42, 16, 87, 15, 82, 31, 65, 54, 7, 80, 29, 90, 47, 61, 1, 89, 40, 99, 8, 50, 64, 22, 94, 73],
     fill: false,
     borderColor: 'rgb(7, 0, 1)',
@@ -106,18 +106,18 @@ const Sales_Trends_Fuel = {
 
 
 const SalesLineGraph = () => {
-    const [visibleLines, setVisibleLines] = useState([]);
+    const [visibleLines, setVisibleLines] = useState(() =>
+    Sales_Trends_data.datasets.map((dataset) => dataset.label)
+  );
 
     const legendClickHandler = (label) => {
       setVisibleLines((prevVisibleLines) => {
-      if (prevVisibleLines.includes(label)) {
-        // Remove line from visibility
-        return [];
-      } else {
-        // Add line to visibility
-        return [label];
-      }
-    });
+        if (prevVisibleLines.length === 1 && prevVisibleLines.includes(label)) {
+          return Sales_Trends_data.datasets.map((dataset) => dataset.label);
+        } else {
+          return [label];
+        }
+      });
     };
 
     const options = {
@@ -128,20 +128,13 @@ const SalesLineGraph = () => {
           legendClickHandler(label);
         }
       },
+      plugins: {
         legend: {
           onClick: (e, legendItem) => {
             legendClickHandler(legendItem.text)
-          //   const index = legendItem.index;
-          //   const chart = e.chart;
-          //   const meta = chart.getDatasetMeta(0);
-  
-          // // Toggle visibility of the clicked dataset
-          // const dataset = chart.getDatasetMeta(0).data[index];
-          // dataset.hidden = !dataset.hidden;
-  
-          // chart.update();
           },
         },
+      },
   };
     const filteredDatasets = Sales_Trends_data.datasets.filter((dataset) =>
     visibleLines.includes(dataset.label)
@@ -152,7 +145,7 @@ const SalesLineGraph = () => {
     return (
       <div>
         PRODUCTS:
-        <Line options={options} data={Sales_Trends_data} />
+        <Line options={options} data={visibleData} />
          FUEL:  
       <Line options={options} data={Sales_Trends_Fuel} />
       </div>
