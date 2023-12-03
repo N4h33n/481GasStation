@@ -175,113 +175,85 @@ function UpdateFuel() {
 
 
   return (
+		<div className="Inventory_Page">
+		  <Sidebars />
+		  <div className="corner">Update Fuel</div>
+		  {/* <div className='search'><input type="text" name="name" /></div> */}
+			<div className="Fuel_Div">
+				<table className="Fuel_Table">
+					<thead className="HeaderRow">
+						<th>Fuel</th>
+						<th>Quantity</th>
+						<th>ADD/REMOVE</th>
+					</thead>
 
-    <div className="Inventory_Page">
-      <Sidebars />
-      <div className="corner">Update Fuel</div>
-      {/* <div className='search'><input type="text" name="name" /></div> */}
-      <div className="Fuel_Div">
-      <table className="Fuel_Table">
+					<tr>
 
-<tr>
-    <th>Fuel</th>
-    <th>Quantity</th>
-    <th>ADD/REMOVE</th>
-</tr>
-
-<tr>
-
-    <td>Octane 87</td>
-    <td>{Octane87_t}</td>
-    <td>
-        <div className='Fuel_Div'>
-            <button className="Update_Fuel" onClick={add_87}>+</button>
-            <button className="Update_Fuel" onClick={decrease_87}>-</button>
-        </div>
-        <input type="text" onChange={handleChange_87} value={Octane87_t}/>
-        
-    </td>
-</tr>
-<tr>
-    <td>Octane 89</td>
-    <td>{Octane89_t}</td>
-    <td>
-        <div className='Fuel_Div'>
-            <button className="Update_Fuel" onClick={add_89}>+</button>
-            <button className="Update_Fuel" onClick={decrease_89}>-</button>
-        </div>
-        <input type="text"  onChange={handleChange_89} value={Octane89_t}/>
-
-
-    </td>
-</tr>
-<tr>
-    <td>Octane 93</td>
-    <td>{Octane93_t}</td>
-    <td>            
-        <div className='Fuel_Div'>
-            <button className="Update_Fuel" onClick={add_93}>+</button>
-            <button className="Update_Fuel" onClick={decrease_93}>-</button>
-        </div>
-        <input type="text" onChange={handleChange_93} value={Octane93_t}/>
-    </td>    
-</tr>
+						<td>Octane 87</td>
+						<td>{Octane87_t}</td>
+						<td>
+							<input type="number" min="0" onChange={handleChange_87} step="1" value={Octane87_t}/>
+						</td>
+					</tr>
+					<tr>
+						<td>Octane 89</td>
+						<td>{Octane89_t}</td>
+						<td>
+							<input type="number" min="0" onChange={handleChange_89} step="1" value={Octane89_t}/>
+						</td>
+					</tr>
+					<tr>
+						<td>Octane 93</td>
+						<td>{Octane93_t}</td>
+						<td>            
+							<input type="number" min="0" onChange={handleChange_93} step="1" value={Octane93_t}/>
+						</td>    
+					</tr>
 
 
 
-<tr>
-    <td>Diesel</td>
-    <td>{Diesel_t}</td>
-    <td>            
-        <div className='Fuel_Div'>
-            <button className="Update_Fuel" onClick={add_d}>+</button>
-            <button className="Update_Fuel" onClick={decrease_d}>-</button>
-        </div>
-        <input type="text" onChange={handleChange_d} value={Diesel_t}/>
-    </td>
-        
-</tr>
-<tr>
-    <td>Propane</td>
-    <td>{Propane_t}</td>
-    <td> 
-        <div className='Fuel_Div'>
-            <button className="Update_Fuel" onClick={add_p}>+</button>
-            <button className="Update_Fuel" onClick={decrease_p}>-</button>
-        </div>
-        <input type="text" onChange={handleChange_p} value={Propane_t}/>
-    </td>
-</tr>
+					<tr>
+						<td>Diesel</td>
+						<td>{Diesel_t}</td>
+						<td>            
+							<input type="number" min="0" onChange={handleChange_d} step="1" value={Diesel_t}/>
+						</td>
+							
+					</tr>
+					<tr>
+						<td>Propane</td>
+						<td>{Propane_t}</td>
+						<td> 
+							<input type="number" min="0" onChange={handleChange_p} step="1" value={Propane_t}/>
+						</td>
+					</tr>
+				</table>
+			</div>
 
-</table>
-
-</div>
-
-  <div className='Review_Button'>
-  <button className='Update_Fuel'onClick={Final_Call}>Review and Submit</button>
-  </div>
-  {firstState && (
-	// Octane87_P = Octane87_t,
-	// Octane89_P = Octane89_t,
-	// Octane93_P = Octane93_t,
-	// Diesel_P = Diesel_t,
-	// Propane_P = Propane_t,
-	<PopUp isOpen={firstState} onClose={Refresh}></PopUp>
-	// ,Octane87_t = Octane87_P,
-	// Octane89_t = Octane89_P,
-	// Octane93_t = Octane93_P,
-	// Diesel_t = Diesel_P,
-	// Propane_t = Propane_P
-	// ,Octane87_t = 0,
-	// Octane89_t = 0,
-	// Octane93_t = 0,
-	// Diesel_t = 0,
-	// Propane_t = 0
-  )} 
-  
-    </div>
-
-  );
+		  <div className="newGroup">
+				<button className='dashboard-button' onClick={Final_Call} style={{border:'2px solid black'}}>Review and Submit</button>
+		  </div>
+		
+		  {firstState && (
+			// Octane87_P = Octane87_t,
+			// Octane89_P = Octane89_t,
+			// Octane93_P = Octane93_t,
+			// Diesel_P = Diesel_t,
+			// Propane_P = Propane_t,
+			<PopUp isOpen={firstState} onClose={Refresh}></PopUp>
+			// ,Octane87_t = Octane87_P,
+			// Octane89_t = Octane89_P,
+			// Octane93_t = Octane93_P,
+			// Diesel_t = Diesel_P,
+			// Propane_t = Propane_P
+			// ,Octane87_t = 0,
+			// Octane89_t = 0,
+			// Octane93_t = 0,
+			// Diesel_t = 0,
+			// Propane_t = 0
+		  )} 
+		</div>
+	);
 }
 
 

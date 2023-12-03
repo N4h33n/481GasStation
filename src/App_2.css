@@ -1,27 +1,73 @@
 body {
 	/* background-color: rgb(233, 233, 233); */
 }
-.sidebar {
-	width: 250px;
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
-}
 
 .Fuel_Table{
 	width: 800px;
 	height: 200px;
 	padding-left: rem;
+	background-color: white;
 }
 
-.Fuel_Table th {
-	border-bottom: 1px solid black;
-	color:rgb(89, 170, 236);
+.Fuel_Table{
+	width: 100%;
+	border-collapse: collapse;
 }
 
-.Fuel_Table td {
+.Fuel_Table thead{
+	color: white;
+	border-collapse: none;
+	height: 40px;
+	
+}
+
+.Fuel_Table th{
+	color: white;
+	border-collapse: none;
+}
+
+.Fuel_Table td{
+	border-collapse: none;
 	text-align: center;
-	border-bottom: 1px solid black;
+}
+
+.Fuel_Table tr{
+	border-bottom: 1px solid rgb(201, 201, 201);
+	height: 100px;
+	color: black;
+}
+
+.Popup_Table{
+	width: 800px;
+	height: 200px;
+	padding-left: rem;
+	background-color: white;
+}
+
+.Popup_Table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.Popup_Table thead{
+	color: white;
+	border-collapse: none;
+	height: 40px;
+	
+}
+
+.Popup_Table th{
+	border-collapse: none;
+}
+
+.Popup_Table td{
+	border-collapse: none;
+	text-align: center;
+}
+
+.Popup_Table tr{
+	border-bottom: 1px solid rgb(201, 201, 201);
+	height: 30px;
 }
 
 .button {
@@ -44,6 +90,7 @@ body {
 	font-weight: bold;
 	color: rgb(89, 170, 236);
 	padding: 20px;
+	margin-top: 2%;
 }
 
 .Fuel_Div table{
@@ -81,7 +128,7 @@ body {
 	font-size: 30px;
 	font-family: Arial;
 	font-weight: bold;
-	top: 8px;
+	top: 2%;
 	left: 5%;
 
 }
@@ -114,7 +161,7 @@ body {
 	font-size: 30px;
 	font-family: Arial;
 	font-weight: bold;
-	top: 0px;
+	top: 2%;
 	left: 100px;
 
 }
@@ -131,21 +178,19 @@ button {
 
 
 .trend{
-	flex: 1;
+	background-color: transparent;
 	position: absolute;
-	flex-direction: column;
 	padding: 2.5rem .2rem; /* Adjust padding for size */
 	position:absolute;
-	top: 20%;
+	top: 35%;
 	left: 80%;
 	width: 100px;
-	justify-content: space-between;
 }
 
 .trend button{
-	background-color: rgba(16, 13, 98, 0.248);
+	background-color: white;
 	color: rgb(89, 170, 236);
-	border: 0 none;
+	border: solid black 1px;
 	border-radius: 10px;
 	height: 2rem;
 	width: 11rem;
@@ -156,10 +201,18 @@ button {
 }
 
 .Best_Sellers_Div{
+	background-color: rgb(248, 248, 250);
+	position: absolute;
+	width: 70vw;
+	top: 60%;
+	left: 5%;
+}
+
+.Stats{
+	background-color: transparent;
 	display: flex;
 	flex: 1;
 	flex-direction: column;
-	background-color: white;
 	width: 95.5%;
 	font-size: 1.25rem;
 	font-weight: bold;
@@ -201,7 +254,7 @@ button {
 	font-size: 30px;
 	font-family: Arial;
 	font-weight: bold;
-	top: 170px;
+	top: 400px;
 	left: 1%;
 
 }
@@ -235,8 +288,33 @@ button {
 }
 
 .Update_Fuel_Button{
-	display: inline-block;
 	position: relative;
 	margin-left: 4rem;
 	margin-top: 1rem;
+	border: solid black 1px;
+}
+
+.menu1{
+	margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.menu1 h2{
+	font-size: 40px;
+	margin-left: 10px;
+}
+
+.newGroup{
+	display: flex;
+	position: relative;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin-top: 20px;
+	top: 0vh;
+	left: 3%;
+}
+
+.barGraph{
+	display: relative;
+	height: 78vh;
 }
