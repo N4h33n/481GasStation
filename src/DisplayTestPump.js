@@ -16,12 +16,7 @@ class DisplayTestPump extends Component{
 		let dialog = (
 			<div className="overlay">
 				<form onSubmit={this.ChangeStatus}>
-					<div className="GasDialog">
-						<div className="Complete_Cancel_Div">
-							<button type="submit" className="Complete">Submit</button>
-							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
-						</div>
-						
+					<div className="GasDialog">						
 						<div className="AddGas_Div">TEST PUMP (OVERRIDE)</div>
 						<div className="Pump_Div">
 							<div className="Pump_label">Select Pump</div>
@@ -57,6 +52,11 @@ class DisplayTestPump extends Component{
 									<label for="pump6">Pump 6 ({Pump_6})</label>
 								</div>
 							</div>
+						</div>
+
+						<div className="Complete_Cancel_Div">
+							<button type="submit" className="Complete">Submit</button>
+							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
 						</div>
 					</div>
 				</form>

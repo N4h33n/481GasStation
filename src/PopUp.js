@@ -16,6 +16,7 @@ class PopUp extends React.Component {
 	};
 
 handleClick = (event) => {
+	this.props.onClose()
 UpdateFuel();
 };
 
@@ -27,7 +28,7 @@ UpdateFuel();
         {/* <div className='div2'>
         <button onClick={this.openBox}>Review and Update </button>
         </div> */}
-        <form onSubmit={this.ChangeStatus}>
+        <form onSubmit={this.handleClick}>
             <div className="overlay">
 				<div className="FuelDialog">
 				  <div>

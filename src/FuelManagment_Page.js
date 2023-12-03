@@ -23,7 +23,7 @@ function FuelManagment_Page() {
 		<Link to="/Fuel_BarGraphs" className='dashboard-button' style={{border:'2px solid black'}}>
 			<button className='dashboard-button'>View Fuel</button>
 		</Link> 
-		<Link to="/FuelManagment_Page" className='dashboard-button' style={{border:'2px solid black'}}>
+		<Link to="/Sales_Trends_Fuel" className='dashboard-button' style={{border:'2px solid black'}}>
 			<button className='dashboard-button'>Sales Trends</button>
 		</Link>
 		<Link to="/FuelManagment_Page" className='dashboard-button' style={{border:'2px solid black'}}>

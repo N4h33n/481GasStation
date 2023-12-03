@@ -9,15 +9,14 @@ function Dashboard() {
             <Sidebars/>
                         <div>
                 <div className="dashboard">
-                    <div className="header">
-                        <h1>Dashboard</h1>
-                        {/* <div>Logo</div> */}
+                    <div className="header" style={{marginBottom:'0'}}>
+                        <h1 >Dashboard</h1>
                     </div>
                     <div className="buttons-group">
                         <Link to="/FuelManagment_Page" className='dashboard-button' style={{border:'2px solid black'}}>
                             <button className='dashboard-button'>Fuel Management</button>
                         </Link> 
-                        <Link to="/FuelManagment_Page" className='dashboard-button' style={{border:'2px solid black'}}>
+                        <Link to="/InventoryManagment_Page" className='dashboard-button' style={{border:'2px solid black'}}>
                             <button className='dashboard-button'>Inventory Management</button>
                         </Link>
                         <Link to="/PumpManagement" className='dashboard-button' style={{border:'2px solid black'}}>

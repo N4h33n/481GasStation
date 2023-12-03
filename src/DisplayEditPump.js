@@ -15,21 +15,32 @@ class DisplayEditPump extends Component{
         var pump = event.target.Pump.value;
         var status = event.target.Status.value;
         var color = this.getColor(status);
+
         updatePump(pump, status, color);
     };
+
+	// timeout(delay) {
+	// 	return new Promise( res => setTimeout(res, delay) );
+	// }
+
+	// rebootPump = async ( ) => {
+	// 	// event.preventDefault();
+	// 	this.props.onClose();
+
+    //     // var pump = event.target.Pump.value;
+    //     updatePump("pump1", "Rebooting...", "red");
+	// 	console.log("HERE!")
+	// 	await this.timeout(15000);
+	// 	console.log("HERE2")
+	// 	updatePump("pump1", "Available", "green");
+	// }
 	
 	
 	render(){
 		let dialog = (
 			<div className="overlay">
 				<form onSubmit={this.ChangeStatus}>
-					<div className="GasDialog">
-						<div className="Complete_Cancel_Div">
-							<button type="submit" className="Complete">Submit</button>
-                            <button className='Cancel'>Reboot</button>
-							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
-						</div>
-						
+					<div className="GasDialog">						
 						<div className="AddGas_Div">EDIT PUMP STATUS</div>
 						<div className="Pump_Div">
 							<div className="Pump_label">Select Pump</div>
@@ -81,6 +92,13 @@ class DisplayEditPump extends Component{
 								</div>								
 							</div>
 						</div>
+
+						<div className="Complete_Cancel_Div">
+							<button type="submit" className="Complete">Submit</button>
+                            {/* <button type="button" className='Cancel' onClick={this.rebootPump}>Reboot</button> */}
+							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
+						</div>
+						
 					</div>
 				</form>
 			</div>

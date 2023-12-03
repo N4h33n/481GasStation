@@ -35,7 +35,106 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
-var inventory = [{'name': 'cheetos', 'price': 4.30, 'quantity': 40}, {'name': '2l soda', 'price': 3.00, 'quantity': 28}];
+var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0, 'price': 2.80},
+{'name': 'doritos', 'category': 'chips', 'qty': 0, 'price': 2.80},
+{'name': 'coffee', 'category': 'drinks', 'qty': 0, 'price': 2.00},
+{'name': 'tea', 'category': 'drinks', 'qty': 0, 'price': 1.5},
+{'name': '2l soda', 'category': 'drinks', 'qty': 0, 'price': 3.00},
+{'name': 'milk', 'category': 'drinks', 'qty': 0, 'price': 1.5},
+{'name': 'oreo', 'category': 'cookies', 'qty': 0, 'price': 3.99},
+{'name': 'chips ahoy', 'category': 'cookies', 'qty': 0, 'price': 4.50},
+{'name': 'nerds', 'category': 'candy', 'qty': 0, 'price': 2.00},
+{'name': 'skittles', 'category': 'candy', 'qty': 0, 'price': 2.00},
+{'name': 'coffee crisp', 'category': 'candy', 'qty': 0, 'price': 2.00},
+{'name': 'lottery ticket', 'category': 'misc', 'qty': 0, 'price': 5.00},
+{'name': 'cigarettes', 'category': 'misc', 'qty': 0, 'price': 15.00}];
+
+var categories = ['chips', 'drinks', 'cookies', 'candy','misc'];
+
+
+var inventory = [{'name': 'cheetos', 'price': 2.80, 'category': 'chips', 'qty': 50, 'capacity': 100}, 
+	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100},
+
+	{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150},
+	{'name': 'tea', 'price': 1.5, 'category': 'drinks', 'qty': 70, 'capacity': 150},
+	{'name': '2l soda', 'price': 3.00, 'category': 'drinks', 'qty': 95, 'capacity': 150},
+	{'name': 'milk', 'price': 1.5, 'category': 'drinks', 'qty': 35, 'capacity': 150},
+
+	{'name': 'oreo', 'price': 3.99, 'category': 'cookies', 'qty': 25, 'capacity': 75},
+	{'name': 'chips ahoy', 'price': 4.50, 'category': 'cookies', 'qty': 46, 'capacity': 75},
+
+	{'name': 'nerds', 'price': 2.00, 'category': 'candy', 'qty': 60, 'capacity': 100},
+	{'name': 'skittles', 'price': 2.00, 'category': 'candy', 'qty': 65, 'capacity': 100},
+	{'name': 'coffee crisp', 'price': 2.00, 'category': 'candy', 'qty': 50, 'capacity': 100},
+
+	{'name': 'lottery ticket', 'price': 5.00, 'category': 'misc', 'qty': 76, 'capacity': 100},
+	{'name': 'cigarettes', 'price': 15.00, 'category': 'misc', 'qty': 82, 'capacity': 100}];
+	
+let promos = [{'name': '10% off all candy', 'type': 'category', 'item': 'none', 'category': 'Candy', 'num_items': 1, 'discount_type': 'percent', 'discount_off': 10, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-18'},
+{'name': 'Buy any 2 chips, get 1 free', 'type': 'category', 'item': 'none', 'category': 'Chips', 'num_items': 3, 'discount_type': 'percent', 'discount_off': 100, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-20'},
+{'name': 'Buy any drink, get 1 50% off', 'type': 'category', 'item': 'none', 'category': 'Drinks', 'num_items': 2, 'discount_type': 'percent', 'discount_off': 50, 'num_discount': 1, 'start': '2023-12-03', 'end': '2023-12-22'},
+{'name': 'Car washes - $5 off', 'type': 'item', 'item': 'car wash', 'category': 'none', 'num_items': 1, 'discount_type': 'amount', 'discount_off': 5, 'num_discount': 1, 'start': '2023-12-12', 'end': '2023-12-28'}
+]	
+
+function overwritePromos(newPromos){
+	promos = newPromos;
+}
+	
+function setItem_P(itemName, a){
+	const invPItem = inv_P.find(item => item.name === itemName);
+
+	invPItem['qty'] = a;
+}
+
+function setItem_X(itemName, a){
+	const invPItem = inv_P.find(item => item.name === itemName);
+
+	invPItem['price'] = a;
+}
+
+function UpdateInventory(){
+	inventory.forEach(item => {
+		const correspondingInvPItem = inv_P.find(invItem => invItem.name === item.name);
+
+		item.qty += correspondingInvPItem['qty'];
+
+		  if (item.qty <= 0) {
+			item.qty = 0;
+		  } else if (item.qty > item.capacity) {
+			item.qty = item.capacity;
+		  }
+
+		  correspondingInvPItem.qty = 0;
+	  });
+}
+
+function UpdatePrices(){
+	inventory.forEach(item => {
+		const correspondingInvPItem = inv_P.find(invItem => invItem.name === item.name);
+
+		if (correspondingInvPItem['price'] > 0) (
+		item.price = correspondingInvPItem['price']
+		)
+		  correspondingInvPItem.price = 0;
+	  });
+}
+
+
+var days_sales = {
+    Cheetos: { 30: 20, 60: 40, 90: 60 },
+	Doritos: { 30: 18, 60: 42, 90: 78 },
+	Coffee: { 30: 47, 60: 120, 90: 240 },
+	Tea: { 30: 62, 60: 111, 90: 256 },
+	TwoLitreSoda: { 30: 30, 60: 78, 90: 150 },
+    Milk: { 30: 26, 60: 54, 90: 170 },
+	Oreo: { 30: 50, 60: 100, 90: 150 },
+	ChipsAhoy: { 30: 42, 60: 103, 90: 182 },
+	Nerds: { 30: 23, 60: 63, 90: 98 },
+	Skittles: { 30: 25, 60: 53, 90: 102 },
+	CoffeeCrisp: { 30: 36, 60: 72, 90: 130 },
+	LotteryTicket: { 30: 20, 60: 62, 90: 133 },
+	Cigarettes: { 30: 23, 60: 42, 90: 83 },
+}
 
 function setFuel_P(a,b,c,d,e){
  Octane87_P = a;
@@ -431,5 +530,14 @@ export {
 	updatePump,
 	clearCheckout,
 	applyDiscount,
-	updateChange
+	updateChange,
+	UpdateInventory,
+	UpdatePrices,
+	days_sales,
+	inv_P,
+	categories,
+	setItem_P,
+	setItem_X,
+	promos,
+	overwritePromos
 }

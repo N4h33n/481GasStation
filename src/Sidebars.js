@@ -16,11 +16,17 @@ const Sidebars = () => {
 			<SubMenu label="Fuel" icon={<img width='30px' src='/Fuel_Icon.png'/>} rootStyles={{backgroundColor:"#00b4ff"}}>
 				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/Fuel_BarGraphs" />} icon={<img width='30px' src='/Bar_Icon.png'/>}>View Fuel</MenuItem>
 				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/UpdateFuel" />} icon={<img width='30px' src='/Update_Icon.png'/>}>Update Fuel</MenuItem>
-				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}}component={<Link to="/FuelManagment_Page" />} icon={<img width='30px' src='/Line_Icon.png'/>}>Sales Trends</MenuItem>
-				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/FuelManagment_Page" />} icon={<img width='30px' src='/Order_Icon.png'/>}>Order Fuel</MenuItem>
+				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}}component={<Link to="/Sales_Trends_Fuel" />} icon={<img width='30px' src='/Line_Icon.png'/>}>Sales Trends</MenuItem>
+				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/FuelManagment_Page" />} icon={<img width='40px' src='/Order_Icon.png'/>}>Order Fuel</MenuItem>
 			</SubMenu>
 			
-            <MenuItem icon={<img width='30px' src='/Inventory_Icon.png'/>}> Inventory</MenuItem>
+			<SubMenu label="Inventory" icon={<img width='30px' src='/Inventory_Icon.png'/>} rootStyles={{backgroundColor:"#00b4ff"}}>
+				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/BarGraph" />} icon={<img width='30px' src='/Bar_Icon.png'/>}>View Inventory</MenuItem>
+				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/Update_Inventory" />} icon={<img width='30px' src='/Update_Icon.png'/>}>Update Inventory</MenuItem>
+				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}}component={<Link to="/Sales_Trends" />} icon={<img width='30px' src='/Line_Icon.png'/>}>Sales Trends</MenuItem>
+				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/Order_Inventory" />} icon={<img width='40px' src='/Order_Icon.png'/>}>Order Inventory</MenuItem>
+				<MenuItem rootStyles={{backgroundColor:"#00b4ff"}} component={<Link to="/Set_Prices" />} icon={<img width='40px' src='/Prices_Icon.png'/>}>Set Prices</MenuItem>
+			</SubMenu>
             <MenuItem icon={<img width='30px' src='/Pump_Icon.png'/>} component={<Link to="/PumpManagement" />}> Pumps</MenuItem>
             <MenuItem icon={<img width='30px' src='/Sale_Icon.png'/>}> Promotions</MenuItem>
             <MenuItem icon={<img width='30px' src='/Checkout_Icon.png'/>} component={<Link to="/App" />}> Checkout</MenuItem>
