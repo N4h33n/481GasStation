@@ -10,7 +10,7 @@ function keyPressFunction(event){
 		
 		let waiting = document.getElementById("Combined_Terminal_Div");
 		waiting.innerText = "Scanning Complete!";
-		waiting.style.left = "68vw";
+		waiting.style.paddingTop = "45%";
 		
 		let cardButton = document.getElementById("Combined_Card_Button");
 		cardButton.disabled = true;
@@ -26,11 +26,11 @@ function keyPressFunction(event){
 		
 		let printButton = document.getElementById("Combined_Print_Receipt");
 		printButton.disabled = false;
-		printButton.style.background = "#59AAEC";
+		printButton.style.background = "#00b4ff";
 		
 		let noButton = document.getElementById("Combined_No_Receipt");
 		noButton.disabled = false;
-		noButton.style.background = "#59AAEC";
+		noButton.style.background = "#00b4ff";
 	}
 }
 
@@ -129,10 +129,15 @@ class Combined extends Component{
 		let d1 = document.createElement("div");
 		d1.className = "CombinedAmount";
 		d1.innerText = total.innerText + " due";
+
+		let inputLabel = document.createElement("label");
+		inputLabel.innerText = "Cash Received";
+
+		let inputDiv = document.createElement("div");
 		
 		let d2 = document.createElement("label");
 		d2.for = "Cash";
-		d2.innerText = "Cash Received: $";
+		d2.innerText = "$";
 		
 		let d3 = document.createElement("input");
 		d3.type = "number";
@@ -189,8 +194,10 @@ class Combined extends Component{
 		let d4 = document.createElement("div");
 		d4.className = "Combined_Cash_Received";
 		
-		d4.appendChild(d2);
-		d4.appendChild(d3);
+		d4.appendChild(inputLabel);
+		inputDiv.appendChild(d2);
+		inputDiv.appendChild(d3);
+		d4.appendChild(inputDiv);
 		
 		let d5 = document.createElement("div");
 		d5.className = "Combined_Change_Div";
