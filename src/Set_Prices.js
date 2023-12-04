@@ -64,8 +64,6 @@ function Update_Set_Prices() {
 				<thead className="HeaderRow">
 					<tr>
 						<th>CATEGORY</th>
-						<th>Quantity</th>
-						<th>New Price</th>
 					</tr>
 				</thead>
 			<tbody>
@@ -73,17 +71,16 @@ function Update_Set_Prices() {
 				<React.Fragment key={category}>
 				  <tr>
 					<th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</th>
-					<th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>Current Price</th>
-					<th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}></th>
 				  </tr>
 				  {inventory.filter(item => item.category === category).map(item => (
-					  <tr key={item.name}>
-						<td>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-						<td>${item.price.toFixed(2)}</td>
-						<td>
-						  <input type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
-						</td>
-					  </tr>
+            <div class="card" key={item.name}>
+              <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
+              <div class="container">
+              <h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
+              <p>Price: ${item.price.toFixed(2)}</p>
+              <input type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
+              </div>
+            </div>
 					))}
 				</React.Fragment>
 			  ))}

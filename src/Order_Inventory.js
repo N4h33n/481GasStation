@@ -44,21 +44,21 @@ function OrderInventory() {
           });
         };
     
-    const addItem = (itemName) => {
-        const varItemName = `qty_${itemName.replace(' ', '_')}`;
-        const { state, setState } = itemStates[varItemName];
-        setState(state + 1);
-        setItem_P(itemName, state + 1);
-        };
+    // const addItem = (itemName) => {
+    //     const varItemName = `qty_${itemName.replace(' ', '_')}`;
+    //     const { state, setState } = itemStates[varItemName];
+    //     setState(state + 1);
+    //     setItem_P(itemName, state + 1);
+    //     };
     
-    const decreaseItem = (itemName) => {
-        const varItemName = `qty_${itemName.replace(' ', '_')}`;
-        const { state, setState } = itemStates[varItemName];
-        if (state > 0){
-        setState(state - 1);
-        setItem_P(itemName, state - 1);
-        }
-        };
+    // const decreaseItem = (itemName) => {
+    //     const varItemName = `qty_${itemName.replace(' ', '_')}`;
+    //     const { state, setState } = itemStates[varItemName];
+    //     if (state > 0){
+    //     setState(state - 1);
+    //     setItem_P(itemName, state - 1);
+    //     }
+    //     };
 
     const handleChangeItem = (itemName, inputText) => {
         const varItemName = `qty_${itemName.replace(' ', '_')}`;
@@ -80,8 +80,6 @@ function OrderInventory() {
 				<thead className="HeaderRow">
 					<tr>
 						<th>CATEGORY</th>
-						<th>Quantity</th>
-						<th>Add/Remove</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -89,17 +87,16 @@ function OrderInventory() {
 					  <React.Fragment key={category}>
 						<tr>
 						  <th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</th>
-						  <th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>Quantity</th>
-						  <th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}></th>
 						</tr>
 						{inventory.filter(item => item.category === category).map(item => (
-							<tr key={item.name}>
-							  <td>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-							  <td>{itemStates[`qty_${item.name.replace(' ', '_')}`].state}</td>
-							  <td>
-								<input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
-							  </td>
-							</tr>
+              <div class="card" key={item.name}>
+              <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
+              <div class="container">
+              <h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
+              <p>{itemStates[`qty_${item.name.replace(' ', '_')}`].state}</p>
+              <input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
+              </div>
+            </div>
 						  ))}
 					  </React.Fragment>
 					))}

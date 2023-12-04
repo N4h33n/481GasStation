@@ -44,19 +44,19 @@ function UpdateInventory() {
           });
         };
 
-  const addItem = (itemName) => {
-    const varItemName = `qty_${itemName.replace(' ', '_')}`;
-    const { state, setState } = itemStates[varItemName];
-    setState(state + 1);
-    setItem_P(itemName, state + 1);
-  };
+  // const addItem = (itemName) => {
+  //   const varItemName = `qty_${itemName.replace(' ', '_')}`;
+  //   const { state, setState } = itemStates[varItemName];
+  //   setState(state + 1);
+  //   setItem_P(itemName, state + 1);
+  // };
 
-  const decreaseItem = (itemName) => {
-    const varItemName = `qty_${itemName.replace(' ', '_')}`;
-    const { state, setState } = itemStates[varItemName];
-    setState(state - 1);
-    setItem_P(itemName, state - 1);
-  };
+  // const decreaseItem = (itemName) => {
+  //   const varItemName = `qty_${itemName.replace(' ', '_')}`;
+  //   const { state, setState } = itemStates[varItemName];
+  //   setState(state - 1);
+  //   setItem_P(itemName, state - 1);
+  // };
 
   const handleChangeItem = (itemName, inputText) => {
     const varItemName = `qty_${itemName.replace(' ', '_')}`;
@@ -81,7 +81,7 @@ return (
 						</tr>
 						{inventory.filter(item => item.category === category).map(item => (
 							 <div class="card" key={item.name}>
-							  <img src={item.name +".png"} alt="Avatar" style={{width: "100%"}}></img>
+							  <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
 							  <div class="container">
 								<h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
 								<p>{item.qty}</p>

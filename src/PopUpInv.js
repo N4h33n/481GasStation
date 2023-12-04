@@ -18,12 +18,15 @@ class PopUp extends React.Component {
   };
   
   handleClick = (event) => {
-		this.props.onClose()
 		UpdateInventory();
+		this.props.onClose()
   };
   
   
     render() {
+	
+		const itemsWithQty = inv_P.filter(item => item.qty > 0);
+
       return (
 		<div>
 			<form onSubmit={this.handleClick}>
@@ -36,7 +39,7 @@ class PopUp extends React.Component {
 								<th>Quantity</th>
 							</thead>
 							<tbody>
-								{inv_P.map(item => (
+								{itemsWithQty.map(item => (
 									<tr key={item['name']}>
 										<th>{item['name'].charAt(0).toUpperCase() + item['name'].slice(1)}</th>
 										<th>{item['qty']} Units</th>
