@@ -9,7 +9,7 @@ import DiscountApplied from "./DiscountAppliedDialog.js";
 import Sidebars from "./Sidebars.js";
 import Combined from './Combined.js';
 import {showDiscountDialog, showCardDialog, showCashDialog, showReceiptOptions, propaneInCheckout, clearCheckout, addItem, Total, SubTotal, Taxes, 
-updateTotal, updateSubTotal, updateTaxes, applyDiscount} from './Variables.js';
+updateTotal, updateSubTotal, updateTaxes, applyDiscount, inventory} from './Variables.js';
 
 function App() {
 	const [firstState, setFirstState] = useState('');
@@ -28,7 +28,7 @@ function App() {
 		}
 		
 		if(event.key == 'w'){
-			if(applyDiscount(2, 2, "Discount: Buy 2 2L Sodas, Get 1 Free", "2l soda")){
+			if(applyDiscount(2, 2, "Discount: Buy 2 2L Sodas, Get 1 Free", "2L Soda")){
 				setThirdState(false);
 				setFourthState(true);
 			}
@@ -54,17 +54,25 @@ function App() {
 	document.addEventListener('keydown', (event) =>{
 		event.stopImmediatePropagation();
 		if(event.key == 'z'){
-			addItem({'name': 'Cheetos', 'quantity': 1, 'cost': 4.30, 'totalTax': 0.215}, "none");
-			updateTotal(Total + 4.3 + 0.215);
-			updateSubTotal(SubTotal + 4.3);
-			updateTaxes(Taxes + 0.215);
+			for(let i = 0; i < inventory.length; i++){
+				if(inventory[i].name == 'cheetos'){
+					addItem({'name': 'Cheetos', 'quantity': 1, 'cost': inventory[i].price, 'totalTax': inventory[i].price * 0.05}, "none");
+					updateTotal(Total + inventory[i].price + inventory[i].price * 0.05);
+					updateSubTotal(SubTotal + inventory[i].price);
+					updateTaxes(Taxes + inventory[i].price * 0.05);
+				}
+			}
 		}
 		
 		else if(event.key =='x'){
-			addItem({'name': '2l soda', 'quantity': 1, 'cost': 3.00, 'totalTax': 0.15}, "none");
-			updateTotal(Total + 3.00 + 0.15);
-			updateSubTotal(SubTotal + 3.00);
-			updateTaxes(Taxes + 0.15);
+			for(let i = 0; i < inventory.length; i++){
+				if(inventory[i].name == '2l soda'){
+					addItem({'name': '2L Soda', 'quantity': 1, 'cost': inventory[i].price, 'totalTax': inventory[i].price * 0.05}, "none");
+					updateTotal(Total + inventory[i].price + inventory[i].price * 0.05);
+					updateSubTotal(SubTotal + inventory[i].price);
+					updateTaxes(Taxes + inventory[i].price * 0.05);
+				}
+			}
 		}
 		
 		else if(event.key =='c'){

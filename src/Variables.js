@@ -58,7 +58,7 @@ var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0, 'price': 2.80},
 var categories = ['chips', 'drinks', 'cookies', 'candy','misc'];
 
 
-var inventory = [{'name': 'cheetos', 'price': 2.80, 'category': 'chips', 'qty': 50, 'capacity': 100}, 
+var inventory = [{'name': 'cheetos', 'price': 4.00, 'category': 'chips', 'qty': 50, 'capacity': 100}, 
 	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100},
 
 	{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150},
@@ -293,6 +293,14 @@ function clearCheckout(){
 		
 		else if(Checkout[i].name == "Propane Refill"){
 			Propane -= Checkout[i].quantity;
+		}
+	}
+	
+	for(let i = 0; i < Checkout.length; i++){
+		for(let j = 0; j < inventory.length; j++){
+			if(Checkout[i].name.toLowerCase() == inventory[j].name.toLowerCase()){
+				inventory[j].qty -= Checkout[i].quantity;
+			}
 		}
 	}
 	
