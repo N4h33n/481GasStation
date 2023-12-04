@@ -24,8 +24,8 @@ const initializeItemStates = (inventory) => {
 function Update_Set_Prices() {
 
     const [firstState, setFirstState] = useState(false);
-
     const itemStates = initializeItemStates(inventory);
+    const [selectedCategory, setSelectedCategory] = useState(categories);
     
     const Refresh = () => {
         setFirstState(false);
@@ -34,6 +34,7 @@ function Update_Set_Prices() {
             setState(NaN);
             setItem_X(itemName, NaN);
           });
+        setSelectedCategory(categories);
         };
 
     const Final_Call = () => {
@@ -44,15 +45,24 @@ function Update_Set_Prices() {
           });
         };
 
-        const handleChangeItem = (itemName, inputVal) => {
-            const varItemName = `price_${itemName.replace(/ /g, '_')}`;
-            const { state, setState } = itemStates[varItemName];
-            const floats = inputVal.target.value;
+    const handleChangeCategory = (event) => {
+      if (event.target.value == "View All") {
+        setSelectedCategory(categories);
+      }
+      else {
+        setSelectedCategory([event.target.value]);
+      }
+      };
 
-            const float = /^\d+(\.\d{0,2})?$/.test(floats) ? parseFloat(floats) : (floats === "" ? NaN : state);
-            setState(float);
-            setItem_X(itemName, float);
-          };
+    const handleChangeItem = (itemName, inputVal) => {
+        const varItemName = `price_${itemName.replace(/ /g, '_')}`;
+        const { state, setState } = itemStates[varItemName];
+        const floats = inputVal.target.value;
+
+        const float = /^\d+(\.\d{0,2})?$/.test(floats) ? parseFloat(floats) : (floats === "" ? NaN : state);
+        setState(float);
+        setItem_X(itemName, float);
+      };
 
   return (
     <div className="Inventory_Page">
@@ -60,38 +70,34 @@ function Update_Set_Prices() {
     <div className="corner">Set Prices</div>
     {/* <div className='search'><input type="text" name="name" /></div> */}
     <div className="Fuel_Div">
-		<table className="Fuel_Table">
-				<thead className="HeaderRow">
-					<tr>
-						<th>CATEGORY</th>
-						<th>Quantity</th>
-						<th>New Price</th>
-					</tr>
-				</thead>
-			<tbody>
-			  {categories.map(category => (
+        <select value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
+          <option value="View All">All Categories</option>
+          {categories.map(category => (
+            <option key={category} value={category}>
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </option>
+          ))}
+        </select>
+			  {selectedCategory.map(category => (
 				<React.Fragment key={category}>
 				  <tr>
-					<th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</th>
-					<th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>Current Price</th>
-					<th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}></th>
+					<h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
 				  </tr>
 				  {inventory.filter(item => item.category === category).map(item => (
-					  <tr key={item.name}>
-						<td>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-						<td>${item.price.toFixed(2)}</td>
-						<td>
-						  <input type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
-						</td>
-					  </tr>
+            <div class="card" key={item.name}>
+              <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
+              <div class="container">
+              <h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
+              <p>Price: ${item.price.toFixed(2)}</p>
+              <input type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
+              </div>
+            </div>
 					))}
 				</React.Fragment>
 			  ))}
-			</tbody>
-		</table>
 	</div>
 
-	<div className="newGroup">
+	<div className="InventoryGroup">
 			<button className='dashboard-button' onClick={Final_Call} style={{border:'2px solid black'}}>Review and Submit</button>
 	</div>
 	

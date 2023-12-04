@@ -41,40 +41,40 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
-var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0, 'price': 2.80},
-{'name': 'doritos', 'category': 'chips', 'qty': 0, 'price': 2.80},
-{'name': 'coffee', 'category': 'drinks', 'qty': 0, 'price': 2.00},
-{'name': 'tea', 'category': 'drinks', 'qty': 0, 'price': 1.5},
-{'name': '2l soda', 'category': 'drinks', 'qty': 0, 'price': 3.00},
-{'name': 'milk', 'category': 'drinks', 'qty': 0, 'price': 1.5},
-{'name': 'oreo', 'category': 'cookies', 'qty': 0, 'price': 3.99},
-{'name': 'chips ahoy', 'category': 'cookies', 'qty': 0, 'price': 4.50},
-{'name': 'nerds', 'category': 'candy', 'qty': 0, 'price': 2.00},
-{'name': 'skittles', 'category': 'candy', 'qty': 0, 'price': 2.00},
-{'name': 'coffee crisp', 'category': 'candy', 'qty': 0, 'price': 2.00},
-{'name': 'lottery ticket', 'category': 'misc', 'qty': 0, 'price': 5.00},
-{'name': 'cigarettes', 'category': 'misc', 'qty': 0, 'price': 15.00}];
+var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0, 'price': 0},
+{'name': 'doritos', 'category': 'chips', 'qty': 0, 'price': 0},
+{'name': 'coffee', 'category': 'drinks', 'qty': 0, 'price': 0},
+{'name': 'tea', 'category': 'drinks', 'qty': 0, 'price': 0},
+{'name': '2l soda', 'category': 'drinks', 'qty': 0, 'price': 0},
+{'name': 'milk', 'category': 'drinks', 'qty': 0, 'price': 0},
+{'name': 'oreo', 'category': 'cookies', 'qty': 0, 'price': 0},
+{'name': 'chips ahoy', 'category': 'cookies', 'qty': 0, 'price': 0},
+{'name': 'nerds', 'category': 'candy', 'qty': 0, 'price': 0},
+{'name': 'skittles', 'category': 'candy', 'qty': 0, 'price': 0},
+{'name': 'coffee crisp', 'category': 'candy', 'qty': 0, 'price': 0},
+{'name': 'lottery ticket', 'category': 'misc', 'qty': 0, 'price': 0},
+{'name': 'cigarettes', 'category': 'misc', 'qty': 0, 'price': 0}];
 
 var categories = ['chips', 'drinks', 'cookies', 'candy','misc'];
 
 
-var inventory = [{'name': 'cheetos', 'price': 4.00, 'category': 'chips', 'qty': 50, 'capacity': 100}, 
-	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100},
+var inventory = [{'name': 'cheetos', 'price': 4.00, 'category': 'chips', 'qty': 50, 'capacity': 100, 'img': 'cheetos.png'}, 
+	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100, 'img': 'doritos.png'},
 
-	{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150},
-	{'name': 'tea', 'price': 1.5, 'category': 'drinks', 'qty': 70, 'capacity': 150},
-	{'name': '2l soda', 'price': 3.00, 'category': 'drinks', 'qty': 95, 'capacity': 150},
-	{'name': 'milk', 'price': 1.5, 'category': 'drinks', 'qty': 35, 'capacity': 150},
+		{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150, 'img': 'coffee.png'},
+	{'name': 'tea', 'price': 1.5, 'category': 'drinks', 'qty': 70, 'capacity': 150, 'img': 'tea.png'},
+	{'name': '2l soda', 'price': 3.00, 'category': 'drinks', 'qty': 95, 'capacity': 150, 'img': '2l_soda.png'},
+	{'name': 'milk', 'price': 1.5, 'category': 'drinks', 'qty': 35, 'capacity': 150, 'img': 'milk.png'},
 
-	{'name': 'oreo', 'price': 3.99, 'category': 'cookies', 'qty': 25, 'capacity': 75},
-	{'name': 'chips ahoy', 'price': 4.50, 'category': 'cookies', 'qty': 46, 'capacity': 75},
+	{'name': 'oreo', 'price': 3.99, 'category': 'cookies', 'qty': 25, 'capacity': 75, 'img': 'oreo.png'},
+	{'name': 'chips ahoy', 'price': 4.50, 'category': 'cookies', 'qty': 46, 'capacity': 75, 'img': 'chips_ahoy.png'},
 
-	{'name': 'nerds', 'price': 2.00, 'category': 'candy', 'qty': 60, 'capacity': 100},
-	{'name': 'skittles', 'price': 2.00, 'category': 'candy', 'qty': 65, 'capacity': 100},
-	{'name': 'coffee crisp', 'price': 2.00, 'category': 'candy', 'qty': 50, 'capacity': 100},
+	{'name': 'nerds', 'price': 2.00, 'category': 'candy', 'qty': 60, 'capacity': 100, 'img': 'nerds.png'},
+	{'name': 'skittles', 'price': 2.00, 'category': 'candy', 'qty': 65, 'capacity': 100, 'img': 'skittles.png'},
+	{'name': 'coffee crisp', 'price': 2.00, 'category': 'candy', 'qty': 50, 'capacity': 100, 'img': 'coffee_crisp.png'},
 
-	{'name': 'lottery ticket', 'price': 5.00, 'category': 'misc', 'qty': 76, 'capacity': 100},
-	{'name': 'cigarettes', 'price': 15.00, 'category': 'misc', 'qty': 82, 'capacity': 100}];
+	{'name': 'lottery ticket', 'price': 5.00, 'category': 'misc', 'qty': 76, 'capacity': 100, 'img': 'lottery_ticket.png'},
+	{'name': 'cigarettes', 'price': 15.00, 'category': 'misc', 'qty': 82, 'capacity': 100, 'img': 'cigarettes.png'}];
 	
 let promos = [{'name': '10% off all candy', 'type': 'category', 'item': 'none', 'category': 'Candy', 'num_items': 1, 'discount_type': 'percent', 'discount_off': 10, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-18'},
 {'name': 'Buy any 2 chips, get 1 free', 'type': 'category', 'item': 'none', 'category': 'Chips', 'num_items': 3, 'discount_type': 'percent', 'discount_off': 100, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-20'},
@@ -102,15 +102,17 @@ function UpdateInventory(){
 	inventory.forEach(item => {
 		const correspondingInvPItem = inv_P.find(invItem => invItem.name === item.name);
 
-		item.qty += correspondingInvPItem['qty'];
+		if (correspondingInvPItem['qty'] > 0) {
+			item.qty = correspondingInvPItem['qty'];
 
 		  if (item.qty <= 0) {
 			item.qty = 0;
 		  } else if (item.qty > item.capacity) {
 			item.qty = item.capacity;
 		  }
+		}
 
-		  correspondingInvPItem.qty = 0;
+		correspondingInvPItem.qty = 0;
 	  });
 }
 

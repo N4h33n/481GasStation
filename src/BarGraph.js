@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { inventory } from './Variables'
@@ -18,24 +18,9 @@ const getColorForCategory = category => {
   return categoryColors[category] || 'rgba(0, 0, 0, 0.3)';
 };
 
-const data = {
-labels : inventory.map(item => item.name.charAt(0).toUpperCase() + item.name.slice(1)),
-
-datasets : [
-{
-    label: 'Inventory Percentage',
-    backgroundColor: inventory.map(item => getColorForCategory(item.category)),
-    borderColor: inventory.map(item => getColorForCategory(item.category).replace('0.3', '1')),
-    borderWidth: 1,
-    hoverBackgroundColor: inventory.map(item => getColorForCategory(item.category).replace('0.3', '0.5')),
-    data: inventory.map(item => (item.qty / item.capacity) * 100),
-  },
-],
-};
-
  const options = {
-    indexAxis: 'y',
 	maintainAspectRatio: false,
+    indexAxis: 'y',
     plugins: {
         legend: {
           display: false
@@ -75,7 +60,39 @@ datasets : [
     },
 };
 
+
 const BarGraph = () => {
+
+  const [chartData, setChartData] = useState({
+    labels: inventory.map(item => item.name.charAt(0).toUpperCase() + item.name.slice(1)),
+    datasets: [
+      {
+        label: 'Inventory Percentage',
+        backgroundColor: inventory.map(item => getColorForCategory(item.category)),
+        borderColor: inventory.map(item => getColorForCategory(item.category).replace('0.3', '1')),
+        borderWidth: 1,
+        hoverBackgroundColor: inventory.map(item => getColorForCategory(item.category).replace('0.3', '0.5')),
+        data: inventory.map(item => (item.qty / item.capacity) * 100),
+      },
+    ],
+  });
+
+  const updateChart = () => {
+    setChartData({
+      ...chartData,
+      datasets: [
+        {
+          ...chartData.datasets[0],
+          data: inventory.map(item => (item.qty / item.capacity) * 100),
+        },
+      ],
+    });
+  };
+  
+  useEffect(() => {
+    updateChart();
+  }, [inventory]);
+
     return (
       <div>
         <Sidebars />
@@ -83,7 +100,7 @@ const BarGraph = () => {
         <div className="corner">Inventory Management</div>
   
         <div className="InventoryBarGraph">
-			<Bar options={options} data={data} />
+			<Bar options={options} data={chartData} />
 		</div>
 
 		<div className="newGroup">

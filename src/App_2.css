@@ -446,6 +446,16 @@ button {
 	left: 5%;
 }
 
+.InventoryGroup{
+	display: flex;
+	position: fixed;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin-top: 20px;
+	top: 83%;
+	left: 83vw;
+}
+
 .barGraph{
 	display: inline-block;
 	position: absolute;

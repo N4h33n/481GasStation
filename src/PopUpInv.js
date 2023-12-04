@@ -23,29 +23,32 @@ class PopUp extends React.Component {
   };
   
     render() {
+		const itemsWithQty = inv_P.filter(item => item.qty > 0);
       return (
 		<div>
 			<form onSubmit={this.handleClick}>
 				<div className="overlay">
 					<div className="FuelDialog">
 						<div className="AddGas_Div">REVIEW AND SUBMIT</div>
-						<table className="Popup_Table">
-							<thead className="HeaderRow">
-								<th>Item</th>
-								<th>Quantity</th>
-							</thead>
-							<tbody>
-								{inv_P.map(item =>(
-									<tr key={item['name']}>
-										<th>{item['name'].charAt(0).toUpperCase() + item['name'].slice(1)}</th>
-										<th>{item['qty']} Units</th>
-									</tr>
-								))}
-							</tbody>
-						</table>
-						<div className="Complete_Cancel_Div_Fuel">
+						<div className="OrderTableDiv" style={{overflow:"auto"}}>
+							<table className="Order_Table">
+								<thead className="HeaderRow">
+									<th>Item</th>
+									<th>Quantity</th>
+								</thead>
+								<tbody>
+									{itemsWithQty.map(item => (
+										<tr key={item['name']}>
+											<th>{item['name'].charAt(0).toUpperCase() + item['name'].slice(1)}</th>
+											<th>{item['qty']} Units</th>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+						<div className="Complete_Cancel_Div_Order">
 							<button type="submit" className="Complete">Submit</button>
-							<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
+							<button className="Cancel" onClick={this.props.onClose} style={{marginLeft:"240px"}}>Cancel</button>
 						</div>
 					</div>
 				</div>

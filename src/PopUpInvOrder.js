@@ -16,15 +16,20 @@ class PopUp extends React.Component {
 		this.props.onClose();
 	};
   
-  
-  
     render() {
+		const itemsWithQty = inv_P.filter(item => item.qty > 0);
+		
+		const originalItemsWithQty = inventory.filter(item =>
+		  itemsWithQty.some(itemWithQty => itemWithQty.name === item.name)
+		);
 
-
-    const itemsWithQty = inv_P.filter(item => item.qty > 0);
-    const totalCost = itemsWithQty.reduce((acc, item) => acc + item.qty * item.price, 0);
-    const tax = 0.05 * totalCost;
-    const finalTotal = totalCost + tax;
+		const totalCost = itemsWithQty.reduce((acc, item) => {
+		  const originalItem = originalItemsWithQty.find(originalItem => originalItem.name === item.name);
+		  return acc + item.qty * originalItem.price;
+		}, 0);
+		
+		const tax = 0.05 * totalCost;
+		const finalTotal = totalCost + tax;
 
       return (
           
@@ -46,15 +51,18 @@ class PopUp extends React.Component {
 							<th>Total</th>
 						</thead>
 						<tbody>
-							{itemsWithQty.map(item => (
-								<tr key={item['name']}>
-									<th>{item['name'].charAt(0).toUpperCase() + item['name'].slice(1)}</th>
-									<th>{item['category']}</th>
-									<th>${item['price'].toFixed(2)} Cost</th>
-									<th>{item['qty']} Units</th>
-									<th>${(item['qty'] * item['price']).toFixed(2)}</th>
-								</tr>
-							))}
+							{itemsWithQty.map(item => {
+								const correspondingInventoryItem = inventory.find(invItem => invItem.name === item.name);
+								return(
+									<tr key={item['name']}>
+										<th>{item['name'].charAt(0).toUpperCase() + item['name'].slice(1)}</th>
+										<th>{item['category']}</th>
+										<th>${correspondingInventoryItem.price.toFixed(2)}</th>
+										<th>{item['qty']} Units</th>
+										<th>${((item['qty'] * correspondingInventoryItem.price).toFixed(2))}</th>
+									</tr>
+								);
+							})}
 						</tbody>
 						
 						<thead className="HeaderRow">
