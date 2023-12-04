@@ -24,8 +24,8 @@ return itemStates;
 function UpdateInventory() {
 
     const [firstState, setFirstState] = useState(false);
-
     const itemStates = initializeItemStates(inventory);
+    const [selectedCategory, setSelectedCategory] = useState(categories);
     
     const Refresh = () => {
         setFirstState(false);
@@ -34,6 +34,7 @@ function UpdateInventory() {
             setState(0);
             setItem_P(itemName, 0);
           });
+        setSelectedCategory(categories);
         };
 
     const Final_Call = () => {
@@ -58,6 +59,15 @@ function UpdateInventory() {
   //   setItem_P(itemName, state - 1);
   // };
 
+  const handleChangeCategory = (event) => {
+    if (event.target.value == "View All") {
+      setSelectedCategory(categories);
+    }
+    else {
+      setSelectedCategory([event.target.value]);
+    }
+  };
+
   const handleChangeItem = (itemName, inputText) => {
     const varItemName = `qty_${itemName.replace(' ', '_')}`;
     const { state, setState } = itemStates[varItemName];
@@ -73,7 +83,17 @@ return (
 		<Sidebars />
 		<div className="corner">Update Inventory</div>
 		<div className="Fuel_Div">
-					{categories.map(category => (
+
+    <select value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
+          <option value="View All">All Categories</option>
+          {categories.map(category => (
+            <option key={category} value={category}>
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </option>
+      ))}
+    </select>
+
+					{selectedCategory.map(category => (
 					  <React.Fragment key={category}>
 						<tr > 
 						  <h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>

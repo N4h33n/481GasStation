@@ -24,8 +24,8 @@ const initializeItemStates = (inventory) => {
 function Update_Set_Prices() {
 
     const [firstState, setFirstState] = useState(false);
-
     const itemStates = initializeItemStates(inventory);
+    const [selectedCategory, setSelectedCategory] = useState(categories);
     
     const Refresh = () => {
         setFirstState(false);
@@ -34,6 +34,7 @@ function Update_Set_Prices() {
             setState(NaN);
             setItem_X(itemName, NaN);
           });
+        setSelectedCategory(categories);
         };
 
     const Final_Call = () => {
@@ -44,15 +45,24 @@ function Update_Set_Prices() {
           });
         };
 
-        const handleChangeItem = (itemName, inputVal) => {
-            const varItemName = `price_${itemName.replace(/ /g, '_')}`;
-            const { state, setState } = itemStates[varItemName];
-            const floats = inputVal.target.value;
+    const handleChangeCategory = (event) => {
+      if (event.target.value == "View All") {
+        setSelectedCategory(categories);
+      }
+      else {
+        setSelectedCategory([event.target.value]);
+      }
+      };
 
-            const float = /^\d+(\.\d{0,2})?$/.test(floats) ? parseFloat(floats) : (floats === "" ? NaN : state);
-            setState(float);
-            setItem_X(itemName, float);
-          };
+    const handleChangeItem = (itemName, inputVal) => {
+        const varItemName = `price_${itemName.replace(/ /g, '_')}`;
+        const { state, setState } = itemStates[varItemName];
+        const floats = inputVal.target.value;
+
+        const float = /^\d+(\.\d{0,2})?$/.test(floats) ? parseFloat(floats) : (floats === "" ? NaN : state);
+        setState(float);
+        setItem_X(itemName, float);
+      };
 
   return (
     <div className="Inventory_Page">
@@ -66,8 +76,18 @@ function Update_Set_Prices() {
 						<th>CATEGORY</th>
 					</tr>
 				</thead>
+
+        <select value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
+          <option value="View All">All Categories</option>
+          {categories.map(category => (
+            <option key={category} value={category}>
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </option>
+          ))}
+        </select>
+
 			<tbody>
-			  {categories.map(category => (
+			  {selectedCategory.map(category => (
 				<React.Fragment key={category}>
 				  <tr>
 					<th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</th>

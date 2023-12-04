@@ -24,8 +24,8 @@ const initializeItemStates = (inventory) => {
 function OrderInventory() {
 
     const [firstState, setFirstState] = useState(false);
-
     const itemStates = initializeItemStates(inventory);
+    const [selectedCategory, setSelectedCategory] = useState(categories);
 
     const Refresh = () => {
         setFirstState(false);
@@ -34,6 +34,7 @@ function OrderInventory() {
             setState(0);
             setItem_P(itemName, 0);
           });
+        setSelectedCategory(categories);
         };
     
     const Final_Call = () => {
@@ -60,6 +61,15 @@ function OrderInventory() {
     //     }
     //     };
 
+    const handleChangeCategory = (event) => {
+      if (event.target.value == "View All") {
+        setSelectedCategory(categories);
+      }
+      else {
+        setSelectedCategory([event.target.value]);
+      }
+    };
+
     const handleChangeItem = (itemName, inputText) => {
         const varItemName = `qty_${itemName.replace(' ', '_')}`;
         const { state, setState } = itemStates[varItemName];
@@ -82,8 +92,18 @@ function OrderInventory() {
 						<th>CATEGORY</th>
 					</tr>
 				</thead>
+
+        <select value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
+          <option value="View All">All Categories</option>
+          {categories.map(category => (
+            <option key={category} value={category}>
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </option>
+          ))}
+        </select>
+
 				<tbody>
-					{categories.map(category => (
+					{selectedCategory.map(category => (
 					  <React.Fragment key={category}>
 						<tr>
 						  <th style={{color:"rgb(89, 170, 236)", backgroundColor:"rgb(201, 201, 201)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</th>
