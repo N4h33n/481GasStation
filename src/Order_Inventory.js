@@ -80,7 +80,7 @@ function OrderInventory() {
 				<thead className="HeaderRow">
 					<tr>
 						<th>CATEGORY</th>
-						<th>Quantity</th>
+						<th>Current Quantity</th>
 						<th>Add/Remove</th>
 					</tr>
 				</thead>
@@ -95,7 +95,7 @@ function OrderInventory() {
 						{inventory.filter(item => item.category === category).map(item => (
 							<tr key={item.name}>
 							  <td>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-							  <td>{itemStates[`qty_${item.name.replace(' ', '_')}`].state}</td>
+							  <td>{item.qty}</td>
 							  <td>
 								<input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
 							  </td>

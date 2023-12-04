@@ -5,7 +5,7 @@ import React from 'react';
 import OrderFuel_PopUp from './OrderFuel_PopUp.js';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
-import { OrderFuel_O } from "./Variables.js";
+import { Octane87, Octane89, Octane93, Diesel, Propane, OrderFuel_O } from "./Variables.js";
 import {Link} from 'react-router-dom';
 
 
@@ -208,21 +208,21 @@ function OrderFuel() {
 					<tr>
 
 						<td>Octane 87</td>
-						<td>{Octane87_t}</td>
+						<td>{Octane87}</td>
 						<td>
 							<input type="number" min="0" onChange={handleChange_87} step="1" value={Octane87_t}/>
 						</td>
 					</tr>
 					<tr>
 						<td>Octane 89</td>
-						<td>{Octane89_t}</td>
+						<td>{Octane89}</td>
 						<td>
 							<input type="number" min="0" onChange={handleChange_89} step="1" value={Octane89_t}/>
 						</td>
 					</tr>
 					<tr>
 						<td>Octane 93</td>
-						<td>{Octane93_t}</td>
+						<td>{Octane93}</td>
 						<td>            
 							<input type="number" min="0" onChange={handleChange_93} step="1" value={Octane93_t}/>
 						</td>    
@@ -232,7 +232,7 @@ function OrderFuel() {
 
 					<tr>
 						<td>Diesel</td>
-						<td>{Diesel_t}</td>
+						<td>{Diesel}</td>
 						<td>            
 							<input type="number" min="0" onChange={handleChange_d} step="1" value={Diesel_t}/>
 						</td>
@@ -240,7 +240,7 @@ function OrderFuel() {
 					</tr>
 					<tr>
 						<td>Propane</td>
-						<td>{Propane_t}</td>
+						<td>{Propane}</td>
 						<td> 
 							<input type="number" min="0" onChange={handleChange_p} step="1" value={Propane_t}/>
 						</td>

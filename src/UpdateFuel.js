@@ -190,28 +190,28 @@ function UpdateFuel() {
 				<table className="Fuel_Table">
 					<thead className="HeaderRow">
 						<th>Fuel</th>
-						<th>Quantity</th>
+						<th>Current Quantity</th>
 						<th>ADD/REMOVE</th>
 					</thead>
 
 					<tr>
 
 						<td>Octane 87</td>
-						<td>{Octane87_t}</td>
+						<td>{Octane87}</td>
 						<td>
 							<input type="number" min="0" onChange={handleChange_87} step="1" value={Octane87_t}/>
 						</td>
 					</tr>
 					<tr>
 						<td>Octane 89</td>
-						<td>{Octane89_t}</td>
+						<td>{Octane89}</td>
 						<td>
 							<input type="number" min="0" onChange={handleChange_89} step="1" value={Octane89_t}/>
 						</td>
 					</tr>
 					<tr>
 						<td>Octane 93</td>
-						<td>{Octane93_t}</td>
+						<td>{Octane93}</td>
 						<td>            
 							<input type="number" min="0" onChange={handleChange_93} step="1" value={Octane93_t}/>
 						</td>    
@@ -221,7 +221,7 @@ function UpdateFuel() {
 
 					<tr>
 						<td>Diesel</td>
-						<td>{Diesel_t}</td>
+						<td>{Diesel}</td>
 						<td>            
 							<input type="number" min="0" onChange={handleChange_d} step="1" value={Diesel_t}/>
 						</td>
@@ -229,7 +229,7 @@ function UpdateFuel() {
 					</tr>
 					<tr>
 						<td>Propane</td>
-						<td>{Propane_t}</td>
+						<td>{Propane}</td>
 						<td> 
 							<input type="number" min="0" onChange={handleChange_p} step="1" value={Propane_t}/>
 						</td>
