@@ -106,6 +106,7 @@ const SalesLineGraph = () => {
     };
 
     const options = {
+	  maintainAspectRatio: false,
       indexAxis: 'x',
       onClick: (_, activeElements) => {
         if (activeElements.length > 0) {
@@ -120,6 +121,26 @@ const SalesLineGraph = () => {
           },
         },
       },
+	  scales: {
+		y:{
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		},
+		x: {
+			beginAtZero: true,
+			suggestedMax: 100,
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		},
+    },
   };
     const filteredDatasets = Sales_Trends_data.datasets.filter((dataset) =>
     visibleLines.includes(dataset.label)
@@ -130,7 +151,8 @@ const SalesLineGraph = () => {
     return (
       <div>
 		<Sidebars />
-		<div className="barGraph">
+		<div className="corner">Sales Trends</div>
+		<div className="SalesTrends">
 			<Line options={options} data={visibleData} />
 		</div>
       </div>

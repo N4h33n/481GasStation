@@ -64,21 +64,43 @@ const FuelLineGraph = () => {
     };
 
     const options = {
+		maintainAspectRatio: false,
         indexAxis: 'x',
         onClick: (_, activeElements) => {
-        if (activeElements.length > 0) {
-            const label = {Sales_Trends_Fuel}.datasets[activeElements[0]._datasetIndex].label;
-            legendClickHandler(label);
-        }
+			if (activeElements.length > 0) {
+				const label = {Sales_Trends_Fuel}.datasets[activeElements[0]._datasetIndex].label;
+				legendClickHandler(label);
+			}
         },
         plugins: {
-        legend: {
-            onClick: (e, legendItem) => {
-            legendClickHandler(legendItem.text)
-            },
+			legend: {
+				onClick: (e, legendItem) => {
+				legendClickHandler(legendItem.text)
+				},
+			},
         },
-        },
+		scales: {
+			y:{
+				ticks:{
+					color: 'black',
+					font:{
+						size: 17
+					}
+				}
+			},
+			x: {
+				beginAtZero: true,
+				suggestedMax: 100,
+				ticks:{
+					color: 'black',
+					font:{
+						size: 17
+					}
+				}
+			},
+		},
     };
+	
     const filteredDatasets = Sales_Trends_Fuel.datasets.filter((dataset) =>
     visibleLines.includes(dataset.label)
     );
@@ -89,7 +111,7 @@ const FuelLineGraph = () => {
         <div>
 			<Sidebars />
 			<div className="corner">Sales Trends</div>
-			<div className="barGraph">
+			<div className="SalesTrends">
 				<Line options={options} data={visibleData} />
 			</div>
         </div>

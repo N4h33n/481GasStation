@@ -13,10 +13,8 @@ class PopUp extends React.Component {
 
   
     ChangeStatus = (event) => {
-      
-  this.props.onClose();
-  
-  };
+		this.props.onClose();
+	};
   
   
   
@@ -38,40 +36,54 @@ class PopUp extends React.Component {
             <div className="overlay">
 				<div className="FuelDialog">
 				<div className="AddGas_Div">REVIEW AND SUBMIT</div>
-                <table className="Popup_Table">
-                <thead className="HeaderRow">
-					<th>Item</th>
-					<th></th>
-					<th>Cost per Item</th>
-					<th>Quantity</th>
-					<th>Total</th>
-				</thead>
-                <tbody>
-                    {itemsWithQty.map(item => (
-                        <tr key={item['name']}>
-                            <th>{item['name'].charAt(0).toUpperCase() + item['name'].slice(1)}</th>
-                            <th>{item['category']}</th>
-                            <th>${item['price'].toFixed(2)} Cost</th>
-                            <th>{item['qty']} Units</th>
-                            <th>${(item['qty'] * item['price']).toFixed(2)}</th>
-                        </tr>
-                    ))}
-
-                    <tr>
-                        <th colSpan="4">Tax:</th>
-                        <th>${tax.toFixed(2)}</th>
-                        </tr>
-                        <tr>
-                        <th colSpan="4">Total:</th>
-                        <th>${finalTotal.toFixed(2)}</th>
-                    </tr>
-
-                </tbody>
-                
-                </table>
-				<div className="Complete_Cancel_Div_Fuel">
+				<div className="OrderTableDiv" style={{overflow:"auto"}}>
+					<table className="Order_Table">
+						<thead className="HeaderRow">
+							<th>Item</th>
+							<th>Category</th>
+							<th>Cost per Item</th>
+							<th>Quantity</th>
+							<th>Total</th>
+						</thead>
+						<tbody>
+							{itemsWithQty.map(item => (
+								<tr key={item['name']}>
+									<th>{item['name'].charAt(0).toUpperCase() + item['name'].slice(1)}</th>
+									<th>{item['category']}</th>
+									<th>${item['price'].toFixed(2)} Cost</th>
+									<th>{item['qty']} Units</th>
+									<th>${(item['qty'] * item['price']).toFixed(2)}</th>
+								</tr>
+							))}
+						</tbody>
+						
+						<thead className="HeaderRow">
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>Total</th>
+							<th></th>
+						</thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>Tax:</th>
+							<th>${tax.toFixed(2)}</th>
+						</tr>
+						
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>Total:</th>
+							<th>${finalTotal.toFixed(2)}</th>
+						</tr>
+					</table>
+					</div>
+				<div className="Complete_Cancel_Div_Order">
 					<button type="submit" className="Complete">Submit</button>
-					<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
+					<button className="Cancel" onClick={this.props.onClose} style={{marginLeft:"240px"}}>Cancel</button>
 				</div>
 			  </div>
 			  </div>

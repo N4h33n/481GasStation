@@ -17,7 +17,7 @@ class PopUp extends React.Component {
 
 handleClick = (event) => {
 	this.props.onClose()
-UpdateFuel();
+	UpdateFuel();
 };
 
 
@@ -31,43 +31,39 @@ UpdateFuel();
         <form onSubmit={this.handleClick}>
             <div className="overlay">
 				<div className="FuelDialog">
-				  <div>
-					  <div className="AddGas_Div">REVIEW AND SUBMIT</div>
-					  <table className="Popup_Table">
-						<thead className="HeaderRow">
-							<th>Fuel</th>
-							<th>Quantity</th>
-						</thead>
-					  <tr>
-						<th>Octane 87</th>
-						<th> {Octane87_P} Units</th>
-					  </tr>
-					  <tr>
-						<th>Octane 89</th>
-						<th> {Octane89_P} Units</th>
-					  </tr>
-					  <tr>
-						<th>Octane 93</th>
-						<th> {Octane93_P} Units</th>
-					  </tr>
-					  <tr>
-						<th>Diesel</th>
-						<th> {Diesel_P} Units</th>
-					  </tr>
-					  <tr>
-						<th>Propane</th>
-						<th> {Propane_P} Units</th>
-					  </tr>
-					  
-					  </table>
-					
-					<div className="Complete_Cancel_Div_Fuel">
-						<button type="submit" className="Complete">Submit</button>
-						<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
-					</div>
-
+				  <div className="AddGas_Div">REVIEW AND SUBMIT</div>
+				  <table className="Order_Table">
+					<thead className="HeaderRow">
+						<th>Fuel</th>
+						<th>Quantity</th>
+					</thead>
+				  <tr>
+					<th>Octane 87</th>
+					<th> {Octane87_P} Units</th>
+				  </tr>
+				  <tr>
+					<th>Octane 89</th>
+					<th> {Octane89_P} Units</th>
+				  </tr>
+				  <tr>
+					<th>Octane 93</th>
+					<th> {Octane93_P} Units</th>
+				  </tr>
+				  <tr>
+					<th>Diesel</th>
+					<th> {Diesel_P} Units</th>
+				  </tr>
+				  <tr>
+					<th>Propane</th>
+					<th> {Propane_P} Units</th>
+				  </tr>
+				  
+				  </table>
+				
+				<div className="Complete_Cancel_Div_Fuel">
+					<button type="submit" className="Complete">Submit</button>
+					<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
 				</div>
-              
 			</div>
 			</div>
         </form>

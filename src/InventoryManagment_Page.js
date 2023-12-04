@@ -41,7 +41,7 @@ function App() {
     const text = top5Items.map(([item, sales]) => {
       const unitsSold = sales[selectedPeriod];
       return `${item} ............................................................................................................................................................... ${unitsSold} units`;
-    }).join('<br/>');
+    }).join('<br />');
     setSalesText(text);
     console.log(text);
   };
@@ -53,7 +53,7 @@ function App() {
       <div className="Fuel_Management">Inventory Managment</div>
       <div className="Best_Sellers">Sales Overview</div>
 
-      <div className='Fuel_Management_Buttons'>
+      <div className='Inventory_Management_Buttons'>
 		  <Link to="/BarGraph" className='dashboard-button' style={{border:'2px solid black'}}>
 			<button className='dashboard-button'>Inventory</button>
 		  </Link> 
@@ -67,7 +67,9 @@ function App() {
 			<button className='dashboard-button'>Set Prices</button>
 		  </Link> 
       </div>
-      <div className='div5' dangerouslySetInnerHTML={{ __html: salesText }}></div>
+	  <div className="Best_Sellers_Div">
+		<div className='Stats' style={{lineHeight:"3"}} dangerouslySetInnerHTML={{ __html: salesText }}></div>
+	  </div>	
 	  <select className='trend'>
 		<option className="Day30" id="Day30" onClick={() => handleTimeClick(30)}>Day 30</option>
 		<option className="Day60" id="Day60" onClick={() => handleTimeClick(60)}>Day 60</option>

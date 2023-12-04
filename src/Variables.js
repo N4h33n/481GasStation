@@ -17,6 +17,12 @@ var Octane93_P = 0;
 var Diesel_P = 0;
 var Propane_P = 0;
 
+var Octane87_O = 0;
+var Octane89_O = 0;
+var Octane93_O = 0;
+var Diesel_O = 0;
+var Propane_O = 0;
+
 var Pump_1 = "Available";
 var Pump_2 = "Available";
 var Pump_3 = "In Use";
@@ -142,6 +148,14 @@ function setFuel_P(a,b,c,d,e){
  Octane93_P = c;
  Diesel_P = d;
  Propane_P = e;
+}
+
+function OrderFuel_O(a,b,c,d,e){
+	Octane87_O = a;
+	Octane89_O = b;
+	Octane93_O = c;
+	Diesel_O = d;
+	Propane_O = e;
 }
 
 function UpdateFuel(Fuel, b){
@@ -491,6 +505,11 @@ export {
 	Octane93_P,
 	Diesel_P,
 	Propane_P,
+	Octane87_O,
+ 	Octane89_O,
+ 	Octane93_O,
+ 	Diesel_O,
+ 	Propane_O,
 	Pump_1,
 	Pump_2,
 	Pump_3,
@@ -506,6 +525,7 @@ export {
 	time,
 	time2,
 	setFuel_P,
+	OrderFuel_O,
 	UpdateFuel,
 	addItem,
 	removeItem,

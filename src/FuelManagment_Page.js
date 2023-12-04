@@ -26,7 +26,7 @@ function FuelManagment_Page() {
 		<Link to="/Sales_Trends_Fuel" className='dashboard-button' style={{border:'2px solid black'}}>
 			<button className='dashboard-button'>Sales Trends</button>
 		</Link>
-		<Link to="/FuelManagment_Page" className='dashboard-button' style={{border:'2px solid black'}}>
+		<Link to="/OrderFuel" className='dashboard-button' style={{border:'2px solid black'}}>
 			<button className='dashboard-button'>Order Fuel</button>
 		</Link>
       </div>

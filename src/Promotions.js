@@ -23,21 +23,21 @@ function Promotions() {
     };
 
     return (
-        <body style={{height:"100%", backgroundImage: "url('/dashboard_bg.jpg')", backgroundSize:"cover" }}>
+        <body style={{height:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover" }}>
             <Sidebars/>
             <div className="dashboard">
                 <div className="header">
                     <h1>Promotions & Coupons</h1>
                     {/* <div>Logo</div> */}
                 </div>
-                <div className="buttons-group">
+                <div className="buttons-group-promotions">
                     <button className='dashboard-button-clone' onClick={() => setEditPromo(true)}>Edit Promotions</button>
                     <button className='dashboard-button-clone' onClick={() => setAddPromo(true)}>Add Promotions</button>
                 </div>
             </div>
             <div className='white'>
-                <div className="pump-status">
-                    <h2 style={{marginTop:"5%"}}>Current Promotions</h2>
+                <div className="pump-status" style={{marginLeft:"15%"}}>
+                    <h2 style={{marginTop:"12%"}}>Current Promotions</h2>
                     <hr className='rounded' style={{marginTop:'10px'}}></hr>
                     {promos.map(promo => (
                         <div className='pumps-group'>

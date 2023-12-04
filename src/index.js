@@ -10,6 +10,7 @@ import FuelManagment_Page from './FuelManagment_Page';
 import Fuel_BarGraphs from './Fuel_BarGraphs';
 import UpdateFuel from './UpdateFuel';
 import Sales_Trends_Fuel from './Sales_Trends_Fuel';
+import OrderFuel from './OrderFuel';
 import Promotions from './Promotions';
 import InventoryManagment_Page from './InventoryManagment_Page';
 import BarGraph from './BarGraph';
@@ -37,6 +38,7 @@ export default function Page_Routing(){
 				<Route path="/Sales_Trends" element={<Sales_Trends />} />
 				<Route path="/Order_Inventory" element={<Order_Inventory />} />
 				<Route path="/Set_Prices" element={<Set_Prices />} />
+				<Route path="/OrderFuel" element={<OrderFuel />} />
 			</Routes>
 		</BrowserRouter>
 	);

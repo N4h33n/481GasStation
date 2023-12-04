@@ -19,7 +19,7 @@ const getColorForCategory = category => {
 };
 
 const data = {
-labels : inventory.map(item => item.name),
+labels : inventory.map(item => item.name.charAt(0).toUpperCase() + item.name.slice(1)),
 
 datasets : [
 {
@@ -35,6 +35,7 @@ datasets : [
 
  const options = {
     indexAxis: 'y',
+	maintainAspectRatio: false,
     plugins: {
         legend: {
           display: false
@@ -53,10 +54,24 @@ datasets : [
         },
     },
     scales: {
-      x: {
-        beginAtZero: true,
-        suggestedMax: 100,
-      },
+		y:{
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		},
+		x: {
+			beginAtZero: true,
+			suggestedMax: 100,
+			ticks:{
+				color: 'black',
+				font:{
+					size: 17
+				}
+			}
+		},
     },
 };
 
@@ -67,7 +82,7 @@ const BarGraph = () => {
         
         <div className="corner">Inventory Management</div>
   
-        <div className="barGraph">
+        <div className="InventoryBarGraph">
 			<Bar options={options} data={data} />
 		</div>
 
