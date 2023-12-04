@@ -7,10 +7,13 @@ class DiscountApplied extends Component{
 		let dialog = (
 			<div className="overlay">
 				<div className="GasDialog" id="GasDialog">
-					<button className="DiscountFinished" onClick={() => {this.props.onClose()}}>Finish</button>
 					
 					<div className="AddGas_Div">APPLY DISCOUNT</div>
-					<div className="DiscountApplied_Div" id="DiscountApplied_Div">Discount Applied</div>
+					<div className="Barcode_Div" id="DiscountApplied_Div">Discount Applied</div>
+
+					<div className="Discount_Cancel_Div">
+						<button className="Cancel_Discount" onClick={() => {this.props.onClose()}}>Finish</button>
+					</div>
 				</div>
 				
 			</div>

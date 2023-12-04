@@ -140,6 +140,7 @@ class Combined extends Component{
 		d3.step = "0.01";
 		d3.id = "Cash";
 		d3.name = "Cash";
+		d3.autocomplete = "off";
 		d3.addEventListener('input', function (evt){
 			var calculated = 0;
 			var changeForm = document.forms.cform;
@@ -261,7 +262,7 @@ class Combined extends Component{
 	updateReceipt(a){
 		let completeButton = document.getElementById("Complete");
 		completeButton.disabled = false;
-		completeButton.style.background = "#59AAEC";
+		completeButton.style.background = "#00b4ff";
 		
 		if(a == "Combined_No_Receipt"){
 			document.getElementById("Combined_Print_Receipt").style.border = "none";
