@@ -4,7 +4,28 @@ import {Total, SubTotal, Taxes, updateTotal, updateSubTotal, updateTaxes, invent
 var calculated = 0;
 class DisplayAddItemManually extends Component {
 
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			Quantity: '',
+			ItemName: '',
+			quantityValid: false,
+			itemNameValid: false,
+			disableSubmitButton: true
+		}
+	}
+
     AddItem = (event) =>{
+
+		this.setState({
+			Quantity: '',
+			ItemName: '',
+			quantityValid: false,
+			itemNameValid: false,
+			disableSubmitButton: true
+		})
+
 		event.preventDefault();
 		this.props.onClose();
 		
@@ -24,8 +45,31 @@ class DisplayAddItemManually extends Component {
 		updateSubTotal(SubTotal + subPrice);
 		updateTaxes(Taxes + totalTax);
 	}
-	
-	updatePrice(){
+
+	handleChange = e => {
+		const field = e.target.name
+		const value = e.target.value
+		this.setState({
+			[field]: value
+		})
+		this.checkValidation()
+	}
+
+	handleCancel = e => {
+		this.setState({
+			Quantity: '',
+			ItemName: '',
+			quantityValid: false,
+			itemNameValid: false,
+			disableSubmitButton: true
+		})
+
+		this.props.onClose();
+	}
+
+	checkValidation = e => {
+		const {Quantity, ItemName, quantityValid, itemNameValid, disableSubmitButton} = this.state
+
 		var itemForm = document.forms.iform;
 		
 		var formData = new FormData(itemForm);
@@ -33,31 +77,40 @@ class DisplayAddItemManually extends Component {
 		var quantity = formData.get("Quantity");
 		
 		var itemName= formData.get("ItemName");
-		
-		if(Number(quantity) == 0 || Number(quantity) == null || Number(itemName) == null){
-			calculated = 0;
-			
-			let priceDiv = document.getElementById("IndividualPrice");
-			priceDiv.innerText = calculated.toFixed(2);
-			
-			return;
-		}
-		
+
+		let itemFound = false;
+
+		let inventoryIndex = -1;
+
 		for(let i = 0; i < inventory.length; i++){
 			if(itemName.toLowerCase() == inventory[i].name){
-				calculated = Number(quantity) * Number(inventory[i].price);
+				itemFound =  true
+				inventoryIndex = i;
 			}
 		}
-		
-		
-		if(calculated > 0){
+
+		if(Number(quantity) > 0 && Number(quantity) != null && Number(itemName) != null && itemFound){
+			
 			let priceDiv = document.getElementById("IndividualPrice");
 		
+			calculated = Number(quantity) * Number(inventory[inventoryIndex].price);
+
 			priceDiv.innerText = calculated.toFixed(2);
+
+			this.setState({
+				disableSubmitButton: false
+			})
+		}
+		else {
+			this.setState({
+				disableSubmitButton: true
+			})
 		}
 	}
 	
     render(){
+		const {Quantity,ItemName,quantityValid,itemNameValid,disableSubmitButton} = this.state
+
         let dialog = (
             <div className="overlay">
                 <form onSubmit={this.AddItem} id="iform">
@@ -67,12 +120,12 @@ class DisplayAddItemManually extends Component {
 
 							<div className="Initial_Div">
 								<label for="Quantity">Quantity: </label>
-								<input type="number" min="0" id="Quantity" name="Quantity" placeholder="Eg. 60" onChange={this.updatePrice} autoComplete="off"/>
+								<input value={Quantity} type="number" min="0" id="Quantity" name="Quantity" placeholder="Eg. 60" onChange={this.handleChange} autoComplete="off"/>
 							</div>
 
 							<div className="Final_Div">
 								<label for="ItemName">Item Name: </label>
-								<input type="text" id="ItemName" name="ItemName" placeholder="Eg. 2L Soda" onChange={this.updatePrice} autoComplete="off"/>
+								<input value={ItemName} type="text" id="ItemName" name="ItemName" placeholder="Eg. 2L Soda" onChange={this.handleChange} autoComplete="off"/>
 							</div>
 								
 							<div className="Calculated_Div">	
@@ -81,8 +134,8 @@ class DisplayAddItemManually extends Component {
 							</div>
 
 							<div className="Complete_Cancel_Div">
-								<button type="submit" className="Complete">Add</button>
-								<button className="Cancel" onClick={this.props.onClose}>Cancel</button>
+								<button type="submit" value="Submit" className={disableSubmitButton ? 'Complete-inactive' : 'Complete'} disabled={disableSubmitButton}>Add</button>
+								<button className="Cancel" onClick={this.handleCancel}>Cancel</button>
 							</div>
                         
 					</div>

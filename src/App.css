@@ -265,7 +265,7 @@ button {
 	width: 15rem;
 	background-color: rgba(85, 85, 85);
 	color: white;
-	padding: 5px 5px;
+	padding: 5px 5px 5px 5px;
 	border-radius: 6px;
 	text-align: center;
 	z-index: 333;
@@ -448,6 +448,12 @@ button {
 	justify-content: space-evenly;
 }
 
+.Complete_Cancel_Div button:hover:enabled {
+	background-color: white;
+	border: 2px solid #00b4ff;
+	color: #00b4ff;
+}
+
 .Complete{
 	background-color: #00b4ff;
 	color: white;
@@ -458,6 +464,20 @@ button {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.Complete-inactive {
+	background-color: rgb(128, 128, 128);
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	cursor: pointer;
+	transition: background-color 0.2s;
 }
 
 .Cancel{
@@ -470,6 +490,7 @@ button {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	cursor: pointer;
+	transition: background-color 0.2s;
 }
 
 .GasDialog{
@@ -503,7 +524,6 @@ button {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	background-color: red;
 	flex: 3;
 }
 
@@ -551,8 +571,8 @@ input {
 
 input:focus {
 	outline: none !important;
-    border:1px solid rgb(89, 170, 236);
-    box-shadow: 0 0 5px rgb(89, 170, 236);
+    border:1px solid #00b4ff;
+    box-shadow: 0 0 5px #00b4ff;
 }
 
 .Gas_Div{
@@ -631,6 +651,7 @@ input:focus {
 
 .Barcode_Div{
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	font-size: 4rem;
@@ -639,20 +660,10 @@ input:focus {
 	cursor: default;
 }
 
-.Cancel_Discount{
-	width: 8rem;
-	background-color: rgb(89, 170, 236);
-	color: white;
-	border: 0 none;
-	border-radius: 10px;
-	font-size: 20px;
-	font-weight: bold;
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-
-.Barcode_Gif {
-	background-image: url(https://media.tenor.com/8E3SIU76kHgAAAAC/barcode-scan.gif);
+.Discount_Cancel_Div {
+	display: flex;
+	justify-content: center;
+	height: 3rem;
 }
 
 /* DISCOUNT DIALOG STUFF ENDS HERE */
@@ -701,10 +712,7 @@ input:focus {
 }
 
 .Cancel_Discount{
-	display:inline-block;
-	position: absolute;
-	width: 8rem;
-	height: 40px;
+	width: 15%;
 	left: 80%;
 	background-color: #00b4ff;
 	color: white;
@@ -714,6 +722,13 @@ input:focus {
 	font-weight: bold;
 	padding-left: 1rem;
 	padding-right: 1rem;
+	transition: background-color 0.2s;
+}
+
+.Cancel_Discount:hover {
+	background-color: white;
+	border: 2px solid #00b4ff;
+	color: #00b4ff;
 }
 
 .DiscountApplied_Div{
@@ -928,6 +943,12 @@ input:focus {
 
 .Combined_Buttons button {
 	width: 10%;
+}
+
+.Combined_Buttons button:hover:enabled {
+	background-color: white !important;
+	color: #00b4ff;
+	border: 2px solid #00b4ff;
 }
 
 .Combined_Side_Buttons {
