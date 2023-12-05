@@ -625,11 +625,13 @@ button {
 .cardcontainer h4{
 	position: relative;
 	top: 9px;
+	color: black;
 }
 
 .cardcontainer p{
 	position: relative;
 	top: -5px;
+	color: black;
 }
 
 .cards{
@@ -647,3 +649,18 @@ button {
 	justify-content: space-evenly;
 	flex-direction: column;
 }
+
+.invDropdown {
+	float: right;
+	width: auto;
+	height: auto;
+	font-size: x-large;
+}
+
+.invText {
+	width: auto;
+	height: auto;
+	font-size: large;
+}
+
+

@@ -84,7 +84,7 @@ return (
 		<div className="corner">Update Inventory</div>
 		<div className="Fuel_Div">
 
-    <select value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
+    <select className="invDropdown" value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
           <option value="View All">All Categories</option>
           {categories.map(category => (
             <option key={category} value={category}>
@@ -92,20 +92,19 @@ return (
             </option>
       ))}
     </select>
-
 					{selectedCategory.map(category => (
 					  <React.Fragment key={category}>
-						<tr > 
+						<div> 
 						  <h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
-						</tr>
-            <div class="cards">
+						</div>
+            <div className="cards">
 						{inventory.filter(item => item.category === category).map(item => (
-							 <div class="sales_card" key={item.name}>
+							 <div className="sales_card" key={item.name}>
 							  <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
-							  <div class="cardcontainer">
+							  <div className="cardcontainer">
 								<h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
 								<p>{item.qty}</p>
-								<input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
+								<input className="invText" type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
 							  </div>
 							</div>
               

@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import './App.css';
+import './App_2.css';
 import {useState} from 'react';
 import { inventory, categories, setItem_X, inv_P } from './Variables';
 import Sidebars from './Sidebars';
@@ -70,7 +70,7 @@ function Update_Set_Prices() {
     <div className="corner">Set Prices</div>
     {/* <div className='search'><input type="text" name="name" /></div> */}
     <div className="Fuel_Div">
-        <select value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
+        <select className="invDropdown" value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
           <option value="View All">All Categories</option>
           {categories.map(category => (
             <option key={category} value={category}>
@@ -80,19 +80,21 @@ function Update_Set_Prices() {
         </select>
 			  {selectedCategory.map(category => (
 				<React.Fragment key={category}>
-				  <tr>
+				  <div>
 					<h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
-				  </tr>
+				  </div>
+          <div className="cards">
 				  {inventory.filter(item => item.category === category).map(item => (
-            <div class="card" key={item.name}>
+            <div className="sales_card" key={item.name}>
               <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
-              <div class="container">
+              <div className="cardcontainer">
               <h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
               <p>Price: ${item.price.toFixed(2)}</p>
-              <input type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
+              <input className="invText" type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
               </div>
             </div>
 					))}
+          </div>
 				</React.Fragment>
 			  ))}
 	</div>
