@@ -103,7 +103,7 @@ function UpdateInventory(){
 	inventory.forEach(item => {
 		const correspondingInvPItem = inv_P.find(invItem => invItem.name === item.name);
 
-		if (correspondingInvPItem['qty'] > 0) {
+		if (correspondingInvPItem['qty'] != 0) {
 			item.qty = item.qty + correspondingInvPItem['qty'];
 
 		  if (item.qty <= 0) {

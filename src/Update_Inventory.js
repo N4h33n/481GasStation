@@ -71,18 +71,31 @@ function UpdateInventory() {
   const handleChangeItem = (itemName, inputText) => {
     const varItemName = `qty_${itemName.replace(' ', '_')}`;
     const { state, setState } = itemStates[varItemName];
+    // const ints = Number(inputText.target.value);
+    // const int = parseInt(ints);
+    // const intx = isNaN(int) ? state : int;
+    // setState(intx);
+    // setItem_P(itemName, intx);
+
     const ints = Number(inputText.target.value);
-    const int = isNaN(ints) ? state : parseInt(ints);
-    setState(int);
-    setItem_P(itemName, int);
-  };
+    const int = parseInt(ints);
+
+    if(isNaN(int)){
+        
+        setState(state);
+    }
+    else{
+        setState(int);
+    }
+    setItem_P(itemName, state);
+}; 
 
 return (
 
     <div className="Inventory_Page">
 		<Sidebars />
 		<div className="corner">Update Inventory</div>
-		<div className="Fuel_Div" style={{backgroundColor:"transparent"}}>
+		<div className="Inv_Div">
 
     <select className="invDropdown" value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
           <option value="View All">All Categories</option>
@@ -92,9 +105,10 @@ return (
             </option>
       ))}
     </select>
+    <br></br>
 					{selectedCategory.map(category => (
 					  <React.Fragment key={category}>
-						<div> 
+						<div className="invHeader"> 
 						  <h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
 						</div>
             <div className="cards">

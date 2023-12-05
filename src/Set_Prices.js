@@ -69,7 +69,7 @@ function Update_Set_Prices() {
     <Sidebars />
     <div className="corner">Set Prices</div>
     {/* <div className='search'><input type="text" name="name" /></div> */}
-    <div className="Fuel_Div" style={{backgroundColor:"transparent"}}>
+    <div className="Inv_Div">
         <select className="invDropdown" value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
           <option value="View All">All Categories</option>
           {categories.map(category => (
@@ -78,9 +78,10 @@ function Update_Set_Prices() {
             </option>
           ))}
         </select>
+        <br></br>
 			  {selectedCategory.map(category => (
 				<React.Fragment key={category}>
-				  <div>
+				  <div className="invHeader">
 					<h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
 				  </div>
           <div className="cards">
