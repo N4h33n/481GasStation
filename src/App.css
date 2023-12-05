@@ -348,6 +348,10 @@ button {
 	border-bottom: 2px dashed rgba(0,0,0,0.3);
 }
 
+.Checkout tr {
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
 .Quantity{
 	padding-left: 0.75rem;
 	text-align: left;
