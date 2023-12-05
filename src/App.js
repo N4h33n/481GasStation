@@ -106,11 +106,6 @@ function App() {
 				<div className="header">
 					<div className="CheckoutLabel">
 						<h1>Checkout</h1>
-						<div className="testHint">?
-							<span className="testToolTip">
-							Begin by either scanning an item or clicking any side button.
-							</span>
-						</div>
 					</div>
 					{/* <div>Logo</div> */}
 				</div>
@@ -160,36 +155,16 @@ function App() {
 
 					<div className="SideButtonDiv">
 						<button className="AddGas" onClick={() => setFirstState(true)}>Add Gas
-							<div className="testHint">?
-								<span className="testToolTip">
-								Click this to add gasoline to the checkout.
-								</span>
-							</div>
 						</button>
 						<button className="AddPropane" onClick={() => setSecondState(true)}>Add Propane
-						<div className="testHint">?
-								<span className="testToolTip">
-									Click this to add propane to the checkout.
-								</span>
-							</div>
 						</button>
 						<button className="ApplyDiscount" onClick={() => setThirdState(true)}>Apply Discount
-							<div className="testHint">?
-								<span className="testToolTip">
-									Click this to scan a customer's discount and apply it to checkout.
-								</span>
-							</div>
 						</button>
 					</div>
 				</div>
 
 				<div className="BeginPaymentDiv">
 					<button className="BeginPayment" onClick={() => {setFifthState(true)}}>Begin Payment
-						<div className="testHint">?
-							<span className="testToolTip">
-							Click to finalize the transaction and begin the payment process.
-							</span>
-						</div>
 					</button>
 
 				</div>
