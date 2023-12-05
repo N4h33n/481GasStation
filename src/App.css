@@ -112,6 +112,7 @@ hr.rounded {
 }
 
 .dashboard-button {
+	position: relative;
 	background-color: white;
 	color: black;
 	height: 7rem;
@@ -364,6 +365,14 @@ button {
 
 .Remove{
 	width: 2%;
+}
+
+.removeButton:hover {
+	background-color: #ff2828 !important;
+}
+
+.removeButton:active {
+	background-color: #ff0000 !important;
 }
 
 .TotalTable{

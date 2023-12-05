@@ -80,20 +80,20 @@ class DisplayAddItemManually extends Component {
 
 		let itemFound = false;
 
-		let inventoryIndex = -1;
+		let item = '';
 
 		for(let i = 0; i < inventory.length; i++){
 			if(itemName.toLowerCase() == inventory[i].name){
 				itemFound =  true
-				inventoryIndex = i;
+				item = inventory[i];
 			}
 		}
 
-		if(Number(quantity) > 0 && Number(quantity) != null && Number(itemName) != null && itemFound){
+		if(Number(quantity) > 0 && Number(quantity) != null && Number(itemName) != null && itemFound && item.qty >= Number(quantity)){
 			
 			let priceDiv = document.getElementById("IndividualPrice");
 		
-			calculated = Number(quantity) * Number(inventory[inventoryIndex].price);
+			calculated = Number(quantity) * Number(item.price);
 
 			priceDiv.innerText = calculated.toFixed(2);
 
