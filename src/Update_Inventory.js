@@ -95,7 +95,7 @@ return (
     <div className="Inventory_Page">
 		<Sidebars />
 		<div className="corner">Update Inventory</div>
-		<div className="Fuel_Div">
+		<div className="Inv_Div">
 
     <select className="invDropdown" value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
           <option value="View All">All Categories</option>
@@ -105,9 +105,10 @@ return (
             </option>
       ))}
     </select>
+    <br></br>
 					{selectedCategory.map(category => (
 					  <React.Fragment key={category}>
-						<div> 
+						<div className="invHeader"> 
 						  <h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
 						</div>
             <div className="cards">
