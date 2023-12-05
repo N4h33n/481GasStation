@@ -1098,6 +1098,9 @@ input:focus {
 	border-top-right-radius: 10px;
 	flex: 4;
 	overflow: auto;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
 }
 
 .CombinedCheckout{
@@ -1107,6 +1110,11 @@ input:focus {
 
 .CombinedCheckout .HeaderRow {
 	color: white;
+	border-bottom: 2px dashed rgba(0,0,0,0.3);
+}
+
+.CombinedCheckout tr{
+	border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 
 .CombinedQuantity{
@@ -1130,7 +1138,10 @@ input:focus {
 	grid-template-columns: auto auto;
 	/* background-color: #00b4ff; */
 	background-color: white;
-	border-top: 2px solid rgb(223, 223, 223);
+	border-top: 2px dashed rgb(119, 119, 119);
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	padding-top: 1rem;

@@ -10,7 +10,7 @@ function PumpManagement() {
     const [testPump, setTestPump] = useState(false);
 
     return (
-		<body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute" }}>
+		<body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute", overflowX:"hidden" }}>
             <Sidebars/>
 			<div>
                 <div className="dashboard">

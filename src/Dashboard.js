@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 function Dashboard() {
     return (
-		<body style={{height:"100%", backgroundImage: "url('/dashboard_bg.jpg')", backgroundSize:"cover" }}>
+		<body style={{width:"100%", height:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute", overflowX:"hidden"}}>
             <Sidebars/>
                         <div>
                 <div className="dashboard">

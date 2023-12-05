@@ -35,7 +35,7 @@ function FuelManagment_Page() {
 	}
 
   return (
-    <body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute" }}>
+    <body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute", overflowY:"hidden" }}>
       <Sidebars />
 
 	 	<div className="Fuel_Management">Fuel Management</div>

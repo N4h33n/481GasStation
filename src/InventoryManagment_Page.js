@@ -33,7 +33,7 @@ function App() {
 
   var text = "Oreo         300 Units \nCheetos      70 Units\nMilk          23 units";
   return (
-    <body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute" }}>
+    <body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute", overflowY:"hidden"}}>
       <Sidebars />
 	  
 
