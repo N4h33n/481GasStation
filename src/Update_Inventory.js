@@ -71,11 +71,24 @@ function UpdateInventory() {
   const handleChangeItem = (itemName, inputText) => {
     const varItemName = `qty_${itemName.replace(' ', '_')}`;
     const { state, setState } = itemStates[varItemName];
+    // const ints = Number(inputText.target.value);
+    // const int = parseInt(ints);
+    // const intx = isNaN(int) ? state : int;
+    // setState(intx);
+    // setItem_P(itemName, intx);
+
     const ints = Number(inputText.target.value);
-    const int = isNaN(ints) ? state : parseInt(ints);
-    setState(int);
-    setItem_P(itemName, int);
-  };
+    const int = parseInt(ints);
+
+    if(isNaN(int)){
+        
+        setState(state);
+    }
+    else{
+        setState(int);
+    }
+    setItem_P(itemName, state);
+}; 
 
 return (
 
@@ -104,7 +117,7 @@ return (
 							  <div className="cardcontainer">
 								<h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
 								<p>{item.qty}</p>
-								<input className="invText" type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
+								<input className="invText" type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
 							  </div>
 							</div>
               

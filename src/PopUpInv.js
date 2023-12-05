@@ -23,7 +23,7 @@ class PopUp extends React.Component {
   };
   
     render() {
-		const itemsWithQty = inv_P.filter(item => item.qty > 0);
+		const itemsWithQty = inv_P.filter(item => item.qty != 0);
       return (
 		<div>
 			<form onSubmit={this.handleClick}>
