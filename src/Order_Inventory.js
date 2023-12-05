@@ -84,7 +84,7 @@ function OrderInventory() {
           <Sidebars />
           <div className="corner">Order Inventory</div>
           {/* <div className='search'><input type="text" name="name" /></div> */}
-          <div className="Fuel_Div">
+          <div className="Fuel_Div" style={{backgroundColor:"transparent"}}>
 			<select className="invDropdown" value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
 			  <option value="View All">All Categories</option>
 			  {categories.map(category => (
@@ -105,7 +105,7 @@ function OrderInventory() {
 					<div class="cardcontainer">
 						<h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
 						<p>{item.qty}</p>
-						<input className="invText" type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
+						<input className="invText" type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
 					</div>
 				  </div>
 				))}

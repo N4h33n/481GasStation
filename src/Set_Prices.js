@@ -69,7 +69,7 @@ function Update_Set_Prices() {
     <Sidebars />
     <div className="corner">Set Prices</div>
     {/* <div className='search'><input type="text" name="name" /></div> */}
-    <div className="Fuel_Div">
+    <div className="Fuel_Div" style={{backgroundColor:"transparent"}}>
         <select className="invDropdown" value={categories.every(item => selectedCategory.includes(item)) ? 'View All' : selectedCategory[0]} onChange={handleChangeCategory}>
           <option value="View All">All Categories</option>
           {categories.map(category => (
