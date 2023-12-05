@@ -14,10 +14,7 @@ function PumpManagement() {
             <Sidebars/>
 			<div>
                 <div className="dashboard">
-                    <div className="header">
-                        <h1>Pump Management</h1>
-                        {/* <div>Logo</div> */}
-                    </div>
+                    <div className="Fuel_Management">Pump Management</div>
                     <div className="buttons-group">
                         <button className='dashboard-button-clone' onClick={() => setEditPump(true)}>Edit Pump Status</button>
                         <button className='dashboard-button-clone'>View Cameras</button>

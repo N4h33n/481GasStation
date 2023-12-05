@@ -9,9 +9,7 @@ function Dashboard() {
             <Sidebars/>
                         <div>
                 <div className="dashboard">
-                    <div className="header" style={{marginBottom:'0'}}>
-                        <h1 >Dashboard</h1>
-                    </div>
+                    <div className="Fuel_Management">Dashboard</div>
                     <div className="buttons-group">
                         <Link to="/FuelManagment_Page" className='dashboard-button' style={{border:'2px solid black'}}>
                             <button className='dashboard-button'>Fuel Management</button>

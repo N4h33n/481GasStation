@@ -32,42 +32,102 @@ function FuelManagment_Page() {
       </div>
       
 	  <select className='trend'>
-		<option className="Day30" id="Day30" onClick={() => {setFourthState(true); setFifthState(false); setSixthState(false)} }>Day 30</option>
-		<option className="Day60" id="Day60" onClick={() =>  {setFourthState(false); setFifthState(true); setSixthState(false)} }>Day 60</option>
-		<option className="Day90" id="button90" onClick={() =>  {setFourthState(false); setFifthState(false); setSixthState(true)} }>Day 90</option>
+		<option className="Day30" id="Day30" onClick={() => {setFourthState(true); setFifthState(false); setSixthState(false)} }>Last Day 30</option>
+		<option className="Day60" id="Day60" onClick={() =>  {setFourthState(false); setFifthState(true); setSixthState(false)} }>Last Day 60</option>
+		<option className="Day90" id="button90" onClick={() =>  {setFourthState(false); setFifthState(false); setSixthState(true)} }>Last Day 90</option>
 	  </select>
 	  
 	<div className='Best_Sellers_Div'>
 
 {fourthState && (
-  <div>
-    <div className='Stats'> {"Octane 87 ......................................................................................................................................................... 10000 Units"}</div>
-    <div className='Stats'> {"Octane 93 ..........................................................................................................................................................3400 Units"}</div>
-    <div className='Stats'> {"Octane 89 ......................................................................................................................................................... 23000 Units"}</div>
-    <div className='Stats'> {"Diesel  ..................................................................................................................................................................1000 Units"}</div>
-	<div className='Stats'> {"Propane ...............................................................................................................................................................400 Units"}</div>
-  </div>
+	<table className="Sales_Table">
+		<thead className="HeaderRow">
+			<th>Fuel</th>
+			<th>Units Sold</th>
+		</thead>
+		
+		<tr>
+			<td>Octane 87</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>Octane 89</td>
+			<td>3400</td>
+		</tr>
+		<tr>
+			<td>Octane 93</td>
+			<td>23000</td>
+		</tr>
+		<tr>
+			<td>Diesel</td>
+			<td>1000</td>
+		</tr>
+		<tr>
+			<td>Propane</td>
+			<td>400</td>
+		</tr>
+	</table>
 )}
 
 {fifthState && (
-  <div>
-    <div className='Stats'> {"Octane 87 ......................................................................................................................................................... 31040 Units"}</div>
-    <div className='Stats'> {"Octane 93 ..........................................................................................................................................................5790 Units"}</div>
-    <div className='Stats'> {"Octane 89 ......................................................................................................................................................... 18000 Units"}</div>
-    <div className='Stats'> {"Diesel  ..................................................................................................................................................................2000 Units"}</div>
-	<div className='Stats'> {"Propane ...............................................................................................................................................................700 Units"}</div>
-  </div>
+  <table className="Sales_Table">
+		<thead className="HeaderRow">
+			<th>Fuel</th>
+			<th>Units Sold</th>
+		</thead>
+		
+		<tr>
+			<td>Octane 87</td>
+			<td>31040</td>
+		</tr>
+		<tr>
+			<td>Octane 89</td>
+			<td>5790</td>
+		</tr>
+		<tr>
+			<td>Octane 93</td>
+			<td>18000</td>
+		</tr>
+		<tr>
+			<td>Diesel</td>
+			<td>2000</td>
+		</tr>
+		<tr>
+			<td>Propane</td>
+			<td>700</td>
+		</tr>
+	</table>
 )}
 
 
 {sixthState && (
-  <div>
-    <div className='Stats'> {"Octane 87 ......................................................................................................................................................... 95600 Units"}</div>
-    <div className='Stats'> {"Octane 93 ..........................................................................................................................................................11990 Units"}</div>
-    <div className='Stats'> {"Octane 89 ......................................................................................................................................................... 89000 Units"}</div>
-    <div className='Stats'> {"Diesel  ..................................................................................................................................................................3000 Units"}</div>
-	<div className='Stats'> {"Propane ...............................................................................................................................................................1400 Units"}</div>
-  </div>
+  <table className="Sales_Table">
+		<thead className="HeaderRow">
+			<th>Fuel</th>
+			<th>Units Sold</th>
+		</thead>
+		
+		<tr>
+			<td>Octane 87</td>
+			<td>95600</td>
+		</tr>
+		<tr>
+			<td>Octane 89</td>
+			<td>11990</td>
+		</tr>
+		<tr>
+			<td>Octane 93</td>
+			<td>89000</td>
+		</tr>
+		<tr>
+			<td>Diesel</td>
+			<td>3000</td>
+		</tr>
+		<tr>
+			<td>Propane</td>
+			<td>1400</td>
+		</tr>
+	</table>
 )}
 
   

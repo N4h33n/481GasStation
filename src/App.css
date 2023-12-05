@@ -93,16 +93,20 @@ hr.rounded {
 
 .buttons-group {
     display: flex;
+	position: relative;
     flex-wrap: wrap;
     gap: 5%;
+	top: 11vh;
     margin-top: 20px;
 	justify-content: center;
 }
 
 .buttons-group-promotions{
 	display: flex;
+	position: relative;
     flex-wrap: wrap;
     gap: 5%;
+	top: 11vh;
     margin-top: 3%;
 	margin-left: 30%;
 }

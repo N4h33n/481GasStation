@@ -26,10 +26,7 @@ function Promotions() {
         <body style={{height:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover" }}>
             <Sidebars/>
             <div className="dashboard">
-                <div className="header">
-                    <h1>Promotions & Coupons</h1>
-                    {/* <div>Logo</div> */}
-                </div>
+                <div className="Fuel_Management">Promotions & Coupons</div>
                 <div className="buttons-group-promotions">
                     <button className='dashboard-button-clone' onClick={() => setEditPromo(true)}>Edit Promotions</button>
                     <button className='dashboard-button-clone' onClick={() => setAddPromo(true)}>Add Promotions</button>

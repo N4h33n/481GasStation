@@ -41,6 +41,7 @@ var showCashDialog = true;
 var showReceiptOptions = true;
 var time = [];
 var time2 = [];
+var time3 = [];
 var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0, 'price': 0},
 {'name': 'doritos', 'category': 'chips', 'qty': 0, 'price': 0},
 {'name': 'coffee', 'category': 'drinks', 'qty': 0, 'price': 0},
@@ -61,7 +62,7 @@ var categories = ['chips', 'drinks', 'cookies', 'candy','misc'];
 var inventory = [{'name': 'cheetos', 'price': 4.00, 'category': 'chips', 'qty': 50, 'capacity': 100, 'img': 'cheetos.png'}, 
 	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100, 'img': 'doritos.png'},
 
-		{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150, 'img': 'coffee.png'},
+	{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150, 'img': 'coffee.png'},
 	{'name': 'tea', 'price': 1.5, 'category': 'drinks', 'qty': 70, 'capacity': 150, 'img': 'tea.png'},
 	{'name': '2l soda', 'price': 3.00, 'category': 'drinks', 'qty': 95, 'capacity': 150, 'img': '2l_soda.png'},
 	{'name': 'milk', 'price': 1.5, 'category': 'drinks', 'qty': 35, 'capacity': 150, 'img': 'milk.png'},
@@ -133,7 +134,7 @@ var days_sales = {
 	Doritos: { 30: 18, 60: 42, 90: 78 },
 	Coffee: { 30: 47, 60: 120, 90: 240 },
 	Tea: { 30: 62, 60: 111, 90: 256 },
-	TwoLitreSoda: { 30: 30, 60: 78, 90: 150 },
+	TwoLitreSoda: { 30: 30, 60: 78, 90: 153 },
     Milk: { 30: 26, 60: 54, 90: 170 },
 	Oreo: { 30: 50, 60: 100, 90: 150 },
 	ChipsAhoy: { 30: 42, 60: 103, 90: 182 },
@@ -481,7 +482,15 @@ function setTime2(a){
 }
 
 function remTime2(){
-	return time.pop();
+	return time2.pop();
+}
+
+function setTime3(a){
+	time3.push(a);
+}
+
+function remTime3(){
+	return time3.pop();
 }
 
 function propaneInCheckout() {
@@ -555,6 +564,8 @@ export {
 	removeTime,
 	setTime2,
 	remTime2,
+	setTime3,
+	remTime3,
 	propaneInCheckout,
 	inventory,
 	updatePump,

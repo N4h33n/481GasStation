@@ -40,6 +40,13 @@ const getColorForCategory = category => {
     },
     scales: {
 		y:{
+			title:{
+				display: true,
+				text: 'Item Category',
+				font:{
+					size: 20
+				}
+			},
 			ticks:{
 				color: 'black',
 				font:{
@@ -48,6 +55,13 @@ const getColorForCategory = category => {
 			}
 		},
 		x: {
+			title:{
+				display: true,
+				text: 'Percentage Of Items Available',
+				font:{
+					size: 20
+				}
+			},
 			beginAtZero: true,
 			suggestedMax: 100,
 			ticks:{

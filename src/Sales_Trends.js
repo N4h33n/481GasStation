@@ -116,6 +116,11 @@ const SalesLineGraph = () => {
       },
       plugins: {
         legend: {
+		  labels:{
+			font:{
+				size: 25
+			}  
+		  },
           onClick: (e, legendItem) => {
             legendClickHandler(legendItem.text)
           },
@@ -123,6 +128,13 @@ const SalesLineGraph = () => {
       },
 	  scales: {
 		y:{
+			title:{
+				display: true,
+				text: 'Percentage Sold',
+				font:{
+					size: 20
+				}
+			},
 			ticks:{
 				color: 'black',
 				font:{
@@ -131,6 +143,13 @@ const SalesLineGraph = () => {
 			}
 		},
 		x: {
+			title:{
+				display: true,
+				text: 'Last 30 Days',
+				font:{
+					size: 20
+				}
+			},
 			beginAtZero: true,
 			suggestedMax: 100,
 			ticks:{

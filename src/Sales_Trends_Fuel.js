@@ -74,6 +74,11 @@ const FuelLineGraph = () => {
         },
         plugins: {
 			legend: {
+				labels:{
+				  font:{
+					size: 22
+				  }  
+			    },
 				onClick: (e, legendItem) => {
 				legendClickHandler(legendItem.text)
 				},
@@ -81,6 +86,13 @@ const FuelLineGraph = () => {
         },
 		scales: {
 			y:{
+				title:{
+					display: true,
+					text: 'Units Sold',
+					font:{
+						size: 20
+					}
+				},
 				ticks:{
 					color: 'black',
 					font:{
@@ -89,6 +101,13 @@ const FuelLineGraph = () => {
 				}
 			},
 			x: {
+				title:{
+					display: true,
+					text: 'Last 30 Days',
+					font:{
+						size: 20
+					}
+				},
 				beginAtZero: true,
 				suggestedMax: 100,
 				ticks:{

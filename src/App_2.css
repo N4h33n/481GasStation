@@ -22,6 +22,40 @@ body {
 	left: 15%;
 }
 
+.Sales_Table{
+	width: 800px;
+	height: 200px;
+	padding-left: rem;
+	background-color: white;
+	position: absolute;
+	top: 10%;
+	left: 15%;
+	border-collapse: collapse;
+}
+
+.Sales_Table thead{
+	color: white;
+	border-collapse: none;
+	height: 40px;
+	
+}
+
+.Sales_Table th{
+	color: white;
+	border-collapse: none;
+}
+
+.Sales_Table td{
+	border-collapse: none;
+	text-align: center;
+}
+
+.Sales_Table tr{
+	border-bottom: 1px solid rgb(201, 201, 201);
+	height: 50px;
+	color: black;
+}
+
 .Fuel_Table{
 	width: 800px;
 	height: 200px;
@@ -188,7 +222,6 @@ body {
 	font-weight: bold;
 	top: 2%;
 	left: 5%;
-
 }
 
 .rectangle {
@@ -307,11 +340,11 @@ button {
 .trend{
 	background-color: transparent;
 	position: absolute;
-	padding: 0.5rem 1.2rem; /* Adjust padding for size */
+	padding: 0.5rem 0.5rem; /* Adjust padding for size */
 	position:absolute;
 	top: 41%;
 	left: 75%;
-	width: 6rem;
+	width: 8rem;
 	color: rgb(89, 170, 236);
 	border: solid black 1px;
 	border-radius: 7px;
@@ -459,28 +492,28 @@ button {
 .barGraph{
 	display: inline-block;
 	position: absolute;
-	height: 75vh;
+	height: 73vh;
 	width: 95vw;
-	top: 7%;
-	left: 1%;
+	top: 9%;
+	left: 2%;
 }
 
 .InventoryBarGraph{
 	display: inline-block;
 	position: absolute;
-	height: 77vh;
-	width: 98vw;
-	top: 7%;
-	left: 1%;
+	height: 73vh;
+	width: 95vw;
+	top: 9%;
+	left: 2%;
 }
 
 .SalesTrends{
 	display: inline-block;
 	position: absolute;
-	height: 90vh;
-	width: 98vw;
-	top: 7%;
-	left: 1%;
+	height: 87vh;
+	width: 94vw;
+	top: 10%;
+	left: 2%;
 }
 
 .Complete_Cancel_Div_Fuel{
@@ -546,4 +579,46 @@ button {
 .container {
   margin: auto;
   text-align: center;
+}
+
+.sales_card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 15%;
+  height: 284px;
+  position: relative;
+  display: inline-block;
+  margin-left: 40px;
+  text-align: center;
+}
+
+.sales_card img{
+	width: 200px;
+	height: 200px;
+}
+
+.sales_card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+
+.cardcontainer {
+  margin: auto;
+  text-align: center;
+  background-color: #00b4ff;
+}
+
+.cardcontainer h4{
+	position: relative;
+	top: 9px;
+}
+
+.cardcontainer p{
+	position: relative;
+	top: -5px;
+}
+
+.cards{
+	position: relative;
+	left: -2%;
 }
