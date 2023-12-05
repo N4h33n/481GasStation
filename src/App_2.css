@@ -336,12 +336,10 @@ button {
 	height: 90vh;
 }
 
-
 .trend{
 	background-color: transparent;
 	position: absolute;
 	padding: 0.5rem 0.5rem; /* Adjust padding for size */
-	position:absolute;
 	top: 41%;
 	left: 75%;
 	width: 8rem;

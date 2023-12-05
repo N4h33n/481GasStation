@@ -12,6 +12,27 @@ function FuelManagment_Page() {
 	const [fourthState, setFourthState] = useState(true);
 	const [fifthState, setFifthState] = useState(false);
 	const [sixthState, setSixthState] = useState(false);
+	
+	const handleChange = (selectedOption) => {
+		if(selectedOption.target.value == "30"){
+			setFourthState(true);
+			setFifthState(false);
+			setSixthState(false);
+		}
+		
+		if(selectedOption.target.value == "60"){
+			setFourthState(false);
+			setFifthState(true);
+			setSixthState(false);
+		}
+		
+		if(selectedOption.target.value == "90"){
+			setFourthState(false);
+			setFifthState(false);
+			setSixthState(true);
+		}
+		
+	}
 
   return (
     <body style={{height:"100%", width:"100%", backgroundImage: "url('/dashboard_bg2.jpg')", backgroundSize:"cover", position:"absolute" }}>
@@ -31,10 +52,10 @@ function FuelManagment_Page() {
 		</Link>
       </div>
       
-	  <select className='trend'>
-		<option className="Day30" id="Day30" onClick={() => {setFourthState(true); setFifthState(false); setSixthState(false)} }>Last Day 30</option>
-		<option className="Day60" id="Day60" onClick={() =>  {setFourthState(false); setFifthState(true); setSixthState(false)} }>Last Day 60</option>
-		<option className="Day90" id="button90" onClick={() =>  {setFourthState(false); setFifthState(false); setSixthState(true)} }>Last Day 90</option>
+	  <select className='trend' onChange={handleChange}>
+		<option className="Day30" id="Day30" value="30">Last Day 30</option>
+		<option className="Day60" id="Day60" value="60">Last Day 60</option>
+		<option className="Day90" id="button90" value="90">Last Day 90</option>
 	  </select>
 	  
 	<div className='Best_Sellers_Div'>
