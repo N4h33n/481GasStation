@@ -34,16 +34,6 @@ function App() {
 			}
 		}
 		
-		if(event.key == 'e'){
-			setThirdState(false);
-			setFourthState(true);
-		}
-		
-		if(event.key == 'r'){
-			setThirdState(false);
-			setFourthState(true);
-		}
-		
 		if(event.key == 't'){
 			setThirdState(false);
 			applyDiscount(5, 0, "10% off of Entire Purchase", "none");
@@ -76,15 +66,14 @@ function App() {
 		}
 		
 		else if(event.key =='c'){
-			
-		}
-		
-		else if(event.key =='v'){
-			
-		}
-		
-		else if(event.key =='b'){
-			
+			for(let i = 0; i < inventory.length; i++){
+				if(inventory[i].name == 'coffee'){
+					addItem({'name': 'Coffee', 'quantity': 1, 'cost': inventory[i].price, 'totalTax': inventory[i].price * 0.05}, "none");
+					updateTotal(Total + inventory[i].price + inventory[i].price * 0.05);
+					updateSubTotal(SubTotal + inventory[i].price);
+					updateTaxes(Taxes + inventory[i].price * 0.05);
+				}
+			}
 		}
 	}, false);
 	
