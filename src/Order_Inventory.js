@@ -103,7 +103,7 @@ function OrderInventory() {
 					<img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
 					<div class="container">
 						<h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
-						<p>{itemStates[`qty_${item.name.replace(' ', '_')}`].state}</p>
+						<p>{item.qty}</p>
 						<input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
 					</div>
 				  </div>

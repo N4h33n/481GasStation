@@ -342,9 +342,9 @@ button {
 	padding: 0.5rem 0.5rem; /* Adjust padding for size */
 	top: 41%;
 	left: 75%;
-	width: 8rem;
-	color: rgb(89, 170, 236);
-	border: solid black 1px;
+	width: 8.2rem;
+	color: black;
+	border: solid black 2px;
 	border-radius: 7px;
 	font-size: 1rem;
 	font-weight: bold;
@@ -353,8 +353,8 @@ button {
 
 .trend option{
 	background-color: white;
-	color: rgb(89, 170, 236);
-	border: solid black 1px;
+	color: black;
+	border: solid black 2px;
 	border-radius: 10px;
 	height: 1rem;
 	width: 6rem;
@@ -567,6 +567,7 @@ button {
   position: relative;
   display: inline-block;
   margin-left: 40px;
+  
 }
 
 .card:hover {

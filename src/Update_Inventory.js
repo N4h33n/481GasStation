@@ -98,16 +98,19 @@ return (
 						<tr > 
 						  <h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
 						</tr>
+            <div class="cards">
 						{inventory.filter(item => item.category === category).map(item => (
-							 <div class="card" key={item.name}>
+							 <div class="sales_card" key={item.name}>
 							  <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
-							  <div class="container">
+							  <div class="cardcontainer">
 								<h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
 								<p>{item.qty}</p>
 								<input type="text" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`qty_${item.name.replace(' ', '_')}`].state} />
 							  </div>
 							</div>
+              
 						))}
+            </div>
 					  </React.Fragment>
 					))}
 		</div>
