@@ -65,7 +65,7 @@ function App() {
 			}
 		}
 		
-		else if(event.key =='c'){
+		else if(event.key =='j'){
 			for(let i = 0; i < inventory.length; i++){
 				if(inventory[i].name == 'coffee'){
 					addItem({'name': 'Coffee', 'quantity': 1, 'cost': inventory[i].price, 'totalTax': inventory[i].price * 0.05}, "none");
