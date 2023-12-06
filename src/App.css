@@ -1236,3 +1236,22 @@ select:focus {
     border:2px solid #00b4ff;
     box-shadow: 0 0 5px #00b4ff;
 }
+
+.dashboardLogo{
+	display: inline-block;
+	height: 150px;
+}
+
+.dashboardLogo h2{
+	display: inline-block;
+	position: relative;
+	font-size: 40px;
+	text-align: center;
+	top: -5%;
+}
+
+.dashboardLogo img{
+	display: inline-block;
+	position: relative;
+	top: 10%;
+}
