@@ -12,7 +12,8 @@ import {Link} from 'react-router-dom';
 // refrence 
 // to get the increment code
 // https://learnersbucket.com/examples/interview/increment-counter-component-in-react/
-
+// to remove leading 0's
+// https://www.geeksforgeeks.org/remove-leading-zeros-from-a-number-given-as-a-string/  
 
 function OrderFuel() {
     const [firstState, setFirstState] = useState(false);
@@ -97,7 +98,8 @@ function OrderFuel() {
     }; 
 
     const handleChange_87 = (inputText) => {
-        
+        const regex = new RegExp("^0+(?!$)",'g');
+        inputText.target.value = inputText.target.value.replaceAll(regex, "");
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
@@ -116,7 +118,8 @@ function OrderFuel() {
     }; 
 
     const handleChange_89 = (inputText) => {
-        
+        const regex = new RegExp("^0+(?!$)",'g');
+        inputText.target.value = inputText.target.value.replaceAll(regex, "");
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
@@ -133,7 +136,8 @@ function OrderFuel() {
     }; 
 
     const handleChange_93 = (inputText) => {
-        
+        const regex = new RegExp("^0+(?!$)",'g');
+        inputText.target.value = inputText.target.value.replaceAll(regex, "");
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
@@ -150,7 +154,8 @@ function OrderFuel() {
     }; 
 
     const handleChange_d = (inputText) => {
-        
+        const regex = new RegExp("^0+(?!$)",'g');
+        inputText.target.value = inputText.target.value.replaceAll(regex, "");
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
@@ -167,7 +172,8 @@ function OrderFuel() {
     }; 
 
     const handleChange_p = (inputText) => {
-        
+        const regex = new RegExp("^0+(?!$)",'g');
+        inputText.target.value = inputText.target.value.replaceAll(regex, "");
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
