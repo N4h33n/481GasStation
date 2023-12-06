@@ -735,7 +735,7 @@ button {
 	font-size: 1rem;
 	font-weight: bold;
 	cursor: pointer;
-	z-index: 100;
+	z-index: 1;
 }
 
 .invDropdown option{
