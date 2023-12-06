@@ -65,7 +65,7 @@ function Update_Set_Prices() {
       };
 
   return (
-    <div className="Inventory_Page">
+    <div className="Inventory_Page" style={{width:"100%", height:"100%", position:"absolute", overflowX:"hidden"}}>
     <Sidebars />
     <div className="corner">Set Prices</div>
     {/* <div className='search'><input type="text" name="name" /></div> */}
@@ -82,20 +82,20 @@ function Update_Set_Prices() {
 			  {selectedCategory.map(category => (
 				<React.Fragment key={category}>
 				  <div className="invHeader">
-					<h1 style={{color:"rgb(89, 170, 236)"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+					<h1 style={{color:"white"}}>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
 				  </div>
-          <div className="cards">
-				  {inventory.filter(item => item.category === category).map(item => (
-            <div className="sales_card" key={item.name}>
-              <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
-              <div className="cardcontainer">
-              <h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
-              <p>Price: ${item.price.toFixed(2)}</p>
-              <input className="invText" type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
-              </div>
-            </div>
-					))}
-          </div>
+				  <div className="cards" style={{width:"100%"}}>
+						  {inventory.filter(item => item.category === category).map(item => (
+					<div className="inv_card" key={item.name}>
+					  <img src={item.img} alt="Avatar" style={{width: "100%"}}></img>
+					  <div className="cardcontainer">
+						  <h4><b>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</b></h4>
+						  <p>Price: ${item.price.toFixed(2)}</p>
+						  <input className="invText" type="number" onChange={(e) => handleChangeItem(item.name, e)} value={itemStates[`price_${item.name.replace(' ', '_')}`].state} />
+					  </div>
+					</div>
+							))}
+				  </div>
 				</React.Fragment>
 			  ))}
 	</div>
