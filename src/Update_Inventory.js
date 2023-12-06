@@ -69,13 +69,16 @@ function UpdateInventory() {
   };
 
   const handleChangeItem = (itemName, inputText) => {
+    const regex = new RegExp("^0+(?!$)",'g');
     const varItemName = `qty_${itemName.replace(' ', '_')}`;
     const { state, setState } = itemStates[varItemName];
-    // const ints = Number(inputText.target.value);
-    // const int = parseInt(ints);
-    // const intx = isNaN(int) ? state : int;
-    // setState(intx);
-    // setItem_P(itemName, intx);
+
+    if((inputText.target.value.length) > 1){
+      inputText.target.value = inputText.target.value.replaceAll(regex, "");
+  }
+  else{
+      setState(0);
+  }
 
     const ints = Number(inputText.target.value);
     const int = parseInt(ints);
