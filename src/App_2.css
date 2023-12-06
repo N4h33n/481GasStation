@@ -540,7 +540,7 @@ button {
 .InventoryBarGraph{
 	display: inline-block;
 	position: absolute;
-	height: 73vh;
+	height: 79vh;
 	width: 95vw;
 	top: 9%;
 	left: 2%;
