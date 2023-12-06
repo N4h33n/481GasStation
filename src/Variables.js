@@ -46,22 +46,31 @@ var inv_P = [{'name': 'cheetos', 'category': 'chips', 'qty': 0, 'price': 0},
 {'name': 'doritos', 'category': 'chips', 'qty': 0, 'price': 0},
 {'name': 'pringles', 'category': 'chips', 'qty': 0, 'price': 0},
 {'name': 'lays', 'category': 'chips', 'qty': 0, 'price': 0},
+{'name': 'fritos', 'category': 'chips', 'qty': 0, 'price': 0},
+{'name': 'miss vickies', 'category': 'chips', 'qty': 0, 'price': 0},
+{'name': 'ruffles', 'category': 'chips', 'qty': 0, 'price': 0},
+{'name': 'sun chips', 'category': 'chips', 'qty': 0, 'price': 0},
 {'name': 'takis', 'category': 'chips', 'qty': 0, 'price': 0},
 {'name': 'coffee', 'category': 'drinks', 'qty': 0, 'price': 0},
 {'name': 'tea', 'category': 'drinks', 'qty': 0, 'price': 0},
 {'name': '2l soda', 'category': 'drinks', 'qty': 0, 'price': 0},
 {'name': 'milk', 'category': 'drinks', 'qty': 0, 'price': 0},
+{'name': 'water', 'category': 'drinks', 'qty': 0, 'price': 0},
 {'name': 'oreo', 'category': 'cookies', 'qty': 0, 'price': 0},
 {'name': 'chips ahoy', 'category': 'cookies', 'qty': 0, 'price': 0},
 {'name': 'dads', 'category': 'cookies', 'qty': 0, 'price': 0},
 {'name': 'walkers', 'category': 'cookies', 'qty': 0, 'price': 0},
+{'name': 'made good', 'category': 'cookies', 'qty': 0, 'price': 0},
 {'name': 'nerds', 'category': 'candy', 'qty': 0, 'price': 0},
 {'name': 'skittles', 'category': 'candy', 'qty': 0, 'price': 0},
 {'name': 'coffee crisp', 'category': 'candy', 'qty': 0, 'price': 0},
 {'name': 'starburst', 'category': 'candy', 'qty': 0, 'price': 0},
 {'name': 'gushers', 'category': 'candy', 'qty': 0, 'price': 0},
+{'name': 'smarties', 'category': 'candy', 'qty': 0, 'price': 0},
 {'name': 'lottery ticket', 'category': 'misc', 'qty': 0, 'price': 0},
-{'name': 'cigarettes', 'category': 'misc', 'qty': 0, 'price': 0}];
+{'name': 'cigarettes', 'category': 'misc', 'qty': 0, 'price': 0},
+{'name': 'batteries', 'category': 'misc', 'qty': 0, 'price': 0},
+{'name': 'advil', 'category': 'misc', 'qty': 0, 'price': 0}];
 
 var categories = ['chips', 'drinks', 'cookies', 'candy','misc'];
 
@@ -70,26 +79,36 @@ var inventory = [{'name': 'cheetos', 'price': 4.00, 'category': 'chips', 'qty': 
 	{'name': 'doritos', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100, 'img': 'doritos.png'},
 	{'name': 'pringles', 'price': 5.99, 'category': 'chips', 'qty': 43, 'capacity': 100, 'img': 'pringles.png'},
 	{'name': 'lays', 'price': 2.80, 'category': 'chips', 'qty': 60, 'capacity': 100, 'img': 'lays.png'},
+	{'name': 'fritos', 'price': 3.00, 'category': 'chips', 'qty': 72, 'capacity': 100, 'img': 'fritos.png'},
+	{'name': 'miss vickies', 'price': 3.00, 'category': 'chips', 'qty': 72, 'capacity': 100, 'img': 'miss_vickies.png'},
+	{'name': 'ruffles', 'price': 3.00, 'category': 'chips', 'qty': 72, 'capacity': 100, 'img': 'ruffles.png'},
+	{'name': 'sun chips', 'price': 3.00, 'category': 'chips', 'qty': 72, 'capacity': 100, 'img': 'sun_chips.png'},
 	{'name': 'takis', 'price': 3.00, 'category': 'chips', 'qty': 72, 'capacity': 100, 'img': 'takis.png'},
 
 	{'name': 'coffee', 'price': 2.00, 'category': 'drinks', 'qty': 80, 'capacity': 150, 'img': 'coffee.png'},
 	{'name': 'tea', 'price': 1.5, 'category': 'drinks', 'qty': 70, 'capacity': 150, 'img': 'tea.png'},
 	{'name': '2l soda', 'price': 3.00, 'category': 'drinks', 'qty': 95, 'capacity': 150, 'img': '2l_soda.png'},
 	{'name': 'milk', 'price': 1.5, 'category': 'drinks', 'qty': 35, 'capacity': 150, 'img': 'milk.png'},
+	{'name': 'water', 'price': 1.0, 'category': 'drinks', 'qty': 80, 'capacity': 150, 'img': 'water.png'},
 
 	{'name': 'oreo', 'price': 3.99, 'category': 'cookies', 'qty': 25, 'capacity': 75, 'img': 'oreo.png'},
 	{'name': 'chips ahoy', 'price': 4.50, 'category': 'cookies', 'qty': 46, 'capacity': 75, 'img': 'chips_ahoy.png'},
 	{'name': 'dads', 'price': 3.99, 'category': 'cookies', 'qty': 39, 'capacity': 75, 'img': 'dads.png'},
 	{'name': 'walkers', 'price': 4.50, 'category': 'cookies', 'qty': 40, 'capacity': 75, 'img': 'walkers.png'},
+	{'name': 'made good', 'price': 6.0, 'category': 'cookies', 'qty': 42, 'capacity': 75, 'img': 'made_good.png'},
 
 	{'name': 'nerds', 'price': 2.00, 'category': 'candy', 'qty': 60, 'capacity': 100, 'img': 'nerds.png'},
 	{'name': 'skittles', 'price': 2.00, 'category': 'candy', 'qty': 65, 'capacity': 100, 'img': 'skittles.png'},
 	{'name': 'coffee crisp', 'price': 2.00, 'category': 'candy', 'qty': 50, 'capacity': 100, 'img': 'coffee_crisp.png'},
 	{'name': 'starburst', 'price': 4.00, 'category': 'candy', 'qty': 47, 'capacity': 100, 'img': 'starburst.png'},
 	{'name': 'gushers', 'price': 4.00, 'category': 'candy', 'qty': 32, 'capacity': 100, 'img': 'gushers.png'},
+	{'name': 'smarties', 'price': 4.00, 'category': 'candy', 'qty': 36, 'capacity': 100, 'img': 'smarties.png'},
 
 	{'name': 'lottery ticket', 'price': 5.00, 'category': 'misc', 'qty': 76, 'capacity': 100, 'img': 'lottery_ticket.png'},
-	{'name': 'cigarettes', 'price': 15.00, 'category': 'misc', 'qty': 82, 'capacity': 100, 'img': 'cigarettes.png'}];
+	{'name': 'cigarettes', 'price': 15.00, 'category': 'misc', 'qty': 82, 'capacity': 100, 'img': 'cigarettes.png'},
+	{'name': 'batteries', 'price': 7.00, 'category': 'misc', 'qty': 53, 'capacity': 100, 'img': 'batteries.png'},
+	{'name': 'advil', 'price': 20.00, 'category': 'misc', 'qty': 50, 'capacity': 100, 'img': 'advil.png'}];
+
 	
 let promos = [{'name': '10% off all candy', 'type': 'category', 'item': 'none', 'category': 'Candy', 'num_items': 1, 'discount_type': 'percent', 'discount_off': 10, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-18'},
 {'name': 'Buy any 2 chips, get 1 free', 'type': 'category', 'item': 'none', 'category': 'Chips', 'num_items': 3, 'discount_type': 'percent', 'discount_off': 100, 'num_discount': 1, 'start': '2023-12-01', 'end': '2023-12-20'},
