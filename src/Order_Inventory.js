@@ -71,13 +71,31 @@ function OrderInventory() {
     };
 
     const handleChangeItem = (itemName, inputText) => {
-        const varItemName = `qty_${itemName.replace(' ', '_')}`;
-        const { state, setState } = itemStates[varItemName];
-        const ints = Number(inputText.target.value);
-        const int = isNaN(ints) ? state : parseInt(ints);
-        setState(int);
-        setItem_P(itemName, int);
-        };
+      const regex = new RegExp("^0+(?!$)",'g');
+      const varItemName = `qty_${itemName.replace(' ', '_')}`;
+      const { state, setState } = itemStates[varItemName];
+  
+      if((inputText.target.value.length) > 1){
+        inputText.target.value = inputText.target.value.replaceAll(regex, "");
+    }
+    else{
+        setState(0);
+    }
+  
+      const ints = Number(inputText.target.value);
+      const int = parseInt(ints);
+  
+      if(isNaN(int)){
+          
+          setState(state);
+      }
+      else if(int < 0){
+        setState(state);
+      }
+      else{
+          setState(int);
+      }
+  }; 
 
     return (
         <div className="Inventory_Page" style={{width:"100%", height:"100%", position:"absolute", overflowX:"hidden"}}>
