@@ -10,7 +10,7 @@ const Sidebars = () => {
       <div style={{ display: "flex", position: 'absolute'}}>
         <Sidebar onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="always" backgroundColor="#00b4ff" transitionDuration="500">
           <Menu>
-			<div className="dashboardLogo">
+			<div onClick={() => setToggled(false)} className="dashboardLogo">
 				<img src="Shell_Logo.png" style={{width:"100px"}}></img>
 				<h2>SHELLZ</h2>
 			</div>
