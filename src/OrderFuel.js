@@ -99,7 +99,13 @@ function OrderFuel() {
 
     const handleChange_87 = (inputText) => {
         const regex = new RegExp("^0+(?!$)",'g');
-        inputText.target.value = inputText.target.value.replaceAll(regex, "");
+        if((inputText.target.value.length) > 1){
+            inputText.target.value = inputText.target.value.replaceAll(regex, "");
+        }
+        else{
+            setOctane87_t(0);
+        }
+
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
@@ -119,7 +125,13 @@ function OrderFuel() {
 
     const handleChange_89 = (inputText) => {
         const regex = new RegExp("^0+(?!$)",'g');
-        inputText.target.value = inputText.target.value.replaceAll(regex, "");
+        if((inputText.target.value.length) > 1){
+            inputText.target.value = inputText.target.value.replaceAll(regex, "");
+        }
+        else{
+            setOctane89_t(0);
+        }
+
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
@@ -137,6 +149,12 @@ function OrderFuel() {
 
     const handleChange_93 = (inputText) => {
         const regex = new RegExp("^0+(?!$)",'g');
+        if((inputText.target.value.length) > 1){
+            inputText.target.value = inputText.target.value.replaceAll(regex, "");
+        }
+        else{
+            setOctane93_t(0);
+        }
         inputText.target.value = inputText.target.value.replaceAll(regex, "");
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
@@ -155,7 +173,14 @@ function OrderFuel() {
 
     const handleChange_d = (inputText) => {
         const regex = new RegExp("^0+(?!$)",'g');
-        inputText.target.value = inputText.target.value.replaceAll(regex, "");
+
+        if((inputText.target.value.length) > 1){
+            inputText.target.value = inputText.target.value.replaceAll(regex, "");
+        }
+        else{
+            setDiesel_t(0);
+        }
+
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
@@ -171,9 +196,16 @@ function OrderFuel() {
         OrderFuel_O(Octane87_t, Octane89_t, Octane93_t, Diesel_t, Propane_t);
     }; 
 
+
     const handleChange_p = (inputText) => {
+
         const regex = new RegExp("^0+(?!$)",'g');
+        if((inputText.target.value.length) > 1){
         inputText.target.value = inputText.target.value.replaceAll(regex, "");
+        }
+        else{
+            setPropane_t(0);
+        }
         const ints = Number(inputText.target.value);
         const int = parseInt(ints);
 
