@@ -68,7 +68,7 @@ function App() {
 					</select>
 				</div>
 
-				<div className='Card_Div'>
+				<div>
 					{fourthState && (
 						<div class="cards">
 							<div class="sales_card">
