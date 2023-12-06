@@ -207,7 +207,7 @@ class DisplayEditPromo extends Component{
 									</div>
 									<div className="RegularDiv">
 										<input type="radio" id="percent" name="discount_type" checked={this.state.discount_type === 'percent'} onChange={this.handleInputChange} value="percent" required/>
-										<label for="percent">Percetage</label>
+										<label for="percent">Percentage</label>
 									</div>
 									
 									<div className="PremiumDiv">

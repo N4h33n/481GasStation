@@ -166,7 +166,7 @@ class DisplayAddPromo extends Component{
 									</div>
 									<div className="RegularDiv">
 										<input type="radio" id="percent" name="discount_type" checked={discount_selection === 'percent'} onChange={this.handleDiscountChange} value="percent" required/>
-										<label for="percent">Percetage</label>
+										<label for="percent">Percentage</label>
 									</div>
 									
 									<div className="PremiumDiv">

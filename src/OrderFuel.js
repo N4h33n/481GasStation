@@ -228,11 +228,6 @@ function OrderFuel() {
 		  <Sidebars />
 		  <div className="Fuel_title">
 			<h1>Order Fuel</h1>
-			<div className="FuelHint" style={{position:"absolute", left:"45%"}}>?
-				<span className="FuelToolTip">
-					Order the Fuel by Adding an Amount to each TextBox and then Submitting
-				</span>
-			</div>
 		  </div>
 		  {/* <div className='search'><input type="text" name="name" /></div> */}
 			<div className="Fuel_Div">
